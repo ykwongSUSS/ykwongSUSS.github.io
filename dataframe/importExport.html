@@ -218,10 +218,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#importing-.csv-file" id="toc-importing-.csv-file" class="nav-link active" data-scroll-target="#importing-.csv-file"><span class="header-section-number">1</span> Importing .csv file</a>
-  <ul class="collapse">
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1.1</span> </a></li>
-  </ul></li>
+  <li><a href="#importing-.csv-file" id="toc-importing-.csv-file" class="nav-link active" data-scroll-target="#importing-.csv-file"><span class="header-section-number">1</span> Importing .csv file</a></li>
   </ul>
 </nav>
     </div>
@@ -273,13 +270,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>change column names with <code>rename!</code></li>
 </ul>
-<div id="41989c8f" class="cell" data-execution_count="1">
+<div id="ec6a01cc" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> CSV.<span class="fu">read</span>(<span class="st">"grades.csv"</span>, header<span class="op">=</span><span class="fl">0</span>, DataFrame)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rename!</span>(df,[<span class="op">:</span>ID,<span class="op">:</span>Test1,<span class="op">:</span>Test2,<span class="op">:</span>Exam])</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="88">
+<div class="cell-output cell-output-display" data-execution_count="91">
 <div><div style="float: left;"><span>10×4 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -374,11 +371,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<section id="section" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">1.1</span> </h3>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

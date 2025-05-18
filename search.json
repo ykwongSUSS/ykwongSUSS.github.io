@@ -152,7 +152,7 @@
     "href": "dataframe/importExport.html#importing-.csv-file",
     "title": "import Export to DataFrames",
     "section": "1 Importing .csv file",
-    "text": "1 Importing .csv file\n\nchange column names with rename!\n\n\nusing CSV, DataFrames\n\ndf = CSV.read(\"grades.csv\", header=0, DataFrame)\nrename!(df,[:ID,:Test1,:Test2,:Exam])\ndf\n\n10×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD101\n11\n48\n61\n\n\n2\nSD102\n8\n43\n77\n\n\n3\nSD103\n13\n15\n49\n\n\n4\nSD104\n15\n20\n57\n\n\n5\nSD105\n10\n40\n82\n\n\n6\nSD106\n11\n23\n65\n\n\n7\nSD107\n6\n24\n46\n\n\n8\nSD108\n12\n47\n80\n\n\n9\nSD109\n10\n21\n48\n\n\n10\nSD110\n7\n27\n62\n\n\n\n\n\n\n\n1.1",
+    "text": "1 Importing .csv file\n\nchange column names with rename!\n\n\nusing CSV, DataFrames\n\ndf = CSV.read(\"grades.csv\", header=0, DataFrame)\nrename!(df,[:ID,:Test1,:Test2,:Exam])\ndf\n\n10×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD101\n11\n48\n61\n\n\n2\nSD102\n8\n43\n77\n\n\n3\nSD103\n13\n15\n49\n\n\n4\nSD104\n15\n20\n57\n\n\n5\nSD105\n10\n40\n82\n\n\n6\nSD106\n11\n23\n65\n\n\n7\nSD107\n6\n24\n46\n\n\n8\nSD108\n12\n47\n80\n\n\n9\nSD109\n10\n21\n48\n\n\n10\nSD110\n7\n27\n62",
     "crumbs": [
       "DataFrames",
       "importExport"
