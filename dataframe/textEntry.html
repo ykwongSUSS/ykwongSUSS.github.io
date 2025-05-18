@@ -225,9 +225,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#dataframe-data" id="toc-dataframe-data" class="nav-link" data-scroll-target="#dataframe-data"><span class="header-section-number">2</span> DataFrame Data</a>
   <ul class="collapse">
-  <li><a href="#matrix-by-rows-to-dataframe" id="toc-matrix-by-rows-to-dataframe" class="nav-link" data-scroll-target="#matrix-by-rows-to-dataframe"><span class="header-section-number">2.1</span> Matrix (by rows) to DataFrame</a></li>
+  <li><a href="#matrix-to-dataframe" id="toc-matrix-to-dataframe" class="nav-link" data-scroll-target="#matrix-to-dataframe"><span class="header-section-number">2.1</span> Matrix to DataFrame</a></li>
   <li><a href="#dict-to-dataframe" id="toc-dict-to-dataframe" class="nav-link" data-scroll-target="#dict-to-dataframe"><span class="header-section-number">2.2</span> Dict to DataFrame</a></li>
-  <li><a href="#using-csv" id="toc-using-csv" class="nav-link" data-scroll-target="#using-csv"><span class="header-section-number">2.3</span> Using CSV</a></li>
+  <li><a href="#using-csv---iobuffer" id="toc-using-csv---iobuffer" class="nav-link" data-scroll-target="#using-csv---iobuffer"><span class="header-section-number">2.3</span> Using CSV - IOBuffer</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -265,7 +265,7 @@ Data: tip percentages
 22.7 16.3 13.6 16.8 29.9 15.9 14.0 15.0 14.1 18.1 22.8 27.6 
 16.4 16.1 19.0 13.5 18.9 20.2 19.7 18.2 15.4 15.7 19.0 11.5 
 18.4 16.0 16.9 12.0 40.1 19.2</code></pre>
-<div id="6b309ff1" class="cell" data-execution_count="1">
+<div id="66121455" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign data as a single string </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># parse as a vector using split(input,' ')</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -274,7 +274,7 @@ Data: tip percentages
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fl">18.4</span> <span class="fl">16.0</span> <span class="fl">16.9</span> <span class="fl">12.0</span> <span class="fl">40.1</span> <span class="fl">19.2</span><span class="st">"</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>vec <span class="op">=</span> <span class="fu">parse</span>.(<span class="dt">Float64</span>, <span class="fu">split</span>(txt, <span class="ch">' '</span>))</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>vec <span class="op">|&gt;</span> typeof</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="92">
+<div class="cell-output cell-output-display" data-execution_count="98">
 <div class="ansi-escaped-output">
 <pre>Vector{Float64}<span class="ansi-bright-black-fg"> (alias for </span><span class="ansi-bright-black-fg">Array{Float64, 1}</span><span class="ansi-bright-black-fg">)</span></pre>
 </div>
@@ -289,19 +289,19 @@ Alice   F
 Bob     M
 Callie  F
 Danny   M</code></pre>
-<section id="matrix-by-rows-to-dataframe" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="matrix-by-rows-to-dataframe"><span class="header-section-number">2.1</span> Matrix (by rows) to DataFrame</h3>
-<div id="ba1cb07d" class="cell" data-execution_count="2">
+<section id="matrix-to-dataframe" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="matrix-to-dataframe"><span class="header-section-number">2.1</span> Matrix to DataFrame</h3>
+<div id="e7d93ebd" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># enter data as a matrix</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># enter data as a matrix - row wise</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># enter colnames as a vector</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>mat <span class="op">=</span> [<span class="st">"Bob"</span> <span class="fl">53</span>; <span class="st">"Alice"</span> <span class="fl">84</span>; <span class="st">"Callie"</span> <span class="fl">66</span>; <span class="st">"Danny"</span> <span class="fl">80</span>]</span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>cnames <span class="op">=</span> [<span class="st">"name"</span>, <span class="st">"marks"</span>]</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> <span class="fu">DataFrame</span>(mat, cnames)</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="93">
+<div class="cell-output cell-output-display" data-execution_count="99">
 <div><div style="float: left;"><span>4×2 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -345,13 +345,13 @@ Danny   M</code></pre>
 </section>
 <section id="dict-to-dataframe" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="dict-to-dataframe"><span class="header-section-number">2.2</span> Dict to DataFrame</h3>
-<div id="a0f6eec4" class="cell" data-execution_count="3">
+<div id="a761bfd0" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DataFrame takes a Dict structure directly</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dict <span class="op">=</span> <span class="fu">Dict</span>(<span class="st">"name"</span><span class="op">=&gt;</span>[<span class="st">"Alice"</span>,<span class="st">"Bob"</span>,<span class="st">"Callie"</span>,<span class="st">"Danny"</span>],</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>             <span class="st">"sex"</span><span class="op">=&gt;</span>[<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"F"</span>,<span class="st">"M"</span>])</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> <span class="fu">DataFrame</span>(dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="94">
+<div class="cell-output cell-output-display" data-execution_count="100">
 <div><div style="float: left;"><span>4×2 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -393,8 +393,8 @@ Danny   M</code></pre>
 </div>
 </div>
 </section>
-<section id="using-csv" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="using-csv"><span class="header-section-number">2.3</span> Using CSV</h3>
+<section id="using-csv---iobuffer" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="using-csv---iobuffer"><span class="header-section-number">2.3</span> Using CSV - IOBuffer</h3>
 <p>see documentation at <a href="https://csv.juliadata.org/stable">CSV.jl</a></p>
 <section id="columnar-data" class="level4" data-number="2.3.1">
 <h4 data-number="2.3.1" class="anchored" data-anchor-id="columnar-data"><span class="header-section-number">2.3.1</span> Columnar Data</h4>
@@ -409,7 +409,7 @@ SD107     6    24   46
 SD108    12    47   80
 SD109    10    21   48
 SD110     7    27   62</code></pre>
-<div id="13a119f2" class="cell" data-execution_count="4">
+<div id="3bf0eae4" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># see CSV.jl doc under "Fixed width files"</span></span>
@@ -429,7 +429,7 @@ SD110     7    27   62</code></pre>
 <span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># tidy raw text to file</span></span>
 <span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>file<span class="op">=</span>CSV.<span class="fu">File</span>(<span class="fu">IOBuffer</span>(txt); delim<span class="op">=</span><span class="ch">' '</span>, ignorerepeated<span class="op">=</span><span class="cn">true</span>)</span>
 <span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="fu">DataFrame</span>(file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="95">
+<div class="cell-output cell-output-display" data-execution_count="101">
 <div><div style="float: left;"><span>10×4 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>

@@ -218,9 +218,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#entered-numbers" id="toc-entered-numbers" class="nav-link active" data-scroll-target="#entered-numbers"><span class="header-section-number">0.1</span> 1. Entered numbers</a></li>
-  <li><a href="#cut-and-pasted" id="toc-cut-and-pasted" class="nav-link" data-scroll-target="#cut-and-pasted"><span class="header-section-number">0.2</span> 2. Cut and Pasted</a></li>
-  <li><a href="#csv" id="toc-csv" class="nav-link" data-scroll-target="#csv"><span class="header-section-number">0.3</span> 3. csv</a></li>
+  <li><a href="#importing-.csv-file" id="toc-importing-.csv-file" class="nav-link active" data-scroll-target="#importing-.csv-file"><span class="header-section-number">1</span> Importing .csv file</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1.1</span> </a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -246,64 +247,138 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>For general data reading in Julia, <code>DataFrames.jl</code> is widely used. Additionally, <code>CSV.jl</code> is often used in conjunction with <code>DataFrames.jl</code> for reading <code>CSV</code> files.</p>
-<section id="entered-numbers" class="level3" data-number="0.1">
-<h3 data-number="0.1" class="anchored" data-anchor-id="entered-numbers"><span class="header-section-number">0.1</span> 1. Entered numbers</h3>
-<div id="75496cda" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [<span class="st">"M"</span>,<span class="st">"F"</span>,<span class="st">"F"</span>,<span class="st">"M"</span>]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">DataFrame</span>(a<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, b<span class="op">=</span>[<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
-<div><div style="float: left;"><span>4×2 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
+<p>The CSV.jl documentation suggests the following:</p>
+<ol type="1">
+<li><code>CSV.File</code> to ingest delimited data.</li>
+<li><code>CSV.read</code> passes on to DataFrame as in <code>CSV.read(file, DataFrame)</code></li>
+<li><code>CSV.Rows</code> consumes one row at a time</li>
+<li><code>CSV.Chunks</code> similar to <code>CSV.File</code> but chunks input file.</li>
+<li><code>CSV.write</code> writes to an output file as in <code>CSV.write("output.data",df)</code></li>
+<li><code>CSV.RowWriter</code> takes valid Tables.jl input and output csv.</li>
+</ol>
+<p>Summarizing</p>
+<ul>
+<li>Just want to read a delimited file or collection of files and do basic stuff with data? Use&nbsp;<a href="https://csv.juliadata.org/stable/reading.html#CSV.File"><code>CSV.File(file)</code></a>&nbsp;or&nbsp;<a href="https://csv.juliadata.org/stable/reading.html#CSV.read"><code>CSV.read(file, DataFrame)</code></a></li>
+<li>Don’t need the data as a whole or want to stream through a large file row-by-row? Use&nbsp;<a href="https://csv.juliadata.org/stable/reading.html#CSV.Rows"><code>CSV.Rows</code></a>.</li>
+<li>Want to process a large file in “batches”/chunks? Use&nbsp;<a href="https://csv.juliadata.org/stable/reading.html#CSV.Chunks"><code>CSV.Chunks</code></a>.</li>
+<li>Need to produce a csv? Use&nbsp;<a href="https://csv.juliadata.org/stable/writing.html#CSV.write"><code>CSV.write</code></a>.</li>
+<li>Want to iterate an input table and produce a single csv string per row?&nbsp;<a href="https://csv.juliadata.org/stable/writing.html#CSV.RowWriter"><code>CSV.RowWriter</code></a>.</li>
+</ul>
+<pre class="div" style="border: 1px solid black; padding: 6pt"><code>Since we are concern here with DataFrames, we will be using
+
+         &gt; CSV.read(file, DataFrame)
+            </code></pre>
+<section id="importing-.csv-file" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="importing-.csv-file"><span class="header-section-number">1</span> Importing .csv file</h2>
+<ul>
+<li>change column names with <code>rename!</code></li>
+</ul>
+<div id="41989c8f" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> CSV.<span class="fu">read</span>(<span class="st">"grades.csv"</span>, header<span class="op">=</span><span class="fl">0</span>, DataFrame)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rename!</span>(df,[<span class="op">:</span>ID,<span class="op">:</span>Test1,<span class="op">:</span>Test2,<span class="op">:</span>Exam])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+<div><div style="float: left;"><span>10×4 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">a</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">b</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Test1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Test2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Exam</th>
 </tr>
 <tr class="subheader headerLastRow even">
 <th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="String7">String7</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="String">String</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">M</td>
+<td style="text-align: left;">SD101</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">61</td>
 </tr>
 <tr class="even">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">F</td>
+<td style="text-align: left;">SD102</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">77</td>
 </tr>
 <tr class="odd">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">F</td>
+<td style="text-align: left;">SD103</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">49</td>
 </tr>
 <tr class="even">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">4</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">M</td>
+<td style="text-align: left;">SD104</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">57</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">5</td>
+<td style="text-align: left;">SD105</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">82</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">6</td>
+<td style="text-align: left;">SD106</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">65</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">7</td>
+<td style="text-align: left;">SD107</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">46</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">8</td>
+<td style="text-align: left;">SD108</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">9</td>
+<td style="text-align: left;">SD109</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">10</td>
+<td style="text-align: left;">SD110</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">62</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-</section>
-<section id="cut-and-pasted" class="level3" data-number="0.2">
-<h3 data-number="0.2" class="anchored" data-anchor-id="cut-and-pasted"><span class="header-section-number">0.2</span> 2. Cut and Pasted</h3>
-</section>
-<section id="csv" class="level3" data-number="0.3">
-<h3 data-number="0.3" class="anchored" data-anchor-id="csv"><span class="header-section-number">0.3</span> 3. csv</h3>
+<section id="section" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="section"><span class="header-section-number">1.1</span> </h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
