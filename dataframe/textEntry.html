@@ -146,18 +146,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../quartoJ.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">quartoJ</span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -214,9 +219,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#entered-numbers" id="toc-entered-numbers" class="nav-link active" data-scroll-target="#entered-numbers"><span class="header-section-number">0.1</span> 1. Entered numbers</a></li>
-  <li><a href="#cut-and-pasted" id="toc-cut-and-pasted" class="nav-link" data-scroll-target="#cut-and-pasted"><span class="header-section-number">0.2</span> 2. Cut and Pasted</a></li>
-  <li><a href="#csv" id="toc-csv" class="nav-link" data-scroll-target="#csv"><span class="header-section-number">0.3</span> 3. csv</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">0.1</span> Data</a></li>
+  <li><a href="#vectors-to-dataframe" id="toc-vectors-to-dataframe" class="nav-link" data-scroll-target="#vectors-to-dataframe"><span class="header-section-number">0.2</span> 1. Vectors to DataFrame</a></li>
+  <li><a href="#data-single-vector-v---cut-and-pasted" id="toc-data-single-vector-v---cut-and-pasted" class="nav-link" data-scroll-target="#data-single-vector-v---cut-and-pasted"><span class="header-section-number">0.3</span> 2. Data-single vector (v) - Cut and Pasted</a></li>
+  <li><a href="#csv" id="toc-csv" class="nav-link" data-scroll-target="#csv"><span class="header-section-number">0.4</span> 3. csv</a></li>
   </ul>
 </nav>
     </div>
@@ -243,48 +249,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>For general data reading in Julia, <code>DataFrames.jl</code> is widely used. Additionally, <code>CSV.jl</code> is often used in conjunction with <code>DataFrames.jl</code> for reading <code>CSV</code> files.</p>
-<section id="entered-numbers" class="level3" data-number="0.1">
-<h3 data-number="0.1" class="anchored" data-anchor-id="entered-numbers"><span class="header-section-number">0.1</span> 1. Entered numbers</h3>
-<div id="10f2543d" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="fl">1</span>,<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> [<span class="st">"M"</span>,<span class="st">"F"</span>,<span class="st">"F"</span>,<span class="st">"M"</span>]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">DataFrame</span>(a<span class="op">=</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span>, b<span class="op">=</span>[<span class="st">"M"</span>, <span class="st">"F"</span>, <span class="st">"F"</span>, <span class="st">"M"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="data" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="data"><span class="header-section-number">0.1</span> Data</h3>
+<pre><code>name   sex
+Alice   F
+Bob     M
+Callie  F
+Danny   M</code></pre>
+</section>
+<section id="vectors-to-dataframe" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="vectors-to-dataframe"><span class="header-section-number">0.2</span> 1. Vectors to DataFrame</h3>
+<div id="718cc476" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="fu">DataFrame</span>(<span class="st">"name"</span><span class="op">=&gt;</span>[<span class="st">"Alice"</span>,<span class="st">"Bob"</span>,<span class="st">"Callie"</span>,<span class="st">"Danny"</span>],</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>               <span class="st">"sex"</span><span class="op">=&gt;</span>[<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"F"</span>,<span class="st">"M"</span>])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="2">
 <div><div style="float: left;"><span>4×2 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
 <tr class="header">
 <th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">a</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">b</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">sex</th>
 </tr>
 <tr class="subheader headerLastRow even">
 <th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="String">String</th>
 <th style="text-align: left;" data-quarto-table-cell-role="th" title="String">String</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">M</td>
+<td style="text-align: left;">Alice</td>
+<td style="text-align: left;">F</td>
 </tr>
 <tr class="even">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">F</td>
+<td style="text-align: left;">Bob</td>
+<td style="text-align: left;">M</td>
 </tr>
 <tr class="odd">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: left;">Callie</td>
 <td style="text-align: left;">F</td>
 </tr>
 <tr class="even">
 <td class="rowNumber" style="text-align: right; font-weight: bold;">4</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: left;">Danny</td>
 <td style="text-align: left;">M</td>
 </tr>
 </tbody>
@@ -292,12 +306,64 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div id="3ece7597" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mat <span class="op">=</span> [<span class="st">"Alice"</span> <span class="fl">84</span>; <span class="st">"Bob"</span> <span class="fl">53</span>; <span class="st">"Callie"</span> <span class="fl">66</span>; <span class="st">"Danny"</span> <span class="fl">80</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> [<span class="st">"name"</span>, <span class="st">"marks"</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> <span class="fu">DataFrame</span>(mat, score)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div><div style="float: left;"><span>4×2 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
+<table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">marks</th>
+</tr>
+<tr class="subheader headerLastRow even">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Any">Any</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Any">Any</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
+<td style="text-align: left;">Alice</td>
+<td style="text-align: left;">84</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
+<td style="text-align: left;">Bob</td>
+<td style="text-align: left;">53</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
+<td style="text-align: left;">Callie</td>
+<td style="text-align: left;">66</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">4</td>
+<td style="text-align: left;">Danny</td>
+<td style="text-align: left;">80</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </section>
-<section id="cut-and-pasted" class="level3" data-number="0.2">
-<h3 data-number="0.2" class="anchored" data-anchor-id="cut-and-pasted"><span class="header-section-number">0.2</span> 2. Cut and Pasted</h3>
+<section id="data-single-vector-v---cut-and-pasted" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="data-single-vector-v---cut-and-pasted"><span class="header-section-number">0.3</span> 2. Data-single vector (v) - Cut and Pasted</h3>
+<pre class="code" style="border: 1px solid black"><code>Source: Example 8.17 Devore
+Data: tip percentages
+
+22.7 16.3 13.6 16.8 29.9 15.9 14.0 15.0 14.1 18.1 22.8 27.6 
+16.4 16.1 19.0 13.5 18.9 20.2 19.7 18.2 15.4 15.7 19.0 11.5 
+18.4 16.0 16.9 12.0 40.1 19.2</code></pre>
 </section>
-<section id="csv" class="level3" data-number="0.3">
-<h3 data-number="0.3" class="anchored" data-anchor-id="csv"><span class="header-section-number">0.3</span> 3. csv</h3>
+<section id="csv" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="csv"><span class="header-section-number">0.4</span> 3. csv</h3>
 
 
 </section>

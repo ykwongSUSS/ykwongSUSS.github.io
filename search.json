@@ -57,7 +57,7 @@
     "href": "types/basics.html#simple-data-types-in-julia",
     "title": "types",
     "section": "1 Simple Data Types in Julia",
-    "text": "1 Simple Data Types in Julia\nThe usual basic types of integer, floats, boolean, character and strings are available.\n\ntypeof(3) |&gt; println\ntypeof(3.14) |&gt; println\ntypeof(pi) |&gt; println\ntypeof(3.14==pi) |&gt; println\ntypeof(\"a string\") |&gt; println\n\nInt64\nFloat64\nIrrational{:π}\nBool\nString\n\n\n\n1.1 Tuples, Vectors and Arrays\n\n# tuple\na = (1,2,'3') |&gt; typeof |&gt; println\n# vector\nb = [1,2,3] |&gt; typeof |&gt; println\n# matrix\nC = [1 2 3; 4 5 6] |&gt; typeof |&gt; println\n\nTuple{Int64, Int64, Char}\nVector{Int64}\nMatrix{Int64}\n\n\n\n\n1.2 Named Tuples\n\n# as the name implies\nnt = (a=1, b=2.0)\nnt |&gt; println\nnt.a\n\n(a = 1, b = 2.0)\n\n\n1\n\n\n\n# usage\nfor val in nt\n  println(val)\nend\n\n1\n2.0\n\n\n\n\n1.3 Strings\n\ns = \"Welcome Home\"\nlowercase(s) |&gt; println\ns[1] |&gt; println\n\nwelcome home\nW",
+    "text": "1 Simple Data Types in Julia\nThe usual basic types of integer, floats, boolean, character and strings are available.\n\ntypeof(3) |&gt; println\ntypeof(3.14) |&gt; println\ntypeof(pi) |&gt; println\ntypeof(3.14==pi) |&gt; println\ntypeof(\"a string\") |&gt; println\n\nInt64\nFloat64\nIrrational{:π}\nBool\nString\n\n\n\n1.1 Tuples, Vectors and Arrays\n\n# tuple\na = (1,2,'3') |&gt; typeof |&gt; println\n# vector\nb = [1,2,3] |&gt; typeof |&gt; println\n# matrix\nC = [1 2 3; 4 5 6] |&gt; typeof |&gt; println\n\nTuple{Int64, Int64, Char}\nVector{Int64}\nMatrix{Int64}\n\n\n\n\n1.2 Named Tuples\n\n# as the name implies\nnt = (a=1, b=2.0)\nnt |&gt; println\nnt.a\n\n(a = 1, b = 2.0)\n\n\n1\n\n\n\n# usage\nfor val in nt\n  println(val)\nend\n\n1\n2.0\n\n\n\n\n1.3 Strings\n\ns = \"Welcome Home\"\nlowercase(s) |&gt; println\ns[1] |&gt; println\n\nwelcome home\nW\n\n\n\n\n1.4 Dict",
     "crumbs": [
       "Types",
       "basics"
@@ -90,7 +90,7 @@
     "href": "dataFrame/textEntry.html",
     "title": "textEntry in Julia",
     "section": "",
-    "text": "For general data reading in Julia, DataFrames.jl is widely used. Additionally, CSV.jl is often used in conjunction with DataFrames.jl for reading CSV files.\n\n0.1 1. Entered numbers\n\nusing DataFrames\n\na = [1,2,3,4]\nb = [\"M\",\"F\",\"F\",\"M\"]\nDataFrame(a=1:4, b=[\"M\", \"F\", \"F\", \"M\"])\n\n4×2 DataFrame\n\n\n\nRow\na\nb\n\n\n\nInt64\nString\n\n\n\n\n1\n1\nM\n\n\n2\n2\nF\n\n\n3\n3\nF\n\n\n4\n4\nM\n\n\n\n\n\n\n\n\n0.2 2. Cut and Pasted\n\n\n0.3 3. csv",
+    "text": "For general data reading in Julia, DataFrames.jl is widely used. Additionally, CSV.jl is often used in conjunction with DataFrames.jl for reading CSV files.\n\n0.1 Data\nname   sex\nAlice   F\nBob     M\nCallie  F\nDanny   M\n\n\n0.2 1. Vectors to DataFrame\n\nusing DataFrames\n\ndf = DataFrame(\"name\"=&gt;[\"Alice\",\"Bob\",\"Callie\",\"Danny\"],\n               \"sex\"=&gt;[\"F\",\"M\",\"F\",\"M\"])\ndf\n\n4×2 DataFrame\n\n\n\nRow\nname\nsex\n\n\n\nString\nString\n\n\n\n\n1\nAlice\nF\n\n\n2\nBob\nM\n\n\n3\nCallie\nF\n\n\n4\nDanny\nM\n\n\n\n\n\n\n\nmat = [\"Alice\" 84; \"Bob\" 53; \"Callie\" 66; \"Danny\" 80]\nscore = [\"name\", \"marks\"]\ndf2 = DataFrame(mat, score)\ndf2\n\n4×2 DataFrame\n\n\n\nRow\nname\nmarks\n\n\n\nAny\nAny\n\n\n\n\n1\nAlice\n84\n\n\n2\nBob\n53\n\n\n3\nCallie\n66\n\n\n4\nDanny\n80\n\n\n\n\n\n\n\n\n0.3 2. Data-single vector (v) - Cut and Pasted\nSource: Example 8.17 Devore\nData: tip percentages\n\n22.7 16.3 13.6 16.8 29.9 15.9 14.0 15.0 14.1 18.1 22.8 27.6 \n16.4 16.1 19.0 13.5 18.9 20.2 19.7 18.2 15.4 15.7 19.0 11.5 \n18.4 16.0 16.9 12.0 40.1 19.2\n\n\n0.4 3. csv",
     "crumbs": [
       "DataFrames",
       "textEntry"
@@ -114,6 +114,7 @@
     "section": "",
     "text": "Julia is supported by Quarto through Julia code chunk (type ```julia or use /julia ).\n{julia}\n1+1\n\n1+1\n\n2\n\n\n\n0.1 Julia version\n# in terminal type:\njulia --version\n\n\n0.2 Add Package\n{julia}\n#| warning: FALSE\nimport Pkg; Pkg.add(\"Distributions\")\n\nimport Pkg; Pkg.add(\"Distributions\")\n\n\n\n0.3 Using Julia Package\nFigure 1 below as an example.\n\nusing Plots\nplot(sin, \n     x-&gt;sin(2x), \n     0, 2π, \n     leg=false, \n     fill=(0,:lavender))\nplot!(size=(300,200))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots\n\n\n\n\n\n\n0.4 Using Pipe\n\nusing Pipe\n# allows for _underscore as placeholder for var\n@pipe pi |&gt; round(_, digits=4) |&gt; println\n\n3.1416",
     "crumbs": [
+      "Preface",
       "quartoJ"
     ]
   }
