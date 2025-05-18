@@ -1,0 +1,22 @@
+---
+title: import Export to DataFrames
+format: html
+warning: false
+number-sections: true
+---
+
+For general data reading in Julia, `DataFrames.jl` is widely used. Additionally, `CSV.jl` is often used in conjunction with `DataFrames.jl` for reading `CSV` files.
+
+### 1. Entered numbers
+
+```{julia}
+using DataFrames
+
+a = [1,2,3,4]
+b = ["M","F","F","M"]
+DataFrame(a=1:4, b=["M", "F", "F", "M"])
+```
+
+### 2. Cut and Pasted
+
+### 3. csv

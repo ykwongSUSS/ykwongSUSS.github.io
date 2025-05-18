@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../dataFrame/textEntry.html" rel="next">
+<link href="../dataframe/textEntry.html" rel="next">
 <link href="../types/basics.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -143,12 +143,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Preface</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quartoJ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">quartoJ</span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
@@ -183,13 +194,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dataFrame/textEntry.html" class="sidebar-item-text sidebar-link">
+  <a href="../dataframe/textEntry.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">textEntry</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dataFrame/importExport.html" class="sidebar-item-text sidebar-link">
+  <a href="../dataframe/importExport.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">importExport</span></a>
   </div>
 </li>
@@ -234,7 +245,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="packages" class="level3" data-number="0.1">
 <h3 data-number="0.1" class="anchored" data-anchor-id="packages"><span class="header-section-number">0.1</span> Packages</h3>
-<div id="01f334e1" class="cell" data-execution_count="1">
+<div id="62234e2f" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Pkg;</span> Pkg.add("PrettyTables");</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">add</span>(<span class="st">"DataFrames"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -243,12 +254,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="0.2" class="anchored" data-anchor-id="categorical-and-numerical-data"><span class="header-section-number">0.2</span> Categorical and Numerical Data</h3>
 <section id="tables" class="level4" data-number="0.2.1">
 <h4 data-number="0.2.1" class="anchored" data-anchor-id="tables"><span class="header-section-number">0.2.1</span> Tables</h4>
-<div id="65bcb9dc" class="cell" data-execution_count="2">
+<div id="dbf6ba5e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Callie"</span>,<span class="st">"Danny"</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>marks <span class="op">=</span> [<span class="fl">84</span>, <span class="fl">53</span>, <span class="fl">66</span>,  <span class="fl">80</span>]</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>grades <span class="op">=</span> [<span class="ch">'A'</span>, <span class="ch">'C'</span>, <span class="ch">'B'</span>, <span class="ch">'A'</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <pre><code>4-element Vector{Char}:
  'A': ASCII/Unicode U+0041 (category Lu: Letter, uppercase)
  'C': ASCII/Unicode U+0043 (category Lu: Letter, uppercase)
@@ -259,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="typedtable.jl" class="level4" data-number="0.2.2">
 <h4 data-number="0.2.2" class="anchored" data-anchor-id="typedtable.jl"><span class="header-section-number">0.2.2</span> TypedTable.jl</h4>
-<div id="a9545756" class="cell" data-execution_count="3">
+<div id="fa6d1d02" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Pkg;</span> Pkg.add("TypedTables")</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">TypedTables</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  tTable <span class="op">=</span> <span class="fu">Table</span>(</span>
@@ -278,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  3 │ Callie  66     B
  4 │ Danny   80     A</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="40">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>(names = "Alice", marks = 84, grades = 'A')</code></pre>
 </div>
 </div>
@@ -286,7 +297,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="dataframes.jl" class="level4" data-number="0.2.3">
 <h4 data-number="0.2.3" class="anchored" data-anchor-id="dataframes.jl"><span class="header-section-number">0.2.3</span> DataFrames.jl</h4>
-<div id="de2750ee" class="cell" data-execution_count="4">
+<div id="34eeb26e" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="fu">DataFrame</span>(</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>   Names <span class="op">=</span> students,</span>
@@ -294,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>   Grades <span class="op">=</span> grades</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>Table with 3 columns and 4 rows:
      Names   Marks  Grades
    ┌──────────────────────
@@ -716,7 +727,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../dataFrame/textEntry.html" class="pagination-link" aria-label="textEntry">
+      <a href="../dataframe/textEntry.html" class="pagination-link" aria-label="textEntry">
         <span class="nav-page-text">textEntry</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

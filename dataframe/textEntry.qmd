@@ -7,19 +7,95 @@ number-sections: true
 
 For general data reading in Julia, `DataFrames.jl` is widely used. Additionally, `CSV.jl` is often used in conjunction with `DataFrames.jl` for reading `CSV` files.
 
-### 1. Entered numbers
+### Data
+
+```         
+name   sex
+Alice   F
+Bob     M
+Callie  F
+Danny   M
+```
+
+### Matrix (by rows) to DataFrame
 
 ```{julia}
 using DataFrames
 
-a = [1,2,3,4]
-b = ["M","F","F","M"]
-DataFrame(a=1:4, b=["M", "F", "F", "M"])
-a |> display
-b
-DataFrame(a,b)
+mat = ["Bob" 53; "Alice" 84; "Callie" 66; "Danny" 80]
+cnames = ["name", "marks"]
+df1 = DataFrame(mat, cnames)
+df1
 ```
 
-### 2. Cut and Pasted
+### Dict to DataFrame
 
-### 3. csv
+```{julia}
+dict = Dict("name"=>["Alice","Bob","Callie","Danny"],
+               "sex"=>["F","M","F","M"])
+df2 = DataFrame(dict)
+```
+
+### Space separated-single vector (v) - Cut and Pasted
+
+``` {.code style="border: 1px solid black"}
+Source: Example 8.17 Devore
+Data: tip percentages
+
+22.7 16.3 13.6 16.8 29.9 15.9 14.0 15.0 14.1 18.1 22.8 27.6 
+16.4 16.1 19.0 13.5 18.9 20.2 19.7 18.2 15.4 15.7 19.0 11.5 
+18.4 16.0 16.9 12.0 40.1 19.2
+```
+
+```{julia}
+# assign data as a single string 
+# parse as a vector using split(input,' ')
+
+txt = "22.7 16.3 13.6 16.8 29.9 15.9 14.0 15.0 14.1 18.1 22.8 27.6 
+16.4 16.1 19.0 13.5 18.9 20.2 19.7 18.2 15.4 15.7 19.0 11.5 
+18.4 16.0 16.9 12.0 40.1 19.2"
+vec = parse.(Float64, split(txt, ' '))
+vec |> typeof
+```
+
+### Using CSV
+
+Data
+
+``` code
+ID      Test1 Test2 Exam 
+SD101    11    48   61 
+SD102     8    43   77 
+SD103    13    15   49
+SD104    15    20   57
+SD105    10    40   82
+SD106    11    23   65 
+SD107     6    24   46
+SD108    12    47   80
+SD109    10    21   48
+SD110     7    27   62
+```
+
+```{julia}
+using CSV, DataFrames
+
+# see CSV.jl doc under "Fixed width files"
+# assign raw data
+txt = "ID      Test1 Test2 Exam 
+SD101    11    48   61 
+SD102     8    43   77 
+SD103    13    15   49
+SD104    15    20   57
+SD105    10    40   82
+SD106    11    23   65 
+SD107     6    24   46
+SD108    12    47   80
+SD109    10    21   48
+SD110     7    27   62"
+
+# tidy raw text to file
+file=CSV.File(IOBuffer(txt); delim=' ', ignorerepeated=true)
+df = DataFrame(file)
+```
+
+### csv
