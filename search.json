@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "WebJ",
     "section": "",
-    "text": "This is a Quarto website for Julia. It is hosted on Pages on github for now - so ykwongsuss.github.io. This site is similar to WebR with basic examples on dataframes, plots and some programming.\n\ndataframes\ntables\nplots\nprogramming\n\nJulia is supported by Quarto through Julia code chunk (type ```julia)\n{julia}\n1+1\n\n1+1\n\n2\n\n\n\nJulia version\n# in terminal type:\njulia --version\n\n\nAdd Package\n{julia}\n#| warning: FALSE\nimport Pkg; Pkg.add(\"Distributions\")\n\nimport Pkg; Pkg.add(\"Distributions\")\n\n\n\nUsing Julia Package\nFigure 1 below as an example.\n\nusing Plots\nplot(sin, \n     x-&gt;sin(2x), \n     0, 2π, \n     leg=false, \n     fill=(0,:lavender))\nplot!(size=(300,200))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots\n\n\n\n\n\n\nUsing Pipe\n\nusing Pipe\n# allows for _underscore as placeholder for var\n@pipe pi |&gt; round(_, digits=4) |&gt; println\n\n3.1416",
+    "text": "This is a website on using Julia with Quarto. It site is hosted on github for now - so ykwongsuss.github.io. The site is similar to WebR with basic examples on dataframes, plots and some programming.\n\ntypes\ndataframes\ntables\nplots\nprogramming\n\n\n1 Websites\n\nykwongWebR: R Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv: Survival Analysis with R\nykwongWebNPar: NonParametric Statistics with R\nykwongWebLA: Linear Algebra with Julia\n\n\n\n2  Notes\n\nyaml: html, pdf\nqmd: footnote, references\nqblocks: code blocks, tex blocks and div blocks\nqtex: selected tex codes\nqD2: D2 diagramming",
     "crumbs": [
       "Preface"
     ]
@@ -57,7 +57,7 @@
     "href": "types/basics.html#simple-data-types-in-julia",
     "title": "types",
     "section": "1 Simple Data Types in Julia",
-    "text": "1 Simple Data Types in Julia\nThe usual basic types of integer, floats, boolean, character and strings are available.\n\ntypeof(3) |&gt; println\ntypeof(3.14) |&gt; println\ntypeof(pi) |&gt; println\nBool(3.14==pi) |&gt; println\n\nInt64\nFloat64\nIrrational{:π}\nfalse\n\n\n\n1.1 Tuples, Vectors and Arrays\n\n# tuple\na = (1,2,'3') |&gt; typeof |&gt; println\n# vector\nb = [1,2,3] |&gt; typeof |&gt; println\n# matrix\nC = [1 2 3; 4 5 6] |&gt; typeof |&gt; println\n\nTuple{Int64, Int64, Char}\nVector{Int64}\nMatrix{Int64}\n\n\n\n\n1.2 Named Tuples\n\n# as the name implies\nnt = (a=1, b=2.0)\nnt |&gt; println\nnt.a\n\n(a = 1, b = 2.0)\n\n\n1\n\n\n\nfor val in nt\n  println(val)\nend\n\n1\n2.0\n\n\n\n\n1.3 Strings\n\ns = \"Welcome Home\"\nlowercase(s) |&gt; println\ns[1] |&gt; println\n\nwelcome home\nW",
+    "text": "1 Simple Data Types in Julia\nThe usual basic types of integer, floats, boolean, character and strings are available.\n\ntypeof(3) |&gt; println\ntypeof(3.14) |&gt; println\ntypeof(pi) |&gt; println\ntypeof(3.14==pi) |&gt; println\ntypeof(\"a string\") |&gt; println\n\nInt64\nFloat64\nIrrational{:π}\nBool\nString\n\n\n\n1.1 Tuples, Vectors and Arrays\n\n# tuple\na = (1,2,'3') |&gt; typeof |&gt; println\n# vector\nb = [1,2,3] |&gt; typeof |&gt; println\n# matrix\nC = [1 2 3; 4 5 6] |&gt; typeof |&gt; println\n\nTuple{Int64, Int64, Char}\nVector{Int64}\nMatrix{Int64}\n\n\n\n\n1.2 Named Tuples\n\n# as the name implies\nnt = (a=1, b=2.0)\nnt |&gt; println\nnt.a\n\n(a = 1, b = 2.0)\n\n\n1\n\n\n\n# usage\nfor val in nt\n  println(val)\nend\n\n1\n2.0\n\n\n\n\n1.3 Strings\n\ns = \"Welcome Home\"\nlowercase(s) |&gt; println\ns[1] |&gt; println\n\nwelcome home\nW",
     "crumbs": [
       "Types",
       "basics"
@@ -68,7 +68,7 @@
     "href": "types/tables.html",
     "title": "types",
     "section": "",
-    "text": "0.1 Packages\n\nimport Pkg; Pkg.add(\"PrettyTables\");\nPkg.add(\"DataFrames\")\n\n\n\n0.2 Categorical and Numerical Data\n\n0.2.1 Tables\n\n# Data\nstudents = [\"Alice\", \"Bob\", \"Callie\",\"Danny\"]\nmarks = [84, 53, 66,  80]\ngrades = ['A', 'C', 'B', 'A'] \n\n4-element Vector{Char}:\n 'A': ASCII/Unicode U+0041 (category Lu: Letter, uppercase)\n 'C': ASCII/Unicode U+0043 (category Lu: Letter, uppercase)\n 'B': ASCII/Unicode U+0042 (category Lu: Letter, uppercase)\n 'A': ASCII/Unicode U+0041 (category Lu: Letter, uppercase)\n\n\n\n\n0.2.2 TypedTable.jl\n\nimport Pkg; Pkg.add(\"TypedTables\")\nusing TypedTables\n  tTable = Table(\n    names = students,\n    marks = marks,\n    grades = grades\n  )\n  tTable |&gt; display\n  tTable[1]\n\nTable with 3 columns and 4 rows:\n     names   marks  grades\n   ┌──────────────────────\n 1 │ Alice   84     A\n 2 │ Bob     53     C\n 3 │ Callie  66     B\n 4 │ Danny   80     A\n\n\n(names = \"Alice\", marks = 84, grades = 'A')\n\n\n(Note: pretty_tables (pkg: PrettyTable) does not format well in quarto. ).\n\n\n0.2.3 DataFrames.jl\n\nusing DataFrames\ndf = DataFrame(\n   Names = students,\n   Marks = marks,\n   Grades = grades\n)\ndf\n\n4×3 DataFrame\n\n\n\nRow\nNames\nMarks\nGrades\n\n\n\nString\nInt64\nChar\n\n\n\n\n1\nAlice\n84\nA\n\n\n2\nBob\n53\nC\n\n\n3\nCallie\n66\nB\n\n\n4\nDanny\n80\nA",
+    "text": "0.1 Packages\n\nimport Pkg; Pkg.add(\"PrettyTables\");\nPkg.add(\"DataFrames\")\n\n\n\n0.2 Categorical and Numerical Data\n\n0.2.1 Tables\n\n# Data\nstudents = [\"Alice\", \"Bob\", \"Callie\",\"Danny\"]\nmarks = [84, 53, 66,  80]\ngrades = ['A', 'C', 'B', 'A'] \n\n4-element Vector{Char}:\n 'A': ASCII/Unicode U+0041 (category Lu: Letter, uppercase)\n 'C': ASCII/Unicode U+0043 (category Lu: Letter, uppercase)\n 'B': ASCII/Unicode U+0042 (category Lu: Letter, uppercase)\n 'A': ASCII/Unicode U+0041 (category Lu: Letter, uppercase)\n\n\n\n\n0.2.2 TypedTable.jl\n\nimport Pkg; Pkg.add(\"TypedTables\")\nusing TypedTables\n  tTable = Table(\n    names = students,\n    marks = marks,\n    grades = grades\n  )\n  tTable |&gt; display\n  tTable[1]\n\nTable with 3 columns and 4 rows:\n     names   marks  grades\n   ┌──────────────────────\n 1 │ Alice   84     A\n 2 │ Bob     53     C\n 3 │ Callie  66     B\n 4 │ Danny   80     A\n\n\n(names = \"Alice\", marks = 84, grades = 'A')\n\n\n(Note: pretty_tables (pkg: PrettyTable) does not format well in quarto. ).\n\n\n0.2.3 DataFrames.jl\n\nusing DataFrames\ndf = DataFrame(\n   Names = students,\n   Marks = marks,\n   Grades = grades\n)\ndf |&gt; Table\n\nTable with 3 columns and 4 rows:\n     Names   Marks  Grades\n   ┌──────────────────────\n 1 │ Alice   84     A\n 2 │ Bob     53     C\n 3 │ Callie  66     B\n 4 │ Danny   80     A",
     "crumbs": [
       "Types",
       "tables"
@@ -105,6 +105,16 @@
     "crumbs": [
       "DataFrames",
       "importExport"
+    ]
+  },
+  {
+    "objectID": "quartoJ.html",
+    "href": "quartoJ.html",
+    "title": "quartoJ",
+    "section": "",
+    "text": "Julia is supported by Quarto through Julia code chunk (type ```julia or use /julia ).\n{julia}\n1+1\n\n1+1\n\n2\n\n\n\n0.1 Julia version\n# in terminal type:\njulia --version\n\n\n0.2 Add Package\n{julia}\n#| warning: FALSE\nimport Pkg; Pkg.add(\"Distributions\")\n\nimport Pkg; Pkg.add(\"Distributions\")\n\n\n\n0.3 Using Julia Package\nFigure 1 below as an example.\n\nusing Plots\nplot(sin, \n     x-&gt;sin(2x), \n     0, 2π, \n     leg=false, \n     fill=(0,:lavender))\nplot!(size=(300,200))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots\n\n\n\n\n\n\n0.4 Using Pipe\n\nusing Pipe\n# allows for _underscore as placeholder for var\n@pipe pi |&gt; round(_, digits=4) |&gt; println\n\n3.1416",
+    "crumbs": [
+      "quartoJ"
     ]
   }
 ]
