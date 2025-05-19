@@ -207,6 +207,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">importExport</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/wrangle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">wrangle</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -265,7 +271,7 @@ Data: tip percentages
 22.7 16.3 13.6 16.8 29.9 15.9 14.0 15.0 14.1 18.1 22.8 27.6 
 16.4 16.1 19.0 13.5 18.9 20.2 19.7 18.2 15.4 15.7 19.0 11.5 
 18.4 16.0 16.9 12.0 40.1 19.2</code></pre>
-<div id="5f01a4a4" class="cell" data-execution_count="1">
+<div id="7f2854a8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign data as a single string </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># parse as a vector using split(input,' ')</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -274,7 +280,7 @@ Data: tip percentages
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fl">18.4</span> <span class="fl">16.0</span> <span class="fl">16.9</span> <span class="fl">12.0</span> <span class="fl">40.1</span> <span class="fl">19.2</span><span class="st">"</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>vec <span class="op">=</span> <span class="fu">parse</span>.(<span class="dt">Float64</span>, <span class="fu">split</span>(txt, <span class="ch">' '</span>))</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>vec <span class="op">|&gt;</span> typeof</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="2">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div class="ansi-escaped-output">
 <pre>Vector{Float64}<span class="ansi-bright-black-fg"> (alias for </span><span class="ansi-bright-black-fg">Array{Float64, 1}</span><span class="ansi-bright-black-fg">)</span></pre>
 </div>
@@ -291,7 +297,7 @@ Callie  F
 Danny   M</code></pre>
 <section id="matrix-to-dataframe" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="matrix-to-dataframe"><span class="header-section-number">2.1</span> Matrix to DataFrame</h3>
-<div id="66fcc3c4" class="cell" data-execution_count="2">
+<div id="c496e0a1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># enter data as a matrix - row wise</span></span>
@@ -301,7 +307,7 @@ Danny   M</code></pre>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>cnames <span class="op">=</span> [<span class="st">"name"</span>, <span class="st">"marks"</span>]</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> <span class="fu">DataFrame</span>(mat, cnames)</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div><div style="float: left;"><span>4×2 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -345,13 +351,13 @@ Danny   M</code></pre>
 </section>
 <section id="dict-to-dataframe" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="dict-to-dataframe"><span class="header-section-number">2.2</span> Dict to DataFrame</h3>
-<div id="4be4500f" class="cell" data-execution_count="3">
+<div id="004548aa" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DataFrame takes a Dict structure directly</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dict <span class="op">=</span> <span class="fu">Dict</span>(<span class="st">"name"</span><span class="op">=&gt;</span>[<span class="st">"Alice"</span>,<span class="st">"Bob"</span>,<span class="st">"Callie"</span>,<span class="st">"Danny"</span>],</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>             <span class="st">"sex"</span><span class="op">=&gt;</span>[<span class="st">"F"</span>,<span class="st">"M"</span>,<span class="st">"F"</span>,<span class="st">"M"</span>])</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> <span class="fu">DataFrame</span>(dict)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div><div style="float: left;"><span>4×2 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -409,119 +415,41 @@ SD107     6    24   46
 SD108    12    47   80
 SD109    10    21   48
 SD110     7    27   62</code></pre>
-<div id="79a52334" class="cell" data-execution_count="4">
+<div id="3f05a184" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># see CSV.jl doc under "Fixed width files"</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># assign raw data</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>txt <span class="op">=</span> <span class="st">"ID      Test1 Test2 Exam </span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>SD101    <span class="fl">11</span>    <span class="fl">48</span>   <span class="fl">61</span> </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>SD102     <span class="fl">8</span>    <span class="fl">43</span>   <span class="fl">77</span> </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>SD103    <span class="fl">13</span>    <span class="fl">15</span>   <span class="fl">49</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>SD104    <span class="fl">15</span>    <span class="fl">20</span>   <span class="fl">57</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>SD105    <span class="fl">10</span>    <span class="fl">40</span>   <span class="fl">82</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>SD106    <span class="fl">11</span>    <span class="fl">23</span>   <span class="fl">65</span> </span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>SD107     <span class="fl">6</span>    <span class="fl">24</span>   <span class="fl">46</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>SD108    <span class="fl">12</span>    <span class="fl">47</span>   <span class="fl">80</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>SD109    <span class="fl">10</span>    <span class="fl">21</span>   <span class="fl">48</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>SD110     <span class="fl">7</span>    <span class="fl">27</span>   <span class="fl">62</span><span class="st">"</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co"># tidy raw text to file</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>file<span class="op">=</span>CSV.<span class="fu">File</span>(<span class="fu">IOBuffer</span>(txt); delim<span class="op">=</span><span class="ch">' '</span>, ignorerepeated<span class="op">=</span><span class="cn">true</span>)</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="fu">DataFrame</span>(file)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
-<div><div style="float: left;"><span>10×4 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
-<table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">ID</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Test1</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Test2</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Exam</th>
-</tr>
-<tr class="subheader headerLastRow even">
-<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="String7">String7</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
-<td style="text-align: left;">SD101</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">48</td>
-<td style="text-align: right;">61</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
-<td style="text-align: left;">SD102</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">43</td>
-<td style="text-align: right;">77</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
-<td style="text-align: left;">SD103</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">49</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">4</td>
-<td style="text-align: left;">SD104</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">57</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">5</td>
-<td style="text-align: left;">SD105</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">82</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">6</td>
-<td style="text-align: left;">SD106</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">65</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">7</td>
-<td style="text-align: left;">SD107</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">46</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">8</td>
-<td style="text-align: left;">SD108</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">47</td>
-<td style="text-align: right;">80</td>
-</tr>
-<tr class="odd">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">9</td>
-<td style="text-align: left;">SD109</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">48</td>
-</tr>
-<tr class="even">
-<td class="rowNumber" style="text-align: right; font-weight: bold;">10</td>
-<td style="text-align: left;">SD110</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">62</td>
-</tr>
-</tbody>
-</table>
-</div>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">TypedTables</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># see CSV.jl doc under "Fixed width files"</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># assign raw data</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>txt <span class="op">=</span> <span class="st">"ID      Test1 Test2 Exam </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>SD101    <span class="fl">11</span>    <span class="fl">48</span>   <span class="fl">61</span> </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>SD102     <span class="fl">8</span>    <span class="fl">43</span>   <span class="fl">77</span> </span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>SD103    <span class="fl">13</span>    <span class="fl">15</span>   <span class="fl">49</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>SD104    <span class="fl">15</span>    <span class="fl">20</span>   <span class="fl">57</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>SD105    <span class="fl">10</span>    <span class="fl">40</span>   <span class="fl">82</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>SD106    <span class="fl">11</span>    <span class="fl">23</span>   <span class="fl">65</span> </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>SD107     <span class="fl">6</span>    <span class="fl">24</span>   <span class="fl">46</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>SD108    <span class="fl">12</span>    <span class="fl">47</span>   <span class="fl">80</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>SD109    <span class="fl">10</span>    <span class="fl">21</span>   <span class="fl">48</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>SD110     <span class="fl">7</span>    <span class="fl">27</span>   <span class="fl">62</span><span class="st">"</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># tidy raw text to file</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>file<span class="op">=</span>CSV.<span class="fu">File</span>(<span class="fu">IOBuffer</span>(txt); delim<span class="op">=</span><span class="ch">' '</span>, ignorerepeated<span class="op">=</span><span class="cn">true</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="fu">DataFrame</span>(file) <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<pre><code>Table with 4 columns and 10 rows:
+      ID     Test1  Test2  Exam
+    ┌──────────────────────────
+ 1  │ SD101  11     48     61
+ 2  │ SD102  8      43     77
+ 3  │ SD103  13     15     49
+ 4  │ SD104  15     20     57
+ 5  │ SD105  10     40     82
+ 6  │ SD106  11     23     65
+ 7  │ SD107  6      24     46
+ 8  │ SD108  12     47     80
+ 9  │ SD109  10     21     48
+ 10 │ SD110  7      27     62</code></pre>
 </div>
 </div>
 

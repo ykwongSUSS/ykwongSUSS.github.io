@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../dataframe/wrangle.html" rel="next">
 <link href="../dataframe/textEntry.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -206,6 +207,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">importExport</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/wrangle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">wrangle</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -261,22 +268,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Need to produce a csv? Use&nbsp;<a href="https://csv.juliadata.org/stable/writing.html#CSV.write"><code>CSV.write</code></a>.</li>
 <li>Want to iterate an input table and produce a single csv string per row?&nbsp;<a href="https://csv.juliadata.org/stable/writing.html#CSV.RowWriter"><code>CSV.RowWriter</code></a>.</li>
 </ul>
-<pre class="div" style="border: 1px solid black; padding: 6pt"><code>Since we are concern here with DataFrames, we will be using
+<pre class="div" style="border: 1px solid black; padding: 6pt"><code>We will be mostly using
 
-         &gt; CSV.read(file, DataFrame)
+           CSV.read(file, DataFrame)
             </code></pre>
 <section id="importing-.csv-file" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="importing-.csv-file"><span class="header-section-number">1</span> Importing .csv file</h2>
 <ul>
 <li>change column names with <code>rename!</code></li>
 </ul>
-<div id="ec6a01cc" class="cell" data-execution_count="1">
+<div id="94d62839" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> CSV.<span class="fu">read</span>(<span class="st">"grades.csv"</span>, header<span class="op">=</span><span class="fl">0</span>, DataFrame)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rename!</span>(df,[<span class="op">:</span>ID,<span class="op">:</span>Test1,<span class="op">:</span>Test2,<span class="op">:</span>Exam])</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="91">
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">TypedTables</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> CSV.<span class="fu">read</span>(<span class="st">"grades.csv"</span>, header<span class="op">=</span><span class="fl">0</span>, DataFrame)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rename!</span>(df,[<span class="op">:</span>ID,<span class="op">:</span>Test1,<span class="op">:</span>Test2,<span class="op">:</span>Exam])</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
 <div><div style="float: left;"><span>10×4 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -782,6 +790,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../dataframe/wrangle.html" class="pagination-link" aria-label="wrangle">
+        <span class="nav-page-text">wrangle</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
