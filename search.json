@@ -179,5 +179,48 @@
       "DataFrames",
       "wrangle"
     ]
+  },
+  {
+    "objectID": "dataframe/recode.html",
+    "href": "dataframe/recode.html",
+    "title": "recode",
+    "section": "",
+    "text": "using DataFrames, TypedTables\n\nmat = [0 31.9; 0 32.0; 1 39.0; 1 32.3; 0 41.0]\ncnames = [\"Disease\",\"Biomarker\"]\n\ndf=DataFrame(mat,cnames)\ndf |&gt; Table\n\nTable with 2 columns and 5 rows:\n     Disease  Biomarker\n   ┌───────────────────\n 1 │ 0.0      31.9\n 2 │ 0.0      32.0\n 3 │ 1.0      39.0\n 4 │ 1.0      32.3\n 5 │ 0.0      41.0",
+    "crumbs": [
+      "DataFrames",
+      "recode"
+    ]
+  },
+  {
+    "objectID": "dataframe/recode.html#data",
+    "href": "dataframe/recode.html#data",
+    "title": "recode",
+    "section": "",
+    "text": "using DataFrames, TypedTables\n\nmat = [0 31.9; 0 32.0; 1 39.0; 1 32.3; 0 41.0]\ncnames = [\"Disease\",\"Biomarker\"]\n\ndf=DataFrame(mat,cnames)\ndf |&gt; Table\n\nTable with 2 columns and 5 rows:\n     Disease  Biomarker\n   ┌───────────────────\n 1 │ 0.0      31.9\n 2 │ 0.0      32.0\n 3 │ 1.0      39.0\n 4 │ 1.0      32.3\n 5 │ 0.0      41.0",
+    "crumbs": [
+      "DataFrames",
+      "recode"
+    ]
+  },
+  {
+    "objectID": "dataframe/dfMeta.html",
+    "href": "dataframe/dfMeta.html",
+    "title": "DataFramesMeta",
+    "section": "",
+    "text": "import Pkg; Pkg.add(\"DataFramesMeta\")\nusing TypedTables\n\n\nusing CSV, DataFrames\n\ndf=CSV.read(\"grades.csv\",header=0, DataFrame)\nrename!(df,[:ID,:Test1,:Test2,:Exam])\ndf |&gt; display\ndf |&gt; Table\n\n10×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD101\n11\n48\n61\n\n\n2\nSD102\n8\n43\n77\n\n\n3\nSD103\n13\n15\n49\n\n\n4\nSD104\n15\n20\n57\n\n\n5\nSD105\n10\n40\n82\n\n\n6\nSD106\n11\n23\n65\n\n\n7\nSD107\n6\n24\n46\n\n\n8\nSD108\n12\n47\n80\n\n\n9\nSD109\n10\n21\n48\n\n\n10\nSD110\n7\n27\n62\n\n\n\n\n\n\nTable with 4 columns and 10 rows:\n      ID     Test1  Test2  Exam\n    ┌──────────────────────────\n 1  │ SD101  11     48     61\n 2  │ SD102  8      43     77\n 3  │ SD103  13     15     49\n 4  │ SD104  15     20     57\n 5  │ SD105  10     40     82\n 6  │ SD106  11     23     65\n 7  │ SD107  6      24     46\n 8  │ SD108  12     47     80\n 9  │ SD109  10     21     48\n 10 │ SD110  7      27     62\n\n\n\n\n\n# row\ndf[:3, :] |&gt; display\n\n# column\ndf[:,[:Test1,:Test2]] |&gt; display\ndf.Test1\n\nDataFrameRow (4 columns)\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n3\nSD103\n13\n15\n49\n\n\n\n\n\n\n10×2 DataFrame\n\n\n\nRow\nTest1\nTest2\n\n\n\nInt64\nInt64\n\n\n\n\n1\n11\n48\n\n\n2\n8\n43\n\n\n3\n13\n15\n\n\n4\n15\n20\n\n\n5\n10\n40\n\n\n6\n11\n23\n\n\n7\n6\n24\n\n\n8\n12\n47\n\n\n9\n10\n21\n\n\n10\n7\n27\n\n\n\n\n\n\n10-element Vector{Int64}:\n 11\n  8\n 13\n 15\n 10\n 11\n  6\n 12\n 10\n  7"
+  },
+  {
+    "objectID": "dataframe/dfMeta.html#data",
+    "href": "dataframe/dfMeta.html#data",
+    "title": "DataFramesMeta",
+    "section": "",
+    "text": "import Pkg; Pkg.add(\"DataFramesMeta\")\nusing TypedTables\n\n\nusing CSV, DataFrames\n\ndf=CSV.read(\"grades.csv\",header=0, DataFrame)\nrename!(df,[:ID,:Test1,:Test2,:Exam])\ndf |&gt; display\ndf |&gt; Table\n\n10×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD101\n11\n48\n61\n\n\n2\nSD102\n8\n43\n77\n\n\n3\nSD103\n13\n15\n49\n\n\n4\nSD104\n15\n20\n57\n\n\n5\nSD105\n10\n40\n82\n\n\n6\nSD106\n11\n23\n65\n\n\n7\nSD107\n6\n24\n46\n\n\n8\nSD108\n12\n47\n80\n\n\n9\nSD109\n10\n21\n48\n\n\n10\nSD110\n7\n27\n62\n\n\n\n\n\n\nTable with 4 columns and 10 rows:\n      ID     Test1  Test2  Exam\n    ┌──────────────────────────\n 1  │ SD101  11     48     61\n 2  │ SD102  8      43     77\n 3  │ SD103  13     15     49\n 4  │ SD104  15     20     57\n 5  │ SD105  10     40     82\n 6  │ SD106  11     23     65\n 7  │ SD107  6      24     46\n 8  │ SD108  12     47     80\n 9  │ SD109  10     21     48\n 10 │ SD110  7      27     62\n\n\n\n\n\n# row\ndf[:3, :] |&gt; display\n\n# column\ndf[:,[:Test1,:Test2]] |&gt; display\ndf.Test1\n\nDataFrameRow (4 columns)\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n3\nSD103\n13\n15\n49\n\n\n\n\n\n\n10×2 DataFrame\n\n\n\nRow\nTest1\nTest2\n\n\n\nInt64\nInt64\n\n\n\n\n1\n11\n48\n\n\n2\n8\n43\n\n\n3\n13\n15\n\n\n4\n15\n20\n\n\n5\n10\n40\n\n\n6\n11\n23\n\n\n7\n6\n24\n\n\n8\n12\n47\n\n\n9\n10\n21\n\n\n10\n7\n27\n\n\n\n\n\n\n10-element Vector{Int64}:\n 11\n  8\n 13\n 15\n 10\n 11\n  6\n 12\n 10\n  7"
+  },
+  {
+    "objectID": "dataframe/dfMeta.html#using-dataframesmeta",
+    "href": "dataframe/dfMeta.html#using-dataframesmeta",
+    "title": "DataFramesMeta",
+    "section": "2 Using DataFramesMeta",
+    "text": "2 Using DataFramesMeta\nUse DataFramesMeta.jl for data wrangling. More intuitive then just DataFrames.jl\n\nusing DataFramesMeta\n\n\n2.1 Choose columns using @select\n\n@select df :Test1 :Test2\n\n10×2 DataFrame\n\n\n\nRow\nTest1\nTest2\n\n\n\nInt64\nInt64\n\n\n\n\n1\n11\n48\n\n\n2\n8\n43\n\n\n3\n13\n15\n\n\n4\n15\n20\n\n\n5\n10\n40\n\n\n6\n11\n23\n\n\n7\n6\n24\n\n\n8\n12\n47\n\n\n9\n10\n21\n\n\n10\n7\n27\n\n\n\n\n\n\n\n\n2.2 Add New Calcuated Column (mutate)\n\n@rtransform df begin\n:WtAvg = :Test1*0.25 + :Test2*0.25 + :Exam*0.5\nend\n\n10×5 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\nWtAvg\n\n\n\nString7\nInt64\nInt64\nInt64\nFloat64\n\n\n\n\n1\nSD101\n11\n48\n61\n45.25\n\n\n2\nSD102\n8\n43\n77\n51.25\n\n\n3\nSD103\n13\n15\n49\n31.5\n\n\n4\nSD104\n15\n20\n57\n37.25\n\n\n5\nSD105\n10\n40\n82\n53.5\n\n\n6\nSD106\n11\n23\n65\n41.0\n\n\n7\nSD107\n6\n24\n46\n30.5\n\n\n8\nSD108\n12\n47\n80\n54.75\n\n\n9\nSD109\n10\n21\n48\n31.75\n\n\n10\nSD110\n7\n27\n62\n39.5\n\n\n\n\n\n\n\n\n2.3 Subset rows by criteria (filter)"
   }
 ]
