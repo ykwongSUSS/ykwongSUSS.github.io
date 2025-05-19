@@ -65,6 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../dataframe/recode.html" rel="next">
 <link href="../dataframe/importExport.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -212,6 +213,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">wrangle</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/recode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">recode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/pivot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">pivot</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Plots</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/basicPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">basicPlots</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -224,13 +254,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data"><span class="header-section-number">1</span> Data</a>
+  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages"><span class="header-section-number">1</span> Packages</a></li>
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data"><span class="header-section-number">2</span> Data</a>
   <ul class="collapse">
-  <li><a href="#referencing-column-or-row" id="toc-referencing-column-or-row" class="nav-link" data-scroll-target="#referencing-column-or-row"><span class="header-section-number">1.1</span> Referencing column or row</a></li>
-  <li><a href="#choose-rows-and-columns-filter-select" id="toc-choose-rows-and-columns-filter-select" class="nav-link" data-scroll-target="#choose-rows-and-columns-filter-select"><span class="header-section-number">1.2</span> Choose rows and columns (<code>filter, select</code>)</a></li>
-  <li><a href="#subset-rows-by-criteria-filter" id="toc-subset-rows-by-criteria-filter" class="nav-link" data-scroll-target="#subset-rows-by-criteria-filter"><span class="header-section-number">1.3</span> Subset rows by criteria (<code>filter</code>)</a></li>
-  <li><a href="#sort-column-arrange" id="toc-sort-column-arrange" class="nav-link" data-scroll-target="#sort-column-arrange"><span class="header-section-number">1.4</span> Sort column (<code>arrange</code>)</a></li>
-  <li><a href="#transform-mutate" id="toc-transform-mutate" class="nav-link" data-scroll-target="#transform-mutate"><span class="header-section-number">1.5</span> Transform (<code>mutate</code>)</a></li>
+  <li><a href="#referencing-column-or-row" id="toc-referencing-column-or-row" class="nav-link" data-scroll-target="#referencing-column-or-row"><span class="header-section-number">2.1</span> Referencing column or row</a></li>
+  </ul></li>
+  <li><a href="#using-dataframesmeta" id="toc-using-dataframesmeta" class="nav-link" data-scroll-target="#using-dataframesmeta"><span class="header-section-number">3</span> Using DataFramesMeta</a></li>
+  <li><a href="#select" id="toc-select" class="nav-link" data-scroll-target="#select"><span class="header-section-number">4</span> Select</a>
+  <ul class="collapse">
+  <li><a href="#choose-columns-by-indices" id="toc-choose-columns-by-indices" class="nav-link" data-scroll-target="#choose-columns-by-indices"><span class="header-section-number">4.1</span> Choose columns by indices</a></li>
+  <li><a href="#choose-columns-by-select" id="toc-choose-columns-by-select" class="nav-link" data-scroll-target="#choose-columns-by-select"><span class="header-section-number">4.2</span> Choose columns by <span class="citation" data-cites="select">@select</span></a></li>
+  </ul></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="header-section-number">5</span> Filter</a>
+  <ul class="collapse">
+  <li><a href="#subset-rows-by-criteria-dataframebyrow" id="toc-subset-rows-by-criteria-dataframebyrow" class="nav-link" data-scroll-target="#subset-rows-by-criteria-dataframebyrow"><span class="header-section-number">5.1</span> Subset rows by criteria (DataFrame::ByRow)</a></li>
+  <li><a href="#subset-with-rsubset" id="toc-subset-with-rsubset" class="nav-link" data-scroll-target="#subset-with-rsubset"><span class="header-section-number">5.2</span> Subset with <span class="citation" data-cites="rsubset">@rsubset</span></a></li>
+  </ul></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><span class="header-section-number">6</span> Arrange</a>
+  <ul class="collapse">
+  <li><a href="#sort-column-sort" id="toc-sort-column-sort" class="nav-link" data-scroll-target="#sort-column-sort"><span class="header-section-number">6.1</span> Sort column (<code>sort</code>)</a></li>
+  <li><a href="#transform-with-rtransform" id="toc-transform-with-rtransform" class="nav-link" data-scroll-target="#transform-with-rtransform"><span class="header-section-number">6.2</span> Transform with <code>@rtransform</code></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -257,16 +300,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="data" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="data"><span class="header-section-number">1</span> Data</h2>
-<div id="fca43a13" class="cell" data-execution_count="1">
+<section id="packages" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="packages"><span class="header-section-number">1</span> Packages</h2>
+<div id="14974899" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">TypedTables</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> CSV.<span class="fu">read</span>(<span class="st">"grades.csv"</span>, header<span class="op">=</span><span class="fl">0</span>, DataFrame)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rename!</span>(df,[<span class="op">:</span>ID,<span class="op">:</span>Test1,<span class="op">:</span>Test2,<span class="op">:</span>Exam])</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">|&gt;</span> display</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFramesMeta</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Data</h2>
+<div id="d6edb8ad" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reading csv data-file with CSV.jl</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> CSV.<span class="fu">read</span>(<span class="st">"grades.csv"</span>, header<span class="op">=</span><span class="fl">0</span>, DataFrame)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">rename!</span>(df,[<span class="op">:</span>ID,<span class="op">:</span>Test1,<span class="op">:</span>Test2,<span class="op">:</span>Exam])</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">|&gt;</span> display</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div><div style="float: left;"><span>10×4 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
@@ -361,7 +411,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="229">
+<div class="cell-output cell-output-display" data-execution_count="252">
 <pre><code>Table with 4 columns and 10 rows:
       ID     Test1  Test2  Exam
     ┌──────────────────────────
@@ -377,16 +427,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  10 │ SD110  7      27     62</code></pre>
 </div>
 </div>
-<section id="referencing-column-or-row" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="referencing-column-or-row"><span class="header-section-number">1.1</span> Referencing column or row</h3>
-<div id="7aaf7254" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># row</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df[<span class="op">:</span><span class="fl">3</span>,<span class="op">:</span>] <span class="op">|&gt;</span> display</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># column</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>df[<span class="op">:</span>,[<span class="op">:</span>Test1,<span class="op">:</span>Test2]] <span class="op">|&gt;</span> Table <span class="op">|&gt;</span> display</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>df.Test1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="referencing-column-or-row" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="referencing-column-or-row"><span class="header-section-number">2.1</span> Referencing column or row</h3>
+<div id="2d17c06c" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># row</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df[<span class="op">:</span><span class="fl">3</span>,<span class="op">:</span>] <span class="op">|&gt;</span> display</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># column</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df[<span class="op">:</span>,[<span class="op">:</span>Test1,<span class="op">:</span>Test2]] <span class="op">|&gt;</span> Table <span class="op">|&gt;</span> display</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>df.Test1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div><div style="float: left;"><span>DataFrameRow (4 columns)</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
@@ -433,7 +483,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  9  │ 10     21
  10 │ 7      27</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="230">
+<div class="cell-output cell-output-display" data-execution_count="253">
 <pre><code>10-element Vector{Int64}:
  11
   8
@@ -448,13 +498,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="choose-rows-and-columns-filter-select" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="choose-rows-and-columns-filter-select"><span class="header-section-number">1.2</span> Choose rows and columns (<code>filter, select</code>)</h3>
-<p>Note: <code>filter</code> and <code>select</code> are in BaseJulia, but better to use subset below as it has a more consistent syntax - <code>df</code> is a first argument of <code>subset</code>.</p>
-<div id="91cf85ac" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># choose rows and column by indexing</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df[<span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span>] <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="231">
+</section>
+<section id="using-dataframesmeta" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="using-dataframesmeta"><span class="header-section-number">3</span> Using DataFramesMeta</h2>
+<p>Use <code>DataFramesMeta.jl</code> for data wrangling - syntax more intuitive than <code>DataFrames.jl</code> See Chapter 5 of <a href="https://juliadatascience.io/dataframesmeta">Julia Data Science</a></p>
+</section>
+<section id="select" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="select"><span class="header-section-number">4</span> Select</h2>
+<section id="choose-columns-by-indices" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="choose-columns-by-indices"><span class="header-section-number">4.1</span> Choose columns by indices</h3>
+<div id="a7c13562" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># choose rows and column by indexing</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df[<span class="fl">1</span><span class="op">:</span><span class="fl">3</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">3</span>] <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="254">
 <pre><code>Table with 3 columns and 3 rows:
      ID     Test1  Test2
    ┌────────────────────
@@ -463,10 +519,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  3 │ SD103  13     15</code></pre>
 </div>
 </div>
-<div id="d9fefc31" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use select to choose columns</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">select</span>(df, <span class="op">:</span>Test1, <span class="op">:</span>Test2, <span class="op">:</span>Exam) <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="232">
+</section>
+<section id="choose-columns-by-select" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="choose-columns-by-select"><span class="header-section-number">4.2</span> Choose columns by <span class="citation" data-cites="select">@select</span></h3>
+<div id="0b1cda90" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use select to choose columns</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@select</span>(df, <span class="op">:</span>Test1, <span class="op">:</span>Test2, <span class="op">:</span>Exam) <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="255">
 <pre><code>Table with 3 columns and 10 rows:
       Test1  Test2  Exam
     ┌───────────────────
@@ -482,27 +541,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  10 │ 7      27     62</code></pre>
 </div>
 </div>
-<div id="070704b7" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use filter to choose rows</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># syntax: filter(func, df)</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(<span class="op">:</span>Exam <span class="op">=&gt;</span> x<span class="op">-&gt;</span>x<span class="op">.&lt;</span><span class="fl">50</span>,df) <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="233">
-<pre><code>Table with 4 columns and 3 rows:
-     ID     Test1  Test2  Exam
-   ┌──────────────────────────
- 1 │ SD103  13     15     49
- 2 │ SD107  6      24     46
- 3 │ SD109  10     21     48</code></pre>
-</div>
-</div>
 </section>
-<section id="subset-rows-by-criteria-filter" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="subset-rows-by-criteria-filter"><span class="header-section-number">1.3</span> Subset rows by criteria (<code>filter</code>)</h3>
-<div id="a4af1a15" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use subset when you want to filter with conditions</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, <span class="op">:</span>Exam <span class="op">=&gt;</span> x <span class="op">-&gt;</span> x <span class="op">.&lt;</span> <span class="fl">50</span>) <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="234">
+</section>
+<section id="filter" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="filter"><span class="header-section-number">5</span> Filter</h2>
+<section id="subset-rows-by-criteria-dataframebyrow" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="subset-rows-by-criteria-dataframebyrow"><span class="header-section-number">5.1</span> Subset rows by criteria (DataFrame::ByRow)</h3>
+<div id="dad828d6" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, <span class="op">:</span>Exam <span class="op">=&gt;</span> x <span class="op">-&gt;</span> x <span class="op">.&lt;</span> <span class="fl">50</span>) <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="256">
 <pre><code>Table with 4 columns and 3 rows:
      ID     Test1  Test2  Exam
    ┌──────────────────────────
@@ -511,11 +558,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  3 │ SD109  10     21     48</code></pre>
 </div>
 </div>
-<div id="6a82fbd5" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># subset filtering</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, <span class="op">:</span>ID <span class="op">=&gt;</span> <span class="fu">ByRow</span>(x <span class="op">-&gt;</span> x <span class="op">==</span><span class="st">"SD110"</span>)) <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="235">
+<div id="69d93baa" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">subset</span>(df, <span class="op">:</span>ID <span class="op">=&gt;</span> <span class="fu">ByRow</span>(x <span class="op">-&gt;</span> x <span class="op">==</span><span class="st">"SD110"</span>)) <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="257">
 <pre><code>Table with 4 columns and 1 row:
      ID     Test1  Test2  Exam
    ┌──────────────────────────
@@ -523,13 +568,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="sort-column-arrange" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="sort-column-arrange"><span class="header-section-number">1.4</span> Sort column (<code>arrange</code>)</h3>
-<div id="03c5c03f" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># arrange in R</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(df, [<span class="op">:</span>Exam], rev<span class="op">=</span><span class="cn">true</span>) <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="236">
+<section id="subset-with-rsubset" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="subset-with-rsubset"><span class="header-section-number">5.2</span> Subset with <span class="citation" data-cites="rsubset">@rsubset</span></h3>
+<div id="51aac5df" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@rsubset</span> df <span class="op">:</span>Exam <span class="op">&lt;</span> <span class="fl">50</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="258">
+<div><div style="float: left;"><span>3×4 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
+<table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Test1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Test2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Exam</th>
+</tr>
+<tr class="subheader headerLastRow even">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="String7">String7</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
+<td style="text-align: left;">SD103</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">49</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
+<td style="text-align: left;">SD107</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">46</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
+<td style="text-align: left;">SD109</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">48</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="cfcf6ff5" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@rsubset</span> df <span class="op">:</span>ID<span class="op">==</span><span class="st">"SD110"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="259">
+<div><div style="float: left;"><span>1×4 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
+<table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Test1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Test2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Exam</th>
+</tr>
+<tr class="subheader headerLastRow even">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="String7">String7</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
+<td style="text-align: left;">SD110</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">62</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="arrange" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="arrange"><span class="header-section-number">6</span> Arrange</h2>
+<section id="sort-column-sort" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="sort-column-sort"><span class="header-section-number">6.1</span> Sort column (<code>sort</code>)</h3>
+<div id="37e9c165" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(df, <span class="op">:</span>Exam, rev<span class="op">=</span><span class="cn">true</span>) <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="260">
 <pre><code>Table with 4 columns and 10 rows:
       ID     Test1  Test2  Exam
     ┌──────────────────────────
@@ -545,58 +676,223 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  10 │ SD107  6      24     46</code></pre>
 </div>
 </div>
+<div id="4f218fbd" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@orderby</span>(df, <span class="op">:</span>Exam)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="261">
+<div><div style="float: left;"><span>10×4 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
+<table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Test1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Test2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Exam</th>
+</tr>
+<tr class="subheader headerLastRow even">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="String7">String7</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
+<td style="text-align: left;">SD107</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">46</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
+<td style="text-align: left;">SD109</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">48</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
+<td style="text-align: left;">SD103</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">49</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">4</td>
+<td style="text-align: left;">SD104</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">57</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">5</td>
+<td style="text-align: left;">SD101</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">61</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">6</td>
+<td style="text-align: left;">SD110</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">62</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">7</td>
+<td style="text-align: left;">SD106</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">65</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">8</td>
+<td style="text-align: left;">SD102</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">77</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">9</td>
+<td style="text-align: left;">SD108</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">80</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">10</td>
+<td style="text-align: left;">SD105</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">82</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </section>
-<section id="transform-mutate" class="level3" data-number="1.5">
-<h3 data-number="1.5" class="anchored" data-anchor-id="transform-mutate"><span class="header-section-number">1.5</span> Transform (<code>mutate</code>)</h3>
-<p><a href="https://github.com/JuliaData/DataFrames.jl/blob/6e7ed849fdd90287e84cf5a38366b0a3469a16a0/docs/src/man/manipulation_functions.md">Gentle Intro to DataFrame manipulation Functions</a></p>
-<div id="243618df" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the equivalent of mutate function in R</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">|&gt;</span> Table</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># most direct way</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>df.WtTot <span class="op">=</span> (<span class="fl">.25</span><span class="op">*</span>df.Test1 <span class="op">+</span> <span class="fl">.25</span><span class="op">*</span>df.Test2 <span class="op">+</span> <span class="fl">.50</span><span class="op">*</span>df.Exam)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="237">
-<pre><code>Table with 5 columns and 10 rows:
-      ID     Test1  Test2  Exam  WtTot
-    ┌─────────────────────────────────
- 1  │ SD101  11     48     61    45.25
- 2  │ SD102  8      43     77    51.25
- 3  │ SD103  13     15     49    31.5
- 4  │ SD104  15     20     57    37.25
- 5  │ SD105  10     40     82    53.5
- 6  │ SD106  11     23     65    41.0
- 7  │ SD107  6      24     46    30.5
- 8  │ SD108  12     47     80    54.75
- 9  │ SD109  10     21     48    31.75
- 10 │ SD110  7      27     62    39.5</code></pre>
+<section id="transform-with-rtransform" class="level3" data-number="6.2">
+<h3 data-number="6.2" class="anchored" data-anchor-id="transform-with-rtransform"><span class="header-section-number">6.2</span> Transform with <code>@rtransform</code></h3>
+<section id="add-new-calculated-column-rtransform" class="level4" data-number="6.2.1">
+<h4 data-number="6.2.1" class="anchored" data-anchor-id="add-new-calculated-column-rtransform"><span class="header-section-number">6.2.1</span> Add new Calculated Column (<code>@rtransform</code>)</h4>
+<div id="06ed6dda" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># use filter to choose rows</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="pp">@rtransform</span> df <span class="cf">begin</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">:</span>WtAge <span class="op">=</span> <span class="op">:</span>Test1<span class="op">*</span><span class="fl">0.25</span> <span class="op">+</span> <span class="op">:</span>Test2<span class="op">*</span><span class="fl">0.25</span> <span class="op">+</span> <span class="op">:</span>Exam<span class="op">*</span><span class="fl">0.50</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="262">
+<div><div style="float: left;"><span>10×5 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
+<table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;">Row</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">ID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Test1</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Test2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Exam</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">WtAge</th>
+</tr>
+<tr class="subheader headerLastRow even">
+<th class="rowNumber" data-quarto-table-cell-role="th" style="text-align: right; font-weight: bold;"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="String7">String7</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Int64">Int64</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th" title="Float64">Float64</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">1</td>
+<td style="text-align: left;">SD101</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">61</td>
+<td style="text-align: right;">45.25</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">2</td>
+<td style="text-align: left;">SD102</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">43</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">51.25</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">3</td>
+<td style="text-align: left;">SD103</td>
+<td style="text-align: right;">13</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">49</td>
+<td style="text-align: right;">31.5</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">4</td>
+<td style="text-align: left;">SD104</td>
+<td style="text-align: right;">15</td>
+<td style="text-align: right;">20</td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">37.25</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">5</td>
+<td style="text-align: left;">SD105</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">82</td>
+<td style="text-align: right;">53.5</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">6</td>
+<td style="text-align: left;">SD106</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">41.0</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">7</td>
+<td style="text-align: left;">SD107</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">30.5</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">8</td>
+<td style="text-align: left;">SD108</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">54.75</td>
+</tr>
+<tr class="odd">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">9</td>
+<td style="text-align: left;">SD109</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">21</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">31.75</td>
+</tr>
+<tr class="even">
+<td class="rowNumber" style="text-align: right; font-weight: bold;">10</td>
+<td style="text-align: left;">SD110</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">62</td>
+<td style="text-align: right;">39.5</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<div id="dded6214" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the transform way</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note the use of ByRow</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">transform</span>(df, [<span class="op">:</span>Test1,<span class="op">:</span>Test2,<span class="op">:</span>Exam] </span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>          <span class="op">=&gt;</span>  <span class="fu">ByRow</span>((x,y,z) <span class="op">-&gt;</span> <span class="fl">.25</span><span class="op">*</span>x<span class="op">+</span><span class="fl">.25</span><span class="op">*</span>y<span class="op">+</span><span class="fl">.50</span><span class="op">*</span>z) </span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>          <span class="op">=&gt;</span> <span class="op">:</span>WtAvg) <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="238">
-<pre><code>Table with 6 columns and 10 rows:
-      ID     Test1  Test2  Exam  WtTot  WtAvg
-    ┌────────────────────────────────────────
- 1  │ SD101  11     48     61    45.25  45.25
- 2  │ SD102  8      43     77    51.25  51.25
- 3  │ SD103  13     15     49    31.5   31.5
- 4  │ SD104  15     20     57    37.25  37.25
- 5  │ SD105  10     40     82    53.5   53.5
- 6  │ SD106  11     23     65    41.0   41.0
- 7  │ SD107  6      24     46    30.5   30.5
- 8  │ SD108  12     47     80    54.75  54.75
- 9  │ SD109  10     21     48    31.75  31.75
- 10 │ SD110  7      27     62    39.5   39.5</code></pre>
 </div>
 </div>
 
 
+</section>
 </section>
 </section>
 
@@ -1007,6 +1303,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../dataframe/recode.html" class="pagination-link" aria-label="recode">
+        <span class="nav-page-text">recode</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

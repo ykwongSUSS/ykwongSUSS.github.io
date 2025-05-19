@@ -291,11 +291,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="data" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="data"><span class="header-section-number">1</span> Data</h2>
-<div id="278657b4" class="cell" data-execution_count="1">
+<div id="ecc932cd" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Pkg;</span> Pkg.add("DataFramesMeta")</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">TypedTables</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="263ffd9f" class="cell" data-execution_count="2">
+<div id="54b0eed1" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>CSV.<span class="fu">read</span>(<span class="st">"grades.csv"</span>,header<span class="op">=</span><span class="fl">0</span>, DataFrame)</span>
@@ -396,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="214">
+<div class="cell-output cell-output-display" data-execution_count="51">
 <pre><code>Table with 4 columns and 10 rows:
       ID     Test1  Test2  Exam
     ┌──────────────────────────
@@ -414,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="referencing-a-column-or-a-row" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="referencing-a-column-or-a-row"><span class="header-section-number">1.1</span> Referencing a column or a row</h3>
-<div id="e97c7d23" class="cell" data-execution_count="3">
+<div id="883c7ab0" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># row</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df[<span class="op">:</span><span class="fl">3</span>, <span class="op">:</span>] <span class="op">|&gt;</span> display</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -522,7 +522,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="215">
+<div class="cell-output cell-output-display" data-execution_count="52">
 <pre><code>10-element Vector{Int64}:
  11
   8
@@ -540,15 +540,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="using-dataframesmeta" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="using-dataframesmeta"><span class="header-section-number">2</span> Using DataFramesMeta</h2>
-<p>Use <code>DataFramesMeta.jl</code> for data wrangling. More intuitive then just <code>DataFrames.jl</code></p>
-<div id="bfecdc92" class="cell" data-execution_count="4">
+<p>Use <code>DataFramesMeta.jl</code> for data wrangling. More intuitive then just <code>DataFrames.jl</code> See chapter 5 of <a href="https://juliadatascience.io">Julia Data Science</a></p>
+<div id="f02f00b2" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFramesMeta</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="choose-columns-using-select" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="choose-columns-using-select"><span class="header-section-number">2.1</span> Choose columns using <span class="citation" data-cites="select">@select</span></h3>
-<div id="1dbd97fd" class="cell" data-execution_count="5">
+<div id="116b5511" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@select</span> df <span class="op">:</span>Test1 <span class="op">:</span>Test2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="217">
+<div class="cell-output cell-output-display" data-execution_count="54">
 <div><div style="float: left;"><span>10×2 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
@@ -622,11 +622,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="add-new-calcuated-column-mutate" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="add-new-calcuated-column-mutate"><span class="header-section-number">2.2</span> Add New Calcuated Column (<code>mutate</code>)</h3>
-<div id="602d2efe" class="cell" data-execution_count="6">
+<div id="5e96b2a4" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@rtransform</span> df <span class="cf">begin</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="op">:</span>WtAvg <span class="op">=</span> <span class="op">:</span>Test1<span class="op">*</span><span class="fl">0.25</span> <span class="op">+</span> <span class="op">:</span>Test2<span class="op">*</span><span class="fl">0.25</span> <span class="op">+</span> <span class="op">:</span>Exam<span class="op">*</span><span class="fl">0.5</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="218">
+<div class="cell-output cell-output-display" data-execution_count="55">
 <div><div style="float: left;"><span>10×5 DataFrame</span></div><div style="clear: both;"></div></div><div class="data-frame" style="overflow-x: scroll;">
 <table class="data-frame caption-top table table-sm table-striped small" data-quarto-postprocess="true">
 <thead>
