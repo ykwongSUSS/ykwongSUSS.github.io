@@ -300,7 +300,7 @@ Data: tip percentages
 22.7 16.3 13.6 16.8 29.9 15.9 14.0 15.0 14.1 18.1 22.8 27.6 
 16.4 16.1 19.0 13.5 18.9 20.2 19.7 18.2 15.4 15.7 19.0 11.5 
 18.4 16.0 16.9 12.0 40.1 19.2</code></pre>
-<div id="4873209e" class="cell" data-execution_count="1">
+<div id="68a4eb28" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign data as a single string </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># parse as a vector using split(input,' ')</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -326,7 +326,7 @@ Callie  F
 Danny   M</code></pre>
 <section id="matrix-to-dataframe" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="matrix-to-dataframe"><span class="header-section-number">2.1</span> Matrix to DataFrame</h3>
-<div id="fc9cb823" class="cell" data-execution_count="2">
+<div id="d22ad31d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># enter data as a matrix - row wise</span></span>
@@ -380,7 +380,7 @@ Danny   M</code></pre>
 </section>
 <section id="dict-to-dataframe" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="dict-to-dataframe"><span class="header-section-number">2.2</span> Dict to DataFrame</h3>
-<div id="60314f48" class="cell" data-execution_count="3">
+<div id="7a022d31" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DataFrame takes a Dict structure directly</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dict <span class="op">=</span> <span class="fu">Dict</span>(<span class="st">"name"</span><span class="op">=&gt;</span>[<span class="st">"Alice"</span>,<span class="st">"Bob"</span>,<span class="st">"Callie"</span>,<span class="st">"Danny"</span>],</span>
@@ -444,7 +444,7 @@ SD107     6    24   46
 SD108    12    47   80
 SD109    10    21   48
 SD110     7    27   62</code></pre>
-<div id="b2f3b12d" class="cell" data-execution_count="4">
+<div id="98e0ebd3" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">TypedTables</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
