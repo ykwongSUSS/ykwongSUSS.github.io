@@ -349,7 +349,7 @@
     "href": "plots/basicPlots.html#plots.jl",
     "title": "basicPlots",
     "section": "1 Plots.jl",
-    "text": "1 Plots.jl\n\n# Scatter plot for all trees\n\ntrees |&gt; Table\n\nTable with 4 columns and 12 rows:\n      girth  height  age  name\n    ┌────────────────────────────\n 1  │ 40     46.2    15   Elm\n 2  │ 45     48.2    18   Oak\n 3  │ 47     53.2    34   Elm\n 4  │ 51     54.2    18   Oak\n 5  │ 53     52.2    28   Elm\n 6  │ 55     52.0    40   Oak\n 7  │ 60     58.4    50   Elm\n 8  │ 63     57.8    55   Oak\n 9  │ 58     60.4    60   Sequoia\n 10 │ 65     53.4    50   Elm\n 11 │ 63     65.0    65   Sequoia\n 12 │ 70     70.0    76   Sequoia\n\n\n\n1.1 Scatter\n\nusing Plots\n\ntrees |&gt; Table\nscatter(trees.girth, trees.height,\n  title=\"1. Scatter Plot\",\n  subtitle=\"Date: 20 May 2025\",\n  xlabel = \"Girth\",\n  ylabel = \"Height\",\n  group = trees.name,\n  size = (600,400)\n  )\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.2 Line\n\n# Girth vs Height plots for Oak and Elm\n\ntree2 = @rsubset trees :name in [\"Oak\",\"Elm\"]\ntree2 |&gt; Table\n\nTable with 4 columns and 9 rows:\n     girth  height  age  name\n   ┌─────────────────────────\n 1 │ 40     46.2    15   Elm\n 2 │ 45     48.2    18   Oak\n 3 │ 47     53.2    34   Elm\n 4 │ 51     54.2    18   Oak\n 5 │ 53     52.2    28   Elm\n 6 │ 55     52.0    40   Oak\n 7 │ 60     58.4    50   Elm\n 8 │ 63     57.8    55   Oak\n 9 │ 65     53.4    50   Elm\n\n\n\n# the default for Plots is a line plot \n\nplot(tree2.girth, tree2.height,\n     markershape=:circle,\n     title=\"2. Scatter Lines\",\n     xlabel=\"Girth\",\n     ylabel=\"Height\",\n     group = tree2.name,\n     size = (600,400)\n     )\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.3 BarPlot\n\n# using Statistics\n# AvgHeight histogram of different trees\n\n# split-apply-combine\n\ntreesGp = groupby(trees, :name) \ntreesAvg = combine(treesGp, :height =&gt; mean)\ntreesAvg  |&gt; Table\n\nTable with 2 columns and 3 rows:\n     name     height_mean\n   ┌─────────────────────\n 1 │ Elm      52.68\n 2 │ Oak      53.05\n 3 │ Sequoia  65.1333\n\n\n\n# plot barPlot by trees.name\n\nplot(bar(treesAvg.name, treesAvg.height_mean, \n         color=[:lightblue,:lightgreen,:orange], \n         legend=false, size=(400,300),\n         title=\"Average height of trees\"))\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.4 Histogram\n\n# using 500 randn (random standard normal)\n\nusing Distributions\nx = randn(500)\nhistogram(x, size=(400,300), legend=false)\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.5 BoxPlot\n\n# using RDatasets\nfaithful=dataset(\"datasets\",\"faithful\")\n\nfirst(faithful, 6) |&gt; Table\n\nTable with 2 columns and 6 rows:\n     Eruptions  Waiting\n   ┌───────────────────\n 1 │ 3.6        79\n 2 │ 1.8        54\n 3 │ 3.333      74\n 4 │ 2.283      62\n 5 │ 4.533      85\n 6 │ 2.883      55\n\n\n\nusing StatsPlots\n\nboxplot(faithful.Waiting, size=(200,300), width=0.2, legend=false)\nxlims!(0,2)",
+    "text": "1 Plots.jl\n\n# Scatter plot for all trees\n\ntrees |&gt; Table\n\nTable with 4 columns and 12 rows:\n      girth  height  age  name\n    ┌────────────────────────────\n 1  │ 40     46.2    15   Elm\n 2  │ 45     48.2    18   Oak\n 3  │ 47     53.2    34   Elm\n 4  │ 51     54.2    18   Oak\n 5  │ 53     52.2    28   Elm\n 6  │ 55     52.0    40   Oak\n 7  │ 60     58.4    50   Elm\n 8  │ 63     57.8    55   Oak\n 9  │ 58     60.4    60   Sequoia\n 10 │ 65     53.4    50   Elm\n 11 │ 63     65.0    65   Sequoia\n 12 │ 70     70.0    76   Sequoia\n\n\n\n1.1 Scatter\n\nusing Plots\n\ntrees |&gt; Table\nscatter(trees.girth, trees.height,\n  title=\"1. Scatter Plot\",\n  subtitle=\"Date: 20 May 2025\",\n  xlabel = \"Girth\",\n  ylabel = \"Height\",\n  group = trees.name,\n  size = (600,400)\n  )\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.2 Scatter-Line\n\n# Girth vs Height plots for Oak and Elm\n\ntree2 = @rsubset(trees, :name in [\"Oak\",\"Elm\"])\ntree2 |&gt; Table\n\nTable with 4 columns and 9 rows:\n     girth  height  age  name\n   ┌─────────────────────────\n 1 │ 40     46.2    15   Elm\n 2 │ 45     48.2    18   Oak\n 3 │ 47     53.2    34   Elm\n 4 │ 51     54.2    18   Oak\n 5 │ 53     52.2    28   Elm\n 6 │ 55     52.0    40   Oak\n 7 │ 60     58.4    50   Elm\n 8 │ 63     57.8    55   Oak\n 9 │ 65     53.4    50   Elm\n\n\n\n# the default for Plots is a scatter-line plot \n\nplot(tree2.girth, tree2.height,\n     markershape=:circle,\n     title=\"2. Scatter Lines\",\n     xlabel=\"Girth\",\n     ylabel=\"Height\",\n     group = tree2.name,\n     size = (600,400)\n     )\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.3 BarPlot\n\n# using Statistics\n# AvgHeight histogram of different trees\n\n# split-apply-combine\n\ntreesGp = groupby(trees, :name) \ntreesAvg = combine(treesGp, :height =&gt; mean)\ntreesAvg  |&gt; Table\n\nTable with 2 columns and 3 rows:\n     name     height_mean\n   ┌─────────────────────\n 1 │ Elm      52.68\n 2 │ Oak      53.05\n 3 │ Sequoia  65.1333\n\n\n\n# plot barPlot by trees.name\n\nplot(bar(treesAvg.name, treesAvg.height_mean, \n         color=[:lightblue,:lightgreen,:orange], \n         legend=false, size=(400,300),\n         title=\"Average height of trees\"))\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.4 Histogram\n\n# using 500 randn (random standard normal)\n\nusing Distributions\nx = randn(500)\nhistogram(x, size=(400,300), legend=false)\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.5 BoxPlot\n\n# using RDatasets\nfaithful=dataset(\"datasets\",\"faithful\")\n\nfirst(faithful, 6) |&gt; Table\n\nTable with 2 columns and 6 rows:\n     Eruptions  Waiting\n   ┌───────────────────\n 1 │ 3.6        79\n 2 │ 1.8        54\n 3 │ 3.333      74\n 4 │ 2.283      62\n 5 │ 4.533      85\n 6 │ 2.883      55\n\n\n\nusing StatsPlots\n\nboxplot(faithful.Waiting, size=(200,300), width=0.2, legend=false)\nxlims!(0,2)",
     "crumbs": [
       "Plots",
       "basicPlots"
@@ -359,8 +359,8 @@
     "objectID": "dataframe/wrangle.html#select-columns",
     "href": "dataframe/wrangle.html#select-columns",
     "title": "wrangle",
-    "section": "3 Select columns",
-    "text": "3 Select columns\n\n3.1 Choose columns by @select\n\n# use select to choose columns\n@select(df, :Test1, :Test2, :Exam) |&gt; Table\n\nTable with 3 columns and 10 rows:\n      Test1  Test2  Exam\n    ┌───────────────────\n 1  │ 11     48     61\n 2  │ 8      43     77\n 3  │ 13     15     49\n 4  │ 15     20     57\n 5  │ 10     40     82\n 6  │ 11     23     65\n 7  │ 6      24     46\n 8  │ 12     47     80\n 9  │ 10     21     48\n 10 │ 7      27     62",
+    "section": "4 Select columns",
+    "text": "4 Select columns\n\n4.1 Choose columns by @select\n\n# use select to choose columns\n@select(df, :Test1, :Test2, :Exam) |&gt; Table\n\nTable with 3 columns and 10 rows:\n      Test1  Test2  Exam\n    ┌───────────────────\n 1  │ 11     48     61\n 2  │ 8      43     77\n 3  │ 13     15     49\n 4  │ 15     20     57\n 5  │ 10     40     82\n 6  │ 11     23     65\n 7  │ 6      24     46\n 8  │ 12     47     80\n 9  │ 10     21     48\n 10 │ 7      27     62",
     "crumbs": [
       "DataFrames",
       "wrangle"
@@ -394,6 +394,50 @@
     "title": "wrangle",
     "section": "1 Columns or rows indexing",
     "text": "1 Columns or rows indexing\n\n# row,col\ndf[:3,:] |&gt; display\n\nDataFrameRow (4 columns)\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n3\nSD103\n13\n15\n49\n\n\n\n\n\n\n\n# choose rows and column by indexing\ndf[1:3,1:3] |&gt; Table\n\nTable with 3 columns and 3 rows:\n     ID     Test1  Test2\n   ┌────────────────────\n 1 │ SD101  11     48\n 2 │ SD102  8      43\n 3 │ SD103  13     15\n\n\n\n# column\ndf[:,[:Test1,:Test2]] |&gt; Table |&gt; display\n\nTable with 2 columns and 10 rows:\n      Test1  Test2\n    ┌─────────────\n 1  │ 11     48\n 2  │ 8      43\n 3  │ 13     15\n 4  │ 15     20\n 5  │ 10     40\n 6  │ 11     23\n 7  │ 6      24\n 8  │ 12     47\n 9  │ 10     21\n 10 │ 7      27\n\n\n\n# dot referencing\ndf.Test1 |&gt; println\n\n[11, 8, 13, 15, 10, 11, 6, 12, 10, 7]",
+    "crumbs": [
+      "DataFrames",
+      "wrangle"
+    ]
+  },
+  {
+    "objectID": "dataframe/wrangle.html#using-dataframes",
+    "href": "dataframe/wrangle.html#using-dataframes",
+    "title": "wrangle",
+    "section": "2 Using DataFrames",
+    "text": "2 Using DataFrames",
+    "crumbs": [
+      "DataFrames",
+      "wrangle"
+    ]
+  },
+  {
+    "objectID": "dataframe/wrangle.html#select-rows-with-subset",
+    "href": "dataframe/wrangle.html#select-rows-with-subset",
+    "title": "wrangle",
+    "section": "3 Select Rows with subset",
+    "text": "3 Select Rows with subset\n\n3.1 Subset rows by criteria (DataFrame::ByRow)\n\nsubset(df, :Exam =&gt; x -&gt; x .&lt; 50) |&gt; Table\n\nTable with 4 columns and 3 rows:\n     ID     Test1  Test2  Exam\n   ┌──────────────────────────\n 1 │ SD103  13     15     49\n 2 │ SD107  6      24     46\n 3 │ SD109  10     21     48\n\n\n\nsubset(df, :ID =&gt; ByRow(x -&gt; x ==\"SD110\")) |&gt; Table\n\nTable with 4 columns and 1 row:\n     ID     Test1  Test2  Exam\n   ┌──────────────────────────\n 1 │ SD110  7      27     62\n\n\n\n\n3.2 Subset with @rsubset\n\n@rsubset df :Exam &lt; 50 \n\n3×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD103\n13\n15\n49\n\n\n2\nSD107\n6\n24\n46\n\n\n3\nSD109\n10\n21\n48\n\n\n\n\n\n\n\n@rsubset df :ID==\"SD110\"\n\n1×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD110\n7\n27\n62",
+    "crumbs": [
+      "DataFrames",
+      "wrangle"
+    ]
+  },
+  {
+    "objectID": "dataframe/wrangle.html#choose-rows-with-subset",
+    "href": "dataframe/wrangle.html#choose-rows-with-subset",
+    "title": "wrangle",
+    "section": "3 Choose Rows with subset",
+    "text": "3 Choose Rows with subset\nUse subset instead of filter (subset works on complete columns and missing values). Syntax for subset is subset(df, function)\n\n3.1 Subset rows by criteria (DataFrame::ByRow)\n\n# choose rows with Exam score less than 50\nsubset(df, :Exam =&gt; x -&gt; x .&lt; 50) |&gt; Table\n\nTable with 4 columns and 3 rows:\n     ID     Test1  Test2  Exam\n   ┌──────────────────────────\n 1 │ SD103  13     15     49\n 2 │ SD107  6      24     46\n 3 │ SD109  10     21     48\n\n\n\n# can include the ByRow feature if needed. \nsubset(df, :ID =&gt; ByRow(x -&gt; x ==\"SD109\")) |&gt; Table\n\nTable with 4 columns and 1 row:\n     ID     Test1  Test2  Exam\n   ┌──────────────────────────\n 1 │ SD109  10     21     48\n\n\n\n\n3.2 Subset with @rsubset (using DataFramesMeta.jl)\n\n# might be preferred, simpler syntax\n@rsubset df :Exam &lt; 50 \n\n3×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD103\n13\n15\n49\n\n\n2\nSD107\n6\n24\n46\n\n\n3\nSD109\n10\n21\n48\n\n\n\n\n\n\n\n@rsubset df :ID==\"SD110\"\n\n1×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD110\n7\n27\n62",
+    "crumbs": [
+      "DataFrames",
+      "wrangle"
+    ]
+  },
+  {
+    "objectID": "dataframe/wrangle.html#choose-columns-with-select",
+    "href": "dataframe/wrangle.html#choose-columns-with-select",
+    "title": "wrangle",
+    "section": "4 Choose columns with select",
+    "text": "4 Choose columns with select\n\n4.1 Choose columns by @select\n\n# use select to choose columns\n@select(df, :Test1, :Test2, :Exam) |&gt; Table\n\nTable with 3 columns and 10 rows:\n      Test1  Test2  Exam\n    ┌───────────────────\n 1  │ 11     48     61\n 2  │ 8      43     77\n 3  │ 13     15     49\n 4  │ 15     20     57\n 5  │ 10     40     82\n 6  │ 11     23     65\n 7  │ 6      24     46\n 8  │ 12     47     80\n 9  │ 10     21     48\n 10 │ 7      27     62",
     "crumbs": [
       "DataFrames",
       "wrangle"
