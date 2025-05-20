@@ -238,8 +238,8 @@
     "objectID": "dataframe/wrangle.html#using-dataframesmeta",
     "href": "dataframe/wrangle.html#using-dataframesmeta",
     "title": "wrangle",
-    "section": "3 Using DataFramesMeta",
-    "text": "3 Using DataFramesMeta\nUse DataFramesMeta.jl for data wrangling - syntax more intuitive than DataFrames.jl See Chapter 5 of Julia Data Science",
+    "section": "2 Using DataFramesMeta",
+    "text": "2 Using DataFramesMeta\nUse DataFramesMeta.jl for data wrangling - syntax more intuitive than DataFrames.jl See Chapter 5 of Julia Data Science",
     "crumbs": [
       "DataFrames",
       "wrangle"
@@ -260,8 +260,8 @@
     "objectID": "dataframe/wrangle.html#filter",
     "href": "dataframe/wrangle.html#filter",
     "title": "wrangle",
-    "section": "5 Filter",
-    "text": "5 Filter\n\n5.1 Subset rows by criteria (DataFrame::ByRow)\n\nsubset(df, :Exam =&gt; x -&gt; x .&lt; 50) |&gt; Table\n\nTable with 4 columns and 3 rows:\n     ID     Test1  Test2  Exam\n   ┌──────────────────────────\n 1 │ SD103  13     15     49\n 2 │ SD107  6      24     46\n 3 │ SD109  10     21     48\n\n\n\nsubset(df, :ID =&gt; ByRow(x -&gt; x ==\"SD110\")) |&gt; Table\n\nTable with 4 columns and 1 row:\n     ID     Test1  Test2  Exam\n   ┌──────────────────────────\n 1 │ SD110  7      27     62\n\n\n\n\n5.2 Subset with @rsubset\n\n@rsubset df :Exam &lt; 50 \n\n3×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD103\n13\n15\n49\n\n\n2\nSD107\n6\n24\n46\n\n\n3\nSD109\n10\n21\n48\n\n\n\n\n\n\n\n@rsubset df :ID==\"SD110\"\n\n1×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD110\n7\n27\n62",
+    "section": "4 Filter",
+    "text": "4 Filter\n\n4.1 Subset rows by criteria (DataFrame::ByRow)\n\nsubset(df, :Exam =&gt; x -&gt; x .&lt; 50) |&gt; Table\n\nTable with 4 columns and 3 rows:\n     ID     Test1  Test2  Exam\n   ┌──────────────────────────\n 1 │ SD103  13     15     49\n 2 │ SD107  6      24     46\n 3 │ SD109  10     21     48\n\n\n\nsubset(df, :ID =&gt; ByRow(x -&gt; x ==\"SD110\")) |&gt; Table\n\nTable with 4 columns and 1 row:\n     ID     Test1  Test2  Exam\n   ┌──────────────────────────\n 1 │ SD110  7      27     62\n\n\n\n\n4.2 Subset with @rsubset\n\n@rsubset df :Exam &lt; 50 \n\n3×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD103\n13\n15\n49\n\n\n2\nSD107\n6\n24\n46\n\n\n3\nSD109\n10\n21\n48\n\n\n\n\n\n\n\n@rsubset df :ID==\"SD110\"\n\n1×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD110\n7\n27\n62",
     "crumbs": [
       "DataFrames",
       "wrangle"
@@ -271,8 +271,8 @@
     "objectID": "dataframe/wrangle.html#arrange",
     "href": "dataframe/wrangle.html#arrange",
     "title": "wrangle",
-    "section": "6 Arrange",
-    "text": "6 Arrange\n\n6.1 Sort column (sort)\n\nsort(df, :Exam, rev=true) |&gt; Table\n\nTable with 4 columns and 10 rows:\n      ID     Test1  Test2  Exam\n    ┌──────────────────────────\n 1  │ SD105  10     40     82\n 2  │ SD108  12     47     80\n 3  │ SD102  8      43     77\n 4  │ SD106  11     23     65\n 5  │ SD110  7      27     62\n 6  │ SD101  11     48     61\n 7  │ SD104  15     20     57\n 8  │ SD103  13     15     49\n 9  │ SD109  10     21     48\n 10 │ SD107  6      24     46\n\n\n\n@orderby(df, :Exam)\n\n10×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD107\n6\n24\n46\n\n\n2\nSD109\n10\n21\n48\n\n\n3\nSD103\n13\n15\n49\n\n\n4\nSD104\n15\n20\n57\n\n\n5\nSD101\n11\n48\n61\n\n\n6\nSD110\n7\n27\n62\n\n\n7\nSD106\n11\n23\n65\n\n\n8\nSD102\n8\n43\n77\n\n\n9\nSD108\n12\n47\n80\n\n\n10\nSD105\n10\n40\n82\n\n\n\n\n\n\n\n\n6.2 Transform with @rtransform\n\n6.2.1 Add new Calculated Column (@rtransform)\n\n# use filter to choose rows\n@rtransform df begin\n  :WtAge = :Test1*0.25 + :Test2*0.25 + :Exam*0.50\nend\n\n10×5 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\nWtAge\n\n\n\nString7\nInt64\nInt64\nInt64\nFloat64\n\n\n\n\n1\nSD101\n11\n48\n61\n45.25\n\n\n2\nSD102\n8\n43\n77\n51.25\n\n\n3\nSD103\n13\n15\n49\n31.5\n\n\n4\nSD104\n15\n20\n57\n37.25\n\n\n5\nSD105\n10\n40\n82\n53.5\n\n\n6\nSD106\n11\n23\n65\n41.0\n\n\n7\nSD107\n6\n24\n46\n30.5\n\n\n8\nSD108\n12\n47\n80\n54.75\n\n\n9\nSD109\n10\n21\n48\n31.75\n\n\n10\nSD110\n7\n27\n62\n39.5",
+    "section": "5 Arrange",
+    "text": "5 Arrange\n\n5.1 Sort column (sort)\n\nsort(df, :Exam, rev=true) |&gt; Table\n\nTable with 4 columns and 10 rows:\n      ID     Test1  Test2  Exam\n    ┌──────────────────────────\n 1  │ SD105  10     40     82\n 2  │ SD108  12     47     80\n 3  │ SD102  8      43     77\n 4  │ SD106  11     23     65\n 5  │ SD110  7      27     62\n 6  │ SD101  11     48     61\n 7  │ SD104  15     20     57\n 8  │ SD103  13     15     49\n 9  │ SD109  10     21     48\n 10 │ SD107  6      24     46\n\n\n\n@orderby(df, :Exam)\n\n10×4 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n1\nSD107\n6\n24\n46\n\n\n2\nSD109\n10\n21\n48\n\n\n3\nSD103\n13\n15\n49\n\n\n4\nSD104\n15\n20\n57\n\n\n5\nSD101\n11\n48\n61\n\n\n6\nSD110\n7\n27\n62\n\n\n7\nSD106\n11\n23\n65\n\n\n8\nSD102\n8\n43\n77\n\n\n9\nSD108\n12\n47\n80\n\n\n10\nSD105\n10\n40\n82\n\n\n\n\n\n\n\n\n5.2 Transform with @rtransform\n\n5.2.1 Add new Calculated Column (@rtransform)\n\n# use filter to choose rows\n@rtransform df begin\n  :WtAge = :Test1*0.25 + :Test2*0.25 + :Exam*0.50\nend\n\n10×5 DataFrame\n\n\n\nRow\nID\nTest1\nTest2\nExam\nWtAge\n\n\n\nString7\nInt64\nInt64\nInt64\nFloat64\n\n\n\n\n1\nSD101\n11\n48\n61\n45.25\n\n\n2\nSD102\n8\n43\n77\n51.25\n\n\n3\nSD103\n13\n15\n49\n31.5\n\n\n4\nSD104\n15\n20\n57\n37.25\n\n\n5\nSD105\n10\n40\n82\n53.5\n\n\n6\nSD106\n11\n23\n65\n41.0\n\n\n7\nSD107\n6\n24\n46\n30.5\n\n\n8\nSD108\n12\n47\n80\n54.75\n\n\n9\nSD109\n10\n21\n48\n31.75\n\n\n10\nSD110\n7\n27\n62\n39.5",
     "crumbs": [
       "DataFrames",
       "wrangle"
@@ -353,6 +353,50 @@
     "crumbs": [
       "Plots",
       "basicPlots"
+    ]
+  },
+  {
+    "objectID": "dataframe/wrangle.html#select-columns",
+    "href": "dataframe/wrangle.html#select-columns",
+    "title": "wrangle",
+    "section": "3 Select columns",
+    "text": "3 Select columns\n\n3.1 Choose columns by @select\n\n# use select to choose columns\n@select(df, :Test1, :Test2, :Exam) |&gt; Table\n\nTable with 3 columns and 10 rows:\n      Test1  Test2  Exam\n    ┌───────────────────\n 1  │ 11     48     61\n 2  │ 8      43     77\n 3  │ 13     15     49\n 4  │ 15     20     57\n 5  │ 10     40     82\n 6  │ 11     23     65\n 7  │ 6      24     46\n 8  │ 12     47     80\n 9  │ 10     21     48\n 10 │ 7      27     62",
+    "crumbs": [
+      "DataFrames",
+      "wrangle"
+    ]
+  },
+  {
+    "objectID": "dataframe/wrangle.html#referencing-column-or-row",
+    "href": "dataframe/wrangle.html#referencing-column-or-row",
+    "title": "wrangle",
+    "section": "1 Referencing column or row",
+    "text": "1 Referencing column or row\n\n# row\ndf[:3,:] |&gt; display\n\n# column\ndf[:,[:Test1,:Test2]] |&gt; Table |&gt; display\n# or\ndf.Test1\n\nDataFrameRow (4 columns)\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n3\nSD103\n13\n15\n49\n\n\n\n\n\n\nTable with 2 columns and 10 rows:\n      Test1  Test2\n    ┌─────────────\n 1  │ 11     48\n 2  │ 8      43\n 3  │ 13     15\n 4  │ 15     20\n 5  │ 10     40\n 6  │ 11     23\n 7  │ 6      24\n 8  │ 12     47\n 9  │ 10     21\n 10 │ 7      27\n\n\n10-element Vector{Int64}:\n 11\n  8\n 13\n 15\n 10\n 11\n  6\n 12\n 10\n  7",
+    "crumbs": [
+      "DataFrames",
+      "wrangle"
+    ]
+  },
+  {
+    "objectID": "dataframe/wrangle.html#referencing-columns-or-rows",
+    "href": "dataframe/wrangle.html#referencing-columns-or-rows",
+    "title": "wrangle",
+    "section": "1 Referencing columns or rows",
+    "text": "1 Referencing columns or rows\n\n# row\ndf[:3,:] |&gt; display\n\n# column\ndf[:,[:Test1,:Test2]] |&gt; Table |&gt; display\n# or\ndf.Test1 |&gt; println\n\n# choose rows and column by indexing\ndf[1:3,1:3] |&gt; Table\n\nDataFrameRow (4 columns)\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n3\nSD103\n13\n15\n49\n\n\n\n\n\n\nTable with 2 columns and 10 rows:\n      Test1  Test2\n    ┌─────────────\n 1  │ 11     48\n 2  │ 8      43\n 3  │ 13     15\n 4  │ 15     20\n 5  │ 10     40\n 6  │ 11     23\n 7  │ 6      24\n 8  │ 12     47\n 9  │ 10     21\n 10 │ 7      27\n\n\n[11, 8, 13, 15, 10, 11, 6, 12, 10, 7]\n\n\nTable with 3 columns and 3 rows:\n     ID     Test1  Test2\n   ┌────────────────────\n 1 │ SD101  11     48\n 2 │ SD102  8      43\n 3 │ SD103  13     15",
+    "crumbs": [
+      "DataFrames",
+      "wrangle"
+    ]
+  },
+  {
+    "objectID": "dataframe/wrangle.html#columns-or-rows-indexing",
+    "href": "dataframe/wrangle.html#columns-or-rows-indexing",
+    "title": "wrangle",
+    "section": "1 Columns or rows indexing",
+    "text": "1 Columns or rows indexing\n\n# row,col\ndf[:3,:] |&gt; display\n\nDataFrameRow (4 columns)\n\n\n\nRow\nID\nTest1\nTest2\nExam\n\n\n\nString7\nInt64\nInt64\nInt64\n\n\n\n\n3\nSD103\n13\n15\n49\n\n\n\n\n\n\n\n# choose rows and column by indexing\ndf[1:3,1:3] |&gt; Table\n\nTable with 3 columns and 3 rows:\n     ID     Test1  Test2\n   ┌────────────────────\n 1 │ SD101  11     48\n 2 │ SD102  8      43\n 3 │ SD103  13     15\n\n\n\n# column\ndf[:,[:Test1,:Test2]] |&gt; Table |&gt; display\n\nTable with 2 columns and 10 rows:\n      Test1  Test2\n    ┌─────────────\n 1  │ 11     48\n 2  │ 8      43\n 3  │ 13     15\n 4  │ 15     20\n 5  │ 10     40\n 6  │ 11     23\n 7  │ 6      24\n 8  │ 12     47\n 9  │ 10     21\n 10 │ 7      27\n\n\n\n# dot referencing\ndf.Test1 |&gt; println\n\n[11, 8, 13, 15, 10, 11, 6, 12, 10, 7]",
+    "crumbs": [
+      "DataFrames",
+      "wrangle"
     ]
   }
 ]
