@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>types – WebJ</title>
+<title>types – ykwongSUSS.github.io</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">WebJ</a> 
+      <a href="../">ykwongSUSS.github.io</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -194,14 +194,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dataframe/textEntry.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../dataframe/textEntry.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">textEntry</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dataframe/importExport.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../dataframe/importExport.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">importExport</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/wrangle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">wrangle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/recode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">recode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/pivot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">pivot</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Plots</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/basicPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">basicPlots</span></a>
   </div>
 </li>
       </ul>
@@ -251,14 +286,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="add-packages" class="level3" data-number="0.1">
 <h3 data-number="0.1" class="anchored" data-anchor-id="add-packages"><span class="header-section-number">0.1</span> Add Packages</h3>
-<div id="0684e28e" class="cell" data-execution_count="1">
+<div id="886d71ff" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Pkg;</span> Pkg.add("PrettyTables");</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="simple-data-types-in-julia" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="simple-data-types-in-julia"><span class="header-section-number">1</span> Simple Data Types in Julia</h2>
 <p>The usual basic types of integer, floats, boolean, character and strings are available.</p>
-<div id="8995600e" class="cell" data-execution_count="2">
+<div id="08569998" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fl">3</span>) <span class="op">|&gt;</span> println</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="fl">3.14</span>) <span class="op">|&gt;</span> println</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(<span class="cn">pi</span>) <span class="op">|&gt;</span> println</span>
@@ -274,7 +309,7 @@ String</code></pre>
 </div>
 <section id="tuples-vectors-and-arrays" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="tuples-vectors-and-arrays"><span class="header-section-number">1.1</span> Tuples, Vectors and Arrays</h3>
-<div id="30bbeb1c" class="cell" data-execution_count="3">
+<div id="7105d62b" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tuple</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> (<span class="fl">1</span>,<span class="fl">2</span>,<span class="ch">'3'</span>) <span class="op">|&gt;</span> typeof <span class="op">|&gt;</span> println</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># vector</span></span>
@@ -290,7 +325,7 @@ Matrix{Int64}</code></pre>
 </section>
 <section id="named-tuples" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="named-tuples"><span class="header-section-number">1.2</span> Named Tuples</h3>
-<div id="09c1595b" class="cell" data-execution_count="4">
+<div id="7ae008f0" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># as the name implies</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>nt <span class="op">=</span> (a<span class="op">=</span><span class="fl">1</span>, b<span class="op">=</span><span class="fl">2.0</span>)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>nt <span class="op">|&gt;</span> println</span>
@@ -302,7 +337,7 @@ Matrix{Int64}</code></pre>
 <pre><code>1</code></pre>
 </div>
 </div>
-<div id="cf1161a2" class="cell" data-execution_count="5">
+<div id="b2663d5a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># usage</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> val <span class="kw">in</span> nt</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">println</span>(val)</span>
@@ -315,7 +350,7 @@ Matrix{Int64}</code></pre>
 </section>
 <section id="strings" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="strings"><span class="header-section-number">1.3</span> Strings</h3>
-<div id="98cd355a" class="cell" data-execution_count="6">
+<div id="6b7b41fd" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="st">"Welcome Home"</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lowercase</span>(s) <span class="op">|&gt;</span> println</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>s[<span class="fl">1</span>] <span class="op">|&gt;</span> println</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
