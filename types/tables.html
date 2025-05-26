@@ -289,17 +289,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="packages" class="level3" data-number="0.1">
 <h3 data-number="0.1" class="anchored" data-anchor-id="packages"><span class="header-section-number">0.1</span> Packages</h3>
-<div id="3aa6c56f" class="cell" data-execution_count="1">
+<div id="8184759b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Pkg;</span> </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">add</span>(<span class="st">"TypedTables"</span>);</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">add</span>(<span class="st">"DataFrames"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">Pkg</span>.<span class="fu">add</span>(<span class="st">"DataFrames"</span>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="categorical-and-numerical-data" class="level3" data-number="0.2">
 <h3 data-number="0.2" class="anchored" data-anchor-id="categorical-and-numerical-data"><span class="header-section-number">0.2</span> Categorical and Numerical Data</h3>
 <section id="tables" class="level4" data-number="0.2.1">
 <h4 data-number="0.2.1" class="anchored" data-anchor-id="tables"><span class="header-section-number">0.2.1</span> Tables</h4>
-<div id="dfc206c7" class="cell" data-execution_count="2">
+<div id="f842c95e" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Data</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> [<span class="st">"Alice"</span>, <span class="st">"Bob"</span>, <span class="st">"Callie"</span>,<span class="st">"Danny"</span>]</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>marks <span class="op">=</span> [<span class="fl">84</span>, <span class="fl">53</span>, <span class="fl">66</span>,  <span class="fl">80</span>]</span>
@@ -308,16 +308,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="typedtable.jl" class="level4" data-number="0.2.2">
 <h4 data-number="0.2.2" class="anchored" data-anchor-id="typedtable.jl"><span class="header-section-number">0.2.2</span> TypedTable.jl</h4>
-<div id="4827b62f" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import Pkg; Pkg.add("TypedTables")</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># using TypedTables</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  tbl <span class="op">=</span> <span class="fu">Table</span>(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    names <span class="op">=</span> students,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    marks <span class="op">=</span> marks,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    grades <span class="op">=</span> grades</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  tbl <span class="op">|&gt;</span> display</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  tbl[<span class="fl">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fbbdae56" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">TypedTables</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  tbl <span class="op">=</span> <span class="fu">Table</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    names <span class="op">=</span> students,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    marks <span class="op">=</span> marks,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    grades <span class="op">=</span> grades</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  tbl <span class="op">|&gt;</span> display</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  tbl[<span class="fl">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>Table with 3 columns and 4 rows:
      names   marks  grades
@@ -327,7 +326,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  3 │ Callie  66     B
  4 │ Danny   80     A</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="63">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>(names = "Alice", marks = 84, grades = 'A')</code></pre>
 </div>
 </div>
@@ -335,7 +334,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="dataframes.jl" class="level4" data-number="0.2.3">
 <h4 data-number="0.2.3" class="anchored" data-anchor-id="dataframes.jl"><span class="header-section-number">0.2.3</span> DataFrames.jl</h4>
-<div id="a928ca6c" class="cell" data-execution_count="4">
+<div id="cf277e1d" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> <span class="fu">DataFrame</span>(</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>   Names <span class="op">=</span> students,</span>
@@ -390,7 +389,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="64">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>Table with 3 columns and 4 rows:
      Names   Marks  Grades
    ┌──────────────────────

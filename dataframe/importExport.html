@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>import Export to DataFrames – ykwongSUSS.github.io</title>
+<title>import Export to DataFrames – WebJ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-0815c480559380816a4d1ea211a47e91.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -136,7 +136,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">ykwongSUSS.github.io</a> 
+      <a href="../">WebJ</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -242,6 +242,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">basicPlots</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/layouts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">layouts</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -280,16 +286,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The CSV.jl documentation suggests the following:</p>
-<ol type="1">
-<li><code>CSV.File</code> to ingest delimited data.</li>
-<li><code>CSV.read</code> passes on to DataFrame as in <code>CSV.read(file, DataFrame)</code></li>
-<li><code>CSV.Rows</code> consumes one row at a time</li>
-<li><code>CSV.Chunks</code> similar to <code>CSV.File</code> but chunks input file.</li>
-<li><code>CSV.write</code> writes to an output file as in <code>CSV.write("output.data",df)</code></li>
-<li><code>CSV.RowWriter</code> takes valid Tables.jl input and output csv.</li>
-</ol>
-<p>Summarizing</p>
+<p>Summary:</p>
 <ul>
 <li>Just want to read a delimited file or collection of files and do basic stuff with data? Use&nbsp;<a href="https://csv.juliadata.org/stable/reading.html#CSV.File"><code>CSV.File(file)</code></a>&nbsp;or&nbsp;<a href="https://csv.juliadata.org/stable/reading.html#CSV.read"><code>CSV.read(file, DataFrame)</code></a></li>
 <li>Don’t need the data as a whole or want to stream through a large file row-by-row? Use&nbsp;<a href="https://csv.juliadata.org/stable/reading.html#CSV.Rows"><code>CSV.Rows</code></a>.</li>
@@ -306,9 +303,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>change column names with <code>rename!</code></li>
 </ul>
-<div id="7d56c05d" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">TypedTables</span></span>
+<div id="f1b9e1d4" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Pkg;</span> Pkg.add("CSV"); Pkg.add("DataFrames")</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> CSV.<span class="fu">read</span>(<span class="st">"grades.csv"</span>, header<span class="op">=</span><span class="fl">0</span>, DataFrame)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rename!</span>(df,[<span class="op">:</span>ID,<span class="op">:</span>Test1,<span class="op">:</span>Test2,<span class="op">:</span>Exam])</span>
