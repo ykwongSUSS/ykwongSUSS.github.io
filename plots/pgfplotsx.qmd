@@ -1,0 +1,65 @@
+---
+title: PGFPlotsX 
+format: html
+pdf-engine: lualatex
+warning: false
+number-sections: true
+---
+
+### Packages
+
+```{julia}
+import Pkg; Pkg.add("PGFPlotsX")
+using Plots
+using PGFPlotsX
+using LaTeXStrings
+```
+
+```{julia}
+@pgf Axis(
+    {
+        xlabel = L"x",
+        ylabel = L"f(x) = x^2 - x + 4"
+    },
+    Plot(
+        Expression("x^2 - x + 4")
+    )
+)
+```
+
+```{julia}
+x = range(-1; stop = 1, length = 51) # so that it contains 1/0
+@pgf Axis(
+    {
+        xmajorgrids,
+        ymajorgrids,
+    },
+    Plot(
+        {
+            no_marks,
+        },
+        Coordinates(x, 1 ./ x)
+    )
+)
+```
+
+```{julia}
+x = range(-2; stop = 2, length = 20)
+y = range(-0.5; stop = 3, length = 25)
+f(x, y) = (1 - x)^2 + 100*(y - x^2)^2
+@pgf Plot3(
+    {
+        surf,
+    },
+    Coordinates(x, y, f.(x, y'))
+)
+```
+
+```{julia}
+using Plots; pgfplotsx()
+surface(range(-3,3, length=30), range(-3,3, length=30),
+        (x, y) -> exp(-x^2-y^2),
+        label="",
+        colormap_name = "viridis",
+        extra_kwargs =:subplot)
+```

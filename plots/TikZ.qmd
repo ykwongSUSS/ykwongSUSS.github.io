@@ -1,0 +1,53 @@
+---
+title: 3D 
+format: html
+warning: false
+number-sections: true
+---
+
+### Packages
+
+```{julia}
+import Pkg; Pkg.add("PGFPlotsX")
+using Plots
+using PGFPlotsX
+```
+
+### 3D Planes
+
+```{julia}
+x = range(-4,4,length=15) |> collect
+y = range(-5,5,length=15) |> collect
+f(x,y) = -x/6 + y/3
+surface(x,y,f)
+```
+
+### PGFPlotsX version
+
+```{julia}
+x = range(-4; stop = 4, length = 5)
+y = range(-5; stop = 5, length = 5)
+f(x, y) =  -x/6 + y/3
+@pgf Plot3({
+        surf,
+    },
+    Coordinates(x, y, f.(x, y'))
+)
+```
+
+### 3D Surface with axis guide
+
+```{julia}
+f(x,y) = sin(x)+cos(y)
+
+surface(0:.1:4, 0:0.1:4, f)
+```
+
+### PGFPlotsx
+
+```{julia}
+using Plots; 
+pgfplotsx()   # use this for backend
+pl  = plot(1:5)
+pl2 = plot((1:5).^2)
+```
