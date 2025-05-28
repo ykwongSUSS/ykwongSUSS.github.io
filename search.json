@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "WebJ",
     "section": "",
-    "text": "This is a website on using Julia with Quarto. It site is hosted on github for now - so ykwongsuss.github.io. The site is similar to WebR with basic examples on dataframes, plots and some programming.\n\ntypes\ndataframes\ntables\nplots\nprogramming\n\n\n1 Websites\n\nykwongWebR: R Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv: Survival Analysis with R\nykwongWebNPar: NonParametric Statistics with R\nykwongWebLA: Linear Algebra with Julia\nykwongWebJ: Julia Basics\n\n\n\n2  Notes\n\nyaml: html, pdf\nqmd: footnote, references\nqblocks: code blocks, tex blocks and div blocks\nqtex: selected tex codes\nqD2: D2 diagramming",
+    "text": "This is a website on using Julia with Quarto. It site is hosted on github for now - so ykwongsuss.github.io. The site is similar to WebR with basic examples on dataframes, plots and some programming.\n\ntypes\ndataframes\ntables\nplots\nprogramming\n\n\nWebsites\n\nykwongWebR: R Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebSurv: Survival Analysis with R\nykwongWebNPar: NonParametric Statistics with R\nykwongWebLA: Linear Algebra with Julia\nykwongWebJ: Julia Basics\n\n\n\nNotes\n\nyaml: html, pdf\nqmd: footnote, references\nqblocks: code blocks, tex blocks and div blocks\nqtex: selected tex codes\nqD2: D2 diagramming",
     "crumbs": [
       "Preface"
     ]
@@ -528,18 +528,14 @@
     "href": "plots/tikz.html",
     "title": "tikz",
     "section": "",
-    "text": "import Pkg; Pkg.add(\"PGFPlotsX\")\nusing Plots\nusing PGFPlotsX\n\nTikZ can be rendered in Quarto in 2 ways:\n\nunder .tikz code chunk using thetikz Quarto extension,\nunder Julia code chunk using the PGFPlotsX.jl package.\n\nIn this section we will be using method 1 for maximum compatibility. The PGFPlotsX.jl package will be reserved for 2D and 3D plots.\nRemember to install the extension tikz and to put the filters: -tikz in the yaml section.",
-    "crumbs": [
-      "PGFPlotsX",
-      "tikz"
-    ]
+    "text": "import Pkg; Pkg.add(\"PGFPlotsX\")\nusing Plots\nusing PGFPlotsX\n\nTikZ can be rendered in Quarto in 2 ways:\n\nunder .tikz code chunk using thetikz Quarto extension,\nunder Julia code chunk using the PGFPlotsX.jl package.\n\nIn this section we will be using method 1 for maximum compatibility. The PGFPlotsX.jl package will be reserved for 2D and 3D plots.\nRemember to install the extension tikz and to put the filters: -tikz in the yaml section."
   },
   {
     "objectID": "plots/pgfplotsx.html",
     "href": "plots/pgfplotsx.html",
     "title": "PGFPlotsX",
     "section": "",
-    "text": "0.1 Installation Notes\nPGFPlotsX.jl is a Julia package and not a Quarto extension. It does require LiveTeX installation to play well with the package. In particular,\n\nneed it requires pdf2svg: install via brew install pdf2svg at terminal (note that Poppler, Cairo dependencies are also installed).\nit requires luatex to be installed (tlmgr info luatex). Note the pdf-engine: lualatex in the project yaml.\ninstall missing .sty through tlmgr (e.g.tlmgr install colorpage)\nfinally you need to import Pkg; Pkg.add(\"PGFPlotsX\")\nWhen using Plots, pgfplotsx() may be indicated as the backend graphic engine. See # pgfPlot 4\n\n\n\n0.2 Packages\n\nimport Pkg; Pkg.add(\"PGFPlotsX\")\nusing Plots\nusing PGFPlotsX\nusing LaTeXStrings\n\n\n# pgfplot 1\n# polynomial plot thru Expression\n\n@pgf Axis(\n    {\n        xlabel = L\"x\",\n        ylabel = L\"f(x) = x^2 - x + 4\"\n    },\n    Plot(\n        Expression(\"x^2 - x + 4\")\n    )\n)\n\n\n\n\n\n\n\n\n\n# pgfplot 2\n# use of dot operator\n\nx = range(-1; stop = 1, length = 51) # so that it contains 1/0\n@pgf Axis(\n    {\n        xmajorgrids,\n        ymajorgrids,\n    },\n    Plot(\n        {\n            no_marks,\n        },\n        Coordinates(x, 1 ./ x)\n    )\n)\n\n\n\n\n\n\n\n\n\n# pgfplot 3\n# surf plot. Note the dot operator\n\nx = range(-2; stop = 2, length = 20)\ny = range(-0.5; stop = 3, length = 25)\nf(x, y) = (1 - x)^2 + 100*(y - x^2)^2\n@pgf Plot3(\n    {\n        surf,\n    },\n    Coordinates(x, y, f.(x, y'))\n)\n\n\n\n\n\n\n\n\n\n# pgfplot 4\nusing Plots; \npgfplotsx()\nsurface(range(-3,3, length=30), range(-3,3, length=30),\n        (x, y) -&gt; exp(-x^2-y^2),\n        label=\"\",\n        colormap_name = \"viridis\",\n        extra_kwargs =:subplot)",
+    "text": "0.1 Installation Notes\nPGFPlotsX.jl is a Julia package and not a Quarto extension. It does require LiveTeX installation to play well with the package. In particular,\n\nneed it requires pdf2svg: install via brew install pdf2svg at terminal (note that Poppler, Cairo dependencies are also installed).\nit requires luatex to be installed (tlmgr info luatex). Note the pdf-engine: lualatex in the project yaml.\ninstall missing .sty through tlmgr (e.g.tlmgr install colorpage)\nfinally you need to import Pkg; Pkg.add(\"PGFPlotsX\")\nWhen using Plots, pgfplotsx() may be indicated as the backend graphic engine. See # pgfPlot 4\n\n\n\n0.2 Packages\n\nimport Pkg; Pkg.add(\"PGFPlotsX\")\nusing Plots\nusing PGFPlotsX\nusing LaTeXStrings\n\n\n# polynomial plot thru Expression\n\n@pgf Axis(\n    {\n        xlabel = L\"x\",\n        ylabel = L\"f(x) = x^2 - x + 4\"\n    },\n    Plot(\n        Expression(\"x^2 - x + 4\")\n    )\n)\n\n\n\n\n\n\n\n\n\n# use of dot operator\n\nx = range(-1; stop = 1, length = 51) # so that it contains 1/0\n@pgf Axis(\n    {\n        xmajorgrids,\n        ymajorgrids,\n    },\n    Plot(\n        {\n            no_marks,\n        },\n        Coordinates(x, 1 ./ x)\n    )\n)\n\n\n\n\n\n\n\n\n\nx = range(-4; stop = 4, length = 5)\ny = range(-5; stop = 5, length = 5)\nf(x, y) =  -x/6 + y/3\n@pgf Plot3({\n        surf,\n    },\n    Coordinates(x, y, f.(x, y'))\n)\n\n\n\n\n\n\n\n\n\n# surf plot. Note the dot operator\n\nx = range(-2; stop = 2, length = 20)\ny = range(-0.5; stop = 3, length = 25)\nf(x, y) = (1 - x)^2 + 100*(y - x^2)^2\n@pgf Plot3(\n    {\n        surf,\n    },\n    Coordinates(x, y, f.(x, y'))\n)\n\n\n\n\n\n\n\n\n\n# backend\n\nusing Plots; \npgfplotsx()\nsurface(range(-3,3, length=30), range(-3,3, length=30),\n        (x, y) -&gt; exp(-x^2-y^2),\n        label=\"\",\n        colormap_name = \"viridis\",\n        extra_kwargs =:subplot)",
     "crumbs": [
       "PGFPlotsX",
       "pgfplotsx"
@@ -550,11 +546,7 @@
     "href": "plots/tikz.html#tikz-extension",
     "title": "tikz",
     "section": "1 TikZ extension",
-    "text": "1 TikZ extension\n\n1.1 2D Plots in Tikz\n\\tikz{\n% grid\n\\draw (0,0) grid (8,8)\n}\n\n\n\n\n1.2 Drawing\n\\tikz{\n\\draw[gray!80](0,0)grid (6,5);\n\n\\node at (3,4) {$i$};\n\\node at (1,1) {$k$};\n\\node at (5,1) {$j$};\n\n\\draw [-&gt;, very thick] (3.2,3.8) -- (4.8,1.2);\n\\draw [-&gt;, very thick] (4.8,1) -- (1.2,1);\n\\draw [-&gt;, very thick] (1.2,1.2) -- (2.8,3.8);\n}\n\n\n\n\n1.3 Maze\n\\begin{tikzpicture}\n% grid\n\\draw[gray!20](0,0) grid (11,11);\n\n% maze\n\\draw[line width=2pt, cap=round, rounded corners=1pt,draw=black]\n(1,1) -| (10,2)--(8,2)\n(10,2) |- (8,5)--(8,6) -| (9,7)\n(10,4) -- (10,10)\n\n(2,2) -| (1,4) -| (2,6)\n(1,4) |- (3,10) -- (3,9)\n(2,10)-|(8,9)(8,10)-|(9,8)-|(7,9)\n\n(5,1) |- (7,2) -|(3,2) |-(2,3)\n(3,3) |- (4,5)--(4,7)\n(4,6) -|(5,8)-|(3,6)\n\n(2,7) |-(6,9) |-(5,5)|-(4,4)|-(5,3)\n\n(6,3)-|(9,4)--(6,4)(7,4)|-(8,7)\n((7,6)--(6,6);\n\n% start and end points\n\\draw[-latex, line width=3pt, red](0.5,1.5)--(1.5,1.5);\n\\draw[-latex, line width=3pt, red](9.5,9.5)--(9.5,10.5);\n\\end{tikzpicture}",
-    "crumbs": [
-      "PGFPlotsX",
-      "tikz"
-    ]
+    "text": "1 TikZ extension\n\n1.1 2D Plots in Tikz\n\\tikz{\n% grid\n\\draw (0,0) grid (8,8)\n}\n\n\n\n\n1.2 Drawing\n\\tikz{\n\\draw[gray!80](0,0)grid (6,5);\n\n\\node at (3,4) {$i$};\n\\node at (1,1) {$k$};\n\\node at (5,1) {$j$};\n\n\\draw [-&gt;, very thick] (3.2,3.8) -- (4.8,1.2);\n\\draw [-&gt;, very thick] (4.8,1) -- (1.2,1);\n\\draw [-&gt;, very thick] (1.2,1.2) -- (2.8,3.8);\n}\n\n\n\n\n1.3 Maze\n\\begin{tikzpicture}\n% grid\n\\draw[gray!20](0,0) grid (11,11);\n\n% maze\n\\draw[line width=2pt, cap=round, rounded corners=1pt,draw=black]\n(1,1) -| (10,2)--(8,2)\n(10,2) |- (8,5)--(8,6) -| (9,7)\n(10,4) -- (10,10)\n\n(2,2) -| (1,4) -| (2,6)\n(1,4) |- (3,10) -- (3,9)\n(2,10)-|(8,9)(8,10)-|(9,8)-|(7,9)\n\n(5,1) |- (7,2) -|(3,2) |-(2,3)\n(3,3) |- (4,5)--(4,7)\n(4,6) -|(5,8)-|(3,6)\n\n(2,7) |-(6,9) |-(5,5)|-(4,4)|-(5,3)\n\n(6,3)-|(9,4)--(6,4)(7,4)|-(8,7)\n((7,6)--(6,6);\n\n% start and end points\n\\draw[-latex, line width=3pt, red](0.5,1.5)--(1.5,1.5);\n\\draw[-latex, line width=3pt, red](9.5,9.5)--(9.5,10.5);\n\\end{tikzpicture}"
   },
   {
     "objectID": "plots/tikz.html#tikz-plots",
@@ -572,10 +564,13 @@
     "href": "plots/tikz.html#tikz-data-visualizations",
     "title": "tikz",
     "section": "2 TikZ Data Visualizations",
-    "text": "2 TikZ Data Visualizations\n\n2.1 Specify Data Points\n\\usetikzlibrary {datavisualization}\n\\begin{tikzpicture}\n  \\datavisualization [school book axes, visualize as smooth line]\n    data {\n      x, y\n      -1.5, 2.25\n      -1, 1\n      -.5, .25\n      0, 0\n      .5, .25\n      1, 1\n      1.5, 2.25\n    };\n\\end{tikzpicture}\n\n\n\n2.2 2D polynomial\n\\usetikzlibrary {datavisualization.formats.functions}\n\\begin{tikzpicture}\n  \\datavisualization [school book axes, visualize as smooth line]\n    data [format=function] {\n      var x : interval [-1.25:1.25] samples 10;\n      func y = (\\value x)^3;\n    };\n\\end{tikzpicture}\n\n\n\n2.3 Grid\n\n\n\n2.4 Trigonometrical\n\n\n2.5 Sine wave\n\n\n2.6 PGFPlotsX version\n\nx = range(-4; stop = 4, length = 5)\ny = range(-5; stop = 5, length = 5)\nf(x, y) =  -x/6 + y/3\n@pgf Plot3({\n        surf,\n    },\n    Coordinates(x, y, f.(x, y'))\n)\n\n\n\n\n\n\n\n\n\n\n2.7 PGFPlotsx\n\nusing Plots; \npgfplotsx()   # use this for backend\npl  = plot(1:5)\npl2 = plot((1:5).^2)",
-    "crumbs": [
-      "PGFPlotsX",
-      "tikz"
-    ]
+    "text": "2 TikZ Data Visualizations\n\n2.1 Specify Data Points\n\\usetikzlibrary {datavisualization}\n\\begin{tikzpicture}\n  \\datavisualization [school book axes, visualize as smooth line]\n    data {\n      x, y\n      -1.5, 2.25\n      -1, 1\n      -.5, .25\n      0, 0\n      .5, .25\n      1, 1\n      1.5, 2.25\n    };\n\\end{tikzpicture}\n\n\n\n2.2 2D polynomial\n\\begin{tikzpicture}[domain=0:4]\n  \\draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);\n\n  \\draw[-&gt;] (-0.2,0) -- (4.2,0) node[right] {$x$};\n  \\draw[-&gt;] (0,-1.2) -- (0,4.2) node[above] {$f(x)$};\n\n  \\draw[color=red,thick] plot (\\x,\\x)             node[right] {$f(x) =x$};\n  % \\x r means to convert '\\x' from degrees to _r_adians:\n  \\draw[color=blue,thick]  plot (\\x,{sin(\\x r)})  node[right] {$f(x) = \\sin x$};\n  \\draw[color=orange,thick] plot (\\x,{0.05*exp(\\x)}) node[right] {$f(x) = \\frac{1}{20} \\mathrm e^x$};\n\\end{tikzpicture}\n\n\n\n2.3 Grid"
+  },
+  {
+    "objectID": "plots/tikz.html#trigonometrical",
+    "href": "plots/tikz.html#trigonometrical",
+    "title": "tikz",
+    "section": "3 Trigonometrical",
+    "text": "3 Trigonometrical\n\n3.1 Sine wave\n\n\n\n3.2 PGFPlotsX version\n\nx = range(-4; stop = 4, length = 5)\ny = range(-5; stop = 5, length = 5)\nf(x, y) =  -x/6 + y/3\n@pgf Plot3({\n        surf,\n    },\n    Coordinates(x, y, f.(x, y'))\n)\n\n\n\n\n\n\n\n\n\n\n3.3 PGFPlotsx\n\nusing Plots; \npgfplotsx()   # use this for backend\npl  = plot(1:5)\npl2 = plot((1:5).^2)"
   }
 ]
