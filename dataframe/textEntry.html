@@ -248,6 +248,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">layouts</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/curves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">curves</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/parametrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">parametrics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">PGFPlotsX</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/pgfplotsx.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">pgfplotsx</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/3D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3D</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -306,7 +341,7 @@ Data: tip percentages
 22.7 16.3 13.6 16.8 29.9 15.9 14.0 15.0 14.1 18.1 22.8 27.6 
 16.4 16.1 19.0 13.5 18.9 20.2 19.7 18.2 15.4 15.7 19.0 11.5 
 18.4 16.0 16.9 12.0 40.1 19.2</code></pre>
-<div id="e1b15fca" class="cell" data-execution_count="1">
+<div id="dbbf6704" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># assign data as a single string </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># parse as a vector using split(input,' ')</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -332,7 +367,7 @@ Callie  F
 Danny   M</code></pre>
 <section id="matrix-to-dataframe" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="matrix-to-dataframe"><span class="header-section-number">2.1</span> Matrix to DataFrame</h3>
-<div id="dced8286" class="cell" data-execution_count="2">
+<div id="da77f47a" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># enter data as a matrix - row wise</span></span>
@@ -386,7 +421,7 @@ Danny   M</code></pre>
 </section>
 <section id="dict-to-dataframe" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="dict-to-dataframe"><span class="header-section-number">2.2</span> Dict to DataFrame</h3>
-<div id="5d0f1cf1" class="cell" data-execution_count="3">
+<div id="0420342d" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DataFrame takes a Dict structure directly</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>dict <span class="op">=</span> <span class="fu">Dict</span>(<span class="st">"name"</span><span class="op">=&gt;</span>[<span class="st">"Alice"</span>,<span class="st">"Bob"</span>,<span class="st">"Callie"</span>,<span class="st">"Danny"</span>],</span>
@@ -450,7 +485,7 @@ SD107     6    24   46
 SD108    12    47   80
 SD109    10    21   48
 SD110     7    27   62</code></pre>
-<div id="34f90589" class="cell" data-execution_count="4">
+<div id="b3325c50" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">TypedTables</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
