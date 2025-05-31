@@ -578,7 +578,7 @@
     "href": "plots/3D.html#plot3",
     "title": "3D",
     "section": "1 Plot3",
-    "text": "1 Plot3\n\n1.1 Coordinates\n\n@pgf Axis(\n    {\n      xlabel=L\"x\",\n      ylabel=L\"y\",\n      zlabel=L\"f(x,y)\"\n    },\n    Plot3(\n        {\n            mark=\"*\",\n        },\n        Coordinates(\n          [(0,0,0)]\n        )\n    )\n)\n\n\n\n\n\n\n\n\n\n\n1.2 Table\n\nx = [-4,    4,   4,   -4 ,-4]\ny = [-5,   -5,   5,    5 ,-5]\nz = -x/6 .+ y/2\n@pgf Plot3(\n    {\n        mark=\"*\",\n    },\n    Table(x, y, z)\n    )\n\n\n\n\n\n\n\n\n\n\n1.3 Expression\n\n@pgf Axis(\n    {\n        xlabel = L\"x\",\n        ylabel = L\"y\"\n    },\n    Plot3(\n        Expression(\"-x/6+y/2\")\n    )\n)\n\n\n\n\n\n\n\n\n\n\n1.4 surf\n\nx = range(-4; stop = 4, length = 20)\ny = range(-5; stop = 5, length = 25)\nf(x, y) = -x/6+y/2\n@pgf Plot3(\n    {\n        surf,\n    },\n    Coordinates(x, y, f.(x, y'))\n    )\n\n\n\n\n\n\n\n\n\n\n1.5 backend\n\nusing Plots; \npgfplotsx()\nsurface(range(-3,3, length=30), \n        range(-3,3, length=30),\n        (x, y) -&gt; x^2-y^2,\n        label=L\"x^2-y^2\",\n        colormap_name = \"viridis\")",
+    "text": "1 Plot3\n\n1.1 Coordinates\n\n@pgf Axis(\n    {\n      xlabel=L\"x\",\n      ylabel=L\"y\",\n      zlabel=L\"f(x,y)\"\n    },\n    Plot3(\n        {\n            mark=\"*\",\n        },\n        Coordinates(\n          [(0,0,0)]\n        )\n    )\n)\n\n\n\n\n\n\n\n\n\n\n1.2 Table\n\nx = [-4,    4,   4,   -4 ,-4]\ny = [-5,   -5,   5,    5 ,-5]\nz = -x/6 .+ y/2\n@pgf Plot3(\n    {\n        mark=\"*\",\n    },\n    Table(x, y, z)\n    )\n\n\n\n\n\n\n\n\n\n\n1.3 Expression\n\n@pgf Axis(\n    {\n        xlabel = L\"x\",\n        ylabel = L\"y\"\n    },\n    Plot3(\n        Expression(\"-x/6+y/2\")\n    )\n)\n\n\n\n\n\n\n\n\n\n\n1.4 surf\n\nx = range(-4; stop = 4, length = 20)\ny = range(-5; stop = 5, length = 25)\nf(x, y) = -x/6+y/2\n@pgf Plot3(\n    {\n        surf,\n    },\n    Coordinates(x, y, f.(x, y'))\n    )\n\n\n\n\n\n\n\n\n\n\n1.5 backend\n\nusing Plots; \npgfplotsx()\nsurface(range(-3,3, length=30), \n        range(-3,3, length=30),\n        (x, y) -&gt; -x^2-y^2,\n        label=L\"-x^2-y^2\",\n        size=(400,300),\n        colorbar=false)",
     "crumbs": [
       "PGFPlotsX",
       "3D"
@@ -607,6 +607,28 @@
     "crumbs": [
       "PGFPlotsX",
       "pgfplotsx"
+    ]
+  },
+  {
+    "objectID": "plots/backend.html",
+    "href": "plots/backend.html",
+    "title": "pgf backend",
+    "section": "",
+    "text": "import Pkg; Pkg.add(\"PGFPlotsX\")\nusing Plots, PGFPlotsX, LaTeXStrings",
+    "crumbs": [
+      "PGFPlotsX",
+      "backend"
+    ]
+  },
+  {
+    "objectID": "plots/backend.html#pgfplotsx-backend",
+    "href": "plots/backend.html#pgfplotsx-backend",
+    "title": "pgf backend",
+    "section": "1 pgfplotsx backend",
+    "text": "1 pgfplotsx backend\nUses Plots syntax with pgfplotsx backend engine.\n\n1.1 Polynomial function\n\n# normal plot(x,y)\n\npgfplotsx()\nx1 = range(-2,2,length=50)\ny1 = x1.^3\nplot(x1,y1, framestyle=:origin, leg=false, \n     size=(300,250),lw=2,linecolor=:black)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.2 Recipe: Scatter\n\n# recipe scatter(x,y)\n\nx2 = [2,3,3.5,4,4.5,5]\ny2 = [3.5,5,4,6,4.5,5.5]\nscatter(x2,y2, leg=false, size=(300,250), \n        framestyle=:origin)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.3 Expression\n\n@pgf Axis(\n    {\n        xlabel = L\"x\",\n        ylabel = L\"y\"\n    },\n    Plot3(\n        Expression(\"-x/6+y/2\")\n    )\n)\n\n\n\n\n\n\n\n\n\n\n1.4 surface\n\nsurface(range(-3,3, length=30), \n        range(-3,3, length=30),\n        (x, y) -&gt; x^2-y^2,\n        label=L\"x^2-y^2\",\n        colormap_name = \"viridis\",\n        size=(400,300),\n        colorbar=false)",
+    "crumbs": [
+      "PGFPlotsX",
+      "backend"
     ]
   }
 ]
