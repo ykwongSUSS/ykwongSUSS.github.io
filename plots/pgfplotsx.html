@@ -235,14 +235,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../plots/basicPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">basicPlots</span></a>
+  <a href="../plots/coordsPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">coordsPlots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../plots/layouts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">layouts</span></a>
+  <a href="../plots/statsPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">statsPlots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -301,12 +301,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#installation-notes" id="toc-installation-notes" class="nav-link active" data-scroll-target="#installation-notes"><span class="header-section-number">0.1</span> Installation Notes</a></li>
   <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages"><span class="header-section-number">0.2</span> Packages</a></li>
   <li><a href="#version" id="toc-version" class="nav-link" data-scroll-target="#version"><span class="header-section-number">0.3</span> Version</a></li>
-  <li><a href="#pgfplotsx" id="toc-pgfplotsx" class="nav-link" data-scroll-target="#pgfplotsx"><span class="header-section-number">1</span> PGFPlotsX</a>
+  <li><a href="#d" id="toc-d" class="nav-link" data-scroll-target="#d"><span class="header-section-number">1</span> 2D</a>
   <ul class="collapse">
   <li><a href="#coordinates" id="toc-coordinates" class="nav-link" data-scroll-target="#coordinates"><span class="header-section-number">1.1</span> Coordinates</a></li>
   <li><a href="#table" id="toc-table" class="nav-link" data-scroll-target="#table"><span class="header-section-number">1.2</span> Table</a></li>
   <li><a href="#expression" id="toc-expression" class="nav-link" data-scroll-target="#expression"><span class="header-section-number">1.3</span> Expression</a></li>
   <li><a href="#dot-operator" id="toc-dot-operator" class="nav-link" data-scroll-target="#dot-operator"><span class="header-section-number">1.4</span> Dot operator</a></li>
+  </ul></li>
+  <li><a href="#d-1" id="toc-d-1" class="nav-link" data-scroll-target="#d-1"><span class="header-section-number">2</span> 3D</a>
+  <ul class="collapse">
+  <li><a href="#coordinates-1" id="toc-coordinates-1" class="nav-link" data-scroll-target="#coordinates-1"><span class="header-section-number">2.1</span> Coordinates</a></li>
+  <li><a href="#table-1" id="toc-table-1" class="nav-link" data-scroll-target="#table-1"><span class="header-section-number">2.2</span> Table</a></li>
+  <li><a href="#expression-1" id="toc-expression-1" class="nav-link" data-scroll-target="#expression-1"><span class="header-section-number">2.3</span> Expression</a></li>
+  <li><a href="#surf" id="toc-surf" class="nav-link" data-scroll-target="#surf"><span class="header-section-number">2.4</span> surf</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -347,25 +354,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="packages" class="level3" data-number="0.2">
 <h3 data-number="0.2" class="anchored" data-anchor-id="packages"><span class="header-section-number">0.2</span> Packages</h3>
-<div id="cc090731" class="cell" data-execution_count="1">
+<div id="2f4ce3da" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Pkg;</span> Pkg.add("PGFPlotsX")</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span>, <span class="bu">PGFPlotsX</span>, <span class="bu">LaTeXStrings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="version" class="level3" data-number="0.3">
 <h3 data-number="0.3" class="anchored" data-anchor-id="version"><span class="header-section-number">0.3</span> Version</h3>
-<div id="56227f23" class="cell" data-execution_count="2">
+<div id="42720dc3" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pkgversion</span>(PGFPlotsX)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>v"1.6.2"</code></pre>
 </div>
 </div>
 </section>
-<section id="pgfplotsx" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="pgfplotsx"><span class="header-section-number">1</span> PGFPlotsX</h2>
+<section id="d" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="d"><span class="header-section-number">1</span> 2D</h2>
 <section id="coordinates" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="coordinates"><span class="header-section-number">1.1</span> Coordinates</h3>
-<div id="5ad6d880" class="cell" data-execution_count="3">
+<div id="1d8a42f2" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Coordinates of points</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="pp">@pgf</span> <span class="fu">Axis</span>(</span>
@@ -394,7 +401,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="table" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="table"><span class="header-section-number">1.2</span> Table</h3>
-<div id="5c4223e0" class="cell" data-execution_count="4">
+<div id="24a71936" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Table of vectors</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">3.5</span>,<span class="fl">4</span>,<span class="fl">4.5</span>,<span class="fl">5</span>]</span>
@@ -425,7 +432,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="expression" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="expression"><span class="header-section-number">1.3</span> Expression</h3>
-<div id="6643ab64" class="cell" data-execution_count="5">
+<div id="df8b94c5" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Expression for equations</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fu">range</span>(<span class="op">-</span><span class="fl">5</span>,<span class="fl">5</span>)</span>
@@ -453,7 +460,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="dot-operator" class="level3" data-number="1.4">
 <h3 data-number="1.4" class="anchored" data-anchor-id="dot-operator"><span class="header-section-number">1.4</span> Dot operator</h3>
-<div id="75a61c5e" class="cell" data-execution_count="6">
+<div id="c2d09b30" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use of dot operator in function</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fu">range</span>(<span class="op">-</span><span class="fl">1</span>,<span class="fl">1</span>,length<span class="op">=</span><span class="fl">51</span>)</span>
@@ -474,6 +481,99 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
 <figure class="figure">
 <p><img src="pgfplotsx_files/figure-html/cell-7-output-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="d-1" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="d-1"><span class="header-section-number">2</span> 3D</h2>
+<section id="coordinates-1" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="coordinates-1"><span class="header-section-number">2.1</span> Coordinates</h3>
+<div id="87834caf" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@pgf</span> <span class="fu">Axis</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>      xlabel<span class="op">=</span>L<span class="st">"x"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>      ylabel<span class="op">=</span>L<span class="st">"y"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>      zlabel<span class="op">=</span>L<span class="st">"f(x,y)"</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Plot3</span>(</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        {</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            mark<span class="op">=</span><span class="st">"*"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        },</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Coordinates</span>(</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>          [(<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>)]</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<div>
+<figure class="figure">
+<p><img src="pgfplotsx_files/figure-html/cell-8-output-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="table-1" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="table-1"><span class="header-section-number">2.2</span> Table</h3>
+<div id="adbdc4f7" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="op">-</span><span class="fl">4</span>,    <span class="fl">4</span>,   <span class="fl">4</span>,   <span class="op">-</span><span class="fl">4</span> ,<span class="op">-</span><span class="fl">4</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> [<span class="op">-</span><span class="fl">5</span>,   <span class="op">-</span><span class="fl">5</span>,   <span class="fl">5</span>,    <span class="fl">5</span> ,<span class="op">-</span><span class="fl">5</span>]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="op">-</span>x<span class="op">/</span><span class="fl">6</span> <span class="op">.+</span> y<span class="op">/</span><span class="fl">2</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="pp">@pgf</span> <span class="fu">Plot3</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        mark<span class="op">=</span><span class="st">"*"</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Table</span>(x, y, z)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+<figure class="figure">
+<p><img src="pgfplotsx_files/figure-html/cell-9-output-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="expression-1" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="expression-1"><span class="header-section-number">2.3</span> Expression</h3>
+<div id="c36f59c0" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">@pgf</span> <span class="fu">Axis</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>        xlabel <span class="op">=</span> L<span class="st">"x"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>        ylabel <span class="op">=</span> L<span class="st">"y"</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Plot3</span>(</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">Expression</span>(<span class="st">"-x/6+y/2"</span>)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<div>
+<figure class="figure">
+<p><img src="pgfplotsx_files/figure-html/cell-10-output-1.svg" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="surf" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="surf"><span class="header-section-number">2.4</span> surf</h3>
+<div id="408cb45e" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="fu">range</span>(<span class="op">-</span><span class="fl">4</span>; stop <span class="op">=</span> <span class="fl">4</span>, length <span class="op">=</span> <span class="fl">20</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="fu">range</span>(<span class="op">-</span><span class="fl">5</span>; stop <span class="op">=</span> <span class="fl">5</span>, length <span class="op">=</span> <span class="fl">25</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">f</span>(x, y) <span class="op">=</span> <span class="op">-</span>x<span class="op">/</span><span class="fl">6</span><span class="op">+</span>y<span class="op">/</span><span class="fl">2</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="pp">@pgf</span> <span class="fu">Plot3</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    {</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        surf,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    },</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">Coordinates</span>(x, y, <span class="fu">f</span>.(x, y<span class="op">'</span>))</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+<figure class="figure">
+<p><img src="pgfplotsx_files/figure-html/cell-11-output-1.svg" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
