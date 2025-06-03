@@ -476,7 +476,7 @@
     "href": "plots/parametrics.html",
     "title": "parametrics",
     "section": "",
-    "text": "using DataFrames, Plots, TypedTables\n\nThese plots are based on parametric functions.",
+    "text": "using DataFrames, Plots, TypedTables\n\nThese plots are based on parametric functions.\ndirection: right\na: |latex t |\nb: |latex  x=f(t) |\nc: |latex  y=g(t) |\nd: |latex  plot(x,y) |\n\na -&gt; b -&gt; d\na -&gt; c -&gt; d",
     "crumbs": [
       "Plots",
       "parametrics"
@@ -646,14 +646,22 @@
     "href": "plots/coordsPlots.html",
     "title": "coordsPlots",
     "section": "",
-    "text": "import Pkg; Pkg.add(\"Plots\"); Pkg.add(\"DataFrames\")\nusing Plots, DataFrames"
+    "text": "import Pkg; Pkg.add(\"Plots\"); Pkg.add(\"DataFrames\")\nusing Plots, DataFrames",
+    "crumbs": [
+      "Plots",
+      "coordsPlots"
+    ]
   },
   {
     "objectID": "plots/coordsPlots.html#plots.jl",
     "href": "plots/coordsPlots.html#plots.jl",
     "title": "coordsPlots",
     "section": "1 Plots.jl",
-    "text": "1 Plots.jl\nPlots(x,y) accepts \n1. two vectors (x,y) \n2. dataframe columns (df$x,df$y) or \n3. matrix columns\n\nThe values (x1,y1) represents the coordinates.\n\n1.1 plot: vectors\n\n# default plot is line plot\nbegin\n    xvec = [40,45,47,51,53]\n    yvec = [15,18,34,18,28]\n    plot(xvec,yvec,\n         title=\"default: Line Plot\",\n         legend=false, \n         marker=:circle,\n         size = (400,300))\nend\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.2 scatter: df columns\n\nscatter(df.girth, df.height, \n        title =\"Scatter Plot\",\n        xlabel=\"Girth\",\n        ylabel=\"Height\",\n        group = df.name,\n        markersize=6,\n        size=(400,300))\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.3 default 3d\n\n# default axes is set for subsequent 3d plots\n# can change locally\n\ndefault(xlabel=\"x\",\n        ylabel=\"y\",\n        zlabel=\"z\",\n          legend=false,\n            framestyle=:box,\n            size=(400,400))\n\n\n\n1.4 scatter3d: matrix columns\n\nscatter3d(M[:,1],M[:,2],M[:,3],\n      title=\"Scatter3d\",)\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.5 scatter3d: passing coordinates\n\nd = [0 0 0; 1 0 0; 1 1 0; 0 1 0]\nt = [0 0 1; 1 0 1; 1 1 1; 0 1 1]\nplot3d(d[:,1],d[:,2],d[:,3], \n         marker=:circle,\n         color=:red,)\nplot3d!(t[:,1],t[:,2],t[:,3], \n         color=:blue,\n       marker=:diamond)\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.6 scatter3d: coords tuple to matrix of vectors\n\n# coords to vectors\nbegin\ncoords = [(0,0,0),(1,0,0),(1,1,0),(0,1,0)]\nV = collect(coords)\ndisplay(V)\nvvec1 = getindex.(V,1)\nvvec2 = getindex.(V,2)\nvvec3 = getindex.(V,3)\n\nmm =[vvec1 vvec2 vvec3]\ndisplay(mm)\nscatter(mm[:,1],mm[:,2],mm[:,3],\n        framestyle=:origin, color=:red)\nend\n\n4-element Vector{Tuple{Int64, Int64, Int64}}:\n (0, 0, 0)\n (1, 0, 0)\n (1, 1, 0)\n (0, 1, 0)\n\n\n4×3 Matrix{Int64}:\n 0  0  0\n 1  0  0\n 1  1  0\n 0  1  0"
+    "text": "1 Plots.jl\nPlots(x,y) accepts \n1. two vectors (x,y) \n2. dataframe columns (df$x,df$y) or \n3. matrix columns\n\nThe values (x1,y1) represents the coordinates.\n\n1.1 plot: vectors\n\n# default plot is line plot\nbegin\n    xvec = [40,45,47,51,53]\n    yvec = [15,18,34,18,28]\n    plot(xvec,yvec,\n         title=\"default: Line Plot\",\n         legend=false, \n         marker=:circle,\n         size = (300,300))\nend\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.2 scatter: df columns\n\nscatter(df.girth, df.height, \n        title =\"Scatter Plot\",\n        xlabel=\"Girth\",\n        ylabel=\"Height\",\n        group = df.name,\n        markersize=6,\n        size=(300,300))\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.3 default 3d\n\n# default axes is set for subsequent 3d plots\n# can change locally\n\ndefault(xlabel=\"x\",\n        ylabel=\"y\",\n        zlabel=\"z\",\n          legend=false,\n            framestyle=:box,\n            size=(300,300))\n\n\n\n1.4 scatter3d: matrix columns\n\nscatter3d(M[:,1],M[:,2],M[:,3],\n      title=\"Scatter3d\",)\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.5 scatter3d: passing coordinates\n\nd = [0 0 0; 1 0 0; 1 1 0; 0 1 0]\nt = [0 0 1; 1 0 1; 1 1 1; 0 1 1]\nplot3d(d[:,1],d[:,2],d[:,3], \n         marker=:circle,\n         color=:red,)\nplot3d!(t[:,1],t[:,2],t[:,3], \n         color=:blue,\n       marker=:diamond)\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.6 scatter3d: coords tuple to matrix of vectors\n\n# coords to vectors\nbegin\ncoords = [(0,0,0),(1,0,0),(1,1,0),(0,1,0)]\nV = collect(coords)\ndisplay(V)\nvvec1 = getindex.(V,1)\nvvec2 = getindex.(V,2)\nvvec3 = getindex.(V,3)\n\nmm =[vvec1 vvec2 vvec3]\ndisplay(mm)\nscatter(mm[:,1],mm[:,2],mm[:,3],\n        framestyle=:origin, color=:red)\nend\n\n4-element Vector{Tuple{Int64, Int64, Int64}}:\n (0, 0, 0)\n (1, 0, 0)\n (1, 1, 0)\n (0, 1, 0)\n\n\n4×3 Matrix{Int64}:\n 0  0  0\n 1  0  0\n 1  1  0\n 0  1  0",
+    "crumbs": [
+      "Plots",
+      "coordsPlots"
+    ]
   },
   {
     "objectID": "plots/statsplots.html",
@@ -668,5 +676,27 @@
     "title": "statsPlots",
     "section": "1 StatsPlots",
     "text": "1 StatsPlots\n\n1.1 Scatter Points\n\nusing StatsPlots\n\n@df iris scatter(:SepalLength,:PetalLength, group=:Species,\n                xlabel=\"SepalLength\", ylabel=\"PetalLength\")\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.2 Bar Plot\n\nusing Statistics\n    \nirisGp = groupby(iris, :Species)\nspeciesAvg = combine(irisGp, :PetalLength =&gt; mean)\nspeciesAvg\n\n3×2 DataFrame\n\n\n\nRow\nSpecies\nPetalLength_mean\n\n\n\nCat…\nFloat64\n\n\n\n\n1\nsetosa\n1.462\n\n\n2\nversicolor\n4.26\n\n\n3\nvirginica\n5.552\n\n\n\n\n\n\n\nplot(bar(speciesAvg.Species, speciesAvg.PetalLength_mean,\n        title=\"Avg PetalLength by Species\",\n        ylabel=\"PetalLength (inches)\",\n        color=[:lightblue,:lightgreen,:orange],\n        legend=false,\n        size=(400,300)))\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.3 Histograms\n\nusing Distributions, DataFramesMeta\n    \ndefault(legend=false,\n        size=(500,400))\n    \niris1 = @rsubset(iris, :Species==\"setosa\")\niris2 = @rsubset(iris, :Species==\"versicolor\")\niris3 = @rsubset(iris, :Species==\"virginica\")\n    \np1 = @df iris1 histogram(:SepalLength, color=:lightblue, title=\"setosa\", bins=6)\np2 = @df iris2 histogram(:SepalLength, color=:lightgreen, title=\"versicolor\", bins=8)\np3 = @df iris3 histogram(:SepalLength, color=:orange, title=\"virginica\", bins=8)    \n\nplot(p1,p2,p3, layout=(2,2), xlim=[3,9], ylim=[0,20])\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.4 BoxPlots\n\nb1 = @df iris boxplot(:Species,:SepalLength,group=:Species, title=\"SepalLength\")\nb2 = @df iris boxplot(:Species,:PetalLength,group=:Species, title=\"PetalLength\")\nplot(b1,b2, layout=(1,2), legend=false, size=(500,400), ylim=[0,8])"
+  },
+  {
+    "objectID": "plots/statsPlots.html",
+    "href": "plots/statsPlots.html",
+    "title": "statsPlots",
+    "section": "",
+    "text": "import Pkg; Pkg.add(\"StatsPlots\")\nPkg.add(\"Statistics\")",
+    "crumbs": [
+      "Plots",
+      "statsPlots"
+    ]
+  },
+  {
+    "objectID": "plots/statsPlots.html#statsplots",
+    "href": "plots/statsPlots.html#statsplots",
+    "title": "statsPlots",
+    "section": "1 StatsPlots",
+    "text": "1 StatsPlots\n\n1.1 Scatter Points\n\nusing StatsPlots\n\n@df iris scatter(:SepalLength,:PetalLength, group=:Species,\n                xlabel=\"SepalLength\", ylabel=\"PetalLength\")\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.2 Bar Plot\n\nusing Statistics\n    \nirisGp = groupby(iris, :Species)\nspeciesAvg = combine(irisGp, :PetalLength =&gt; mean)\nspeciesAvg\n\n3×2 DataFrame\n\n\n\nRow\nSpecies\nPetalLength_mean\n\n\n\nCat…\nFloat64\n\n\n\n\n1\nsetosa\n1.462\n\n\n2\nversicolor\n4.26\n\n\n3\nvirginica\n5.552\n\n\n\n\n\n\n\nplot(bar(speciesAvg.Species, speciesAvg.PetalLength_mean,\n        title=\"Avg PetalLength by Species\",\n        ylabel=\"PetalLength (inches)\",\n        color=[:lightblue,:lightgreen,:orange],\n        legend=false,\n        size=(400,300)))\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.3 Histograms\n\nusing Distributions, DataFramesMeta\n    \ndefault(legend=false,\n        size=(500,400))\n    \niris1 = @rsubset(iris, :Species==\"setosa\")\niris2 = @rsubset(iris, :Species==\"versicolor\")\niris3 = @rsubset(iris, :Species==\"virginica\")\n    \np1 = @df iris1 histogram(:SepalLength, color=:lightblue, title=\"setosa\", bins=6)\np2 = @df iris2 histogram(:SepalLength, color=:lightgreen, title=\"versicolor\", bins=8)\np3 = @df iris3 histogram(:SepalLength, color=:orange, title=\"virginica\", bins=8)    \n\nplot(p1,p2,p3, layout=(2,2), xlim=[3,9], ylim=[0,20])\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n1.4 BoxPlots\n\nb1 = @df iris boxplot(:Species,:SepalLength,group=:Species, title=\"SepalLength\")\nb2 = @df iris boxplot(:Species,:PetalLength,group=:Species, title=\"PetalLength\")\nplot(b1,b2, layout=(1,2), legend=false, size=(500,400), ylim=[0,8])",
+    "crumbs": [
+      "Plots",
+      "statsPlots"
+    ]
   }
 ]
