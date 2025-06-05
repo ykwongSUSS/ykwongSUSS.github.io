@@ -238,14 +238,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../plots/basicPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">basicPlots</span></a>
+  <a href="../plots/coords2D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">coords2D</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../plots/layouts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">layouts</span></a>
+  <a href="../plots/coords3D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">coords3D</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/statsPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">statsPlots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -258,6 +264,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../plots/parametrics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">parametrics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/3D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3D</span></a>
   </div>
 </li>
       </ul>
@@ -281,12 +293,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../plots/backend.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">backend</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../plots/3D.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3D</span></a>
   </div>
 </li>
       </ul>
@@ -332,7 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="data" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="data"><span class="header-section-number">1</span> Data</h2>
-<div id="1c03bd91" class="cell" data-execution_count="1">
+<div id="bc716ddc" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span>, <span class="bu">TypedTables</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>mat <span class="op">=</span> [<span class="fl">0</span> <span class="fl">31.9</span>; <span class="fl">0</span> <span class="fl">32.0</span>; <span class="fl">1</span> <span class="fl">39.0</span>; <span class="fl">1</span> <span class="fl">32.3</span>; <span class="fl">0</span> <span class="fl">41.0</span>]</span>
@@ -353,7 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="recode-df" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="recode-df"><span class="header-section-number">1.1</span> Recode df</h3>
-<div id="5065d59f" class="cell" data-execution_count="2">
+<div id="f8559056" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.Disease <span class="op">=</span> <span class="fu">replace</span>(df.Disease, <span class="fl">0</span> <span class="op">=&gt;</span> <span class="st">"noCancer"</span>, <span class="fl">1</span><span class="op">=&gt;</span><span class="st">"Cancer"</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">

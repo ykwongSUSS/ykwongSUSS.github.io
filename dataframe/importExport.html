@@ -238,14 +238,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../plots/basicPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">basicPlots</span></a>
+  <a href="../plots/coords2D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">coords2D</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../plots/layouts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">layouts</span></a>
+  <a href="../plots/coords3D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">coords3D</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/statsPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">statsPlots</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -258,6 +264,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../plots/parametrics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">parametrics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/3D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3D</span></a>
   </div>
 </li>
       </ul>
@@ -281,12 +293,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../plots/backend.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">backend</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../plots/3D.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3D</span></a>
   </div>
 </li>
       </ul>
@@ -344,7 +350,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>change column names with <code>rename!</code></li>
 </ul>
-<div id="191c4b10" class="cell" data-execution_count="1">
+<div id="876c395e" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Pkg;</span> Pkg.add("CSV"); Pkg.add("DataFrames")</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">CSV</span>, <span class="bu">DataFrames</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>

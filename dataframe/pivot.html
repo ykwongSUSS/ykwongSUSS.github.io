@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../plots/coordsPlots.html" rel="next">
+<link href="../plots/coords2D.html" rel="next">
 <link href="../dataframe/recode.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -238,8 +238,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../plots/coordsPlots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">coordsPlots</span></a>
+  <a href="../plots/coords2D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">coords2D</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/coords3D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">coords3D</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -258,6 +264,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../plots/parametrics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">parametrics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/3D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3D</span></a>
   </div>
 </li>
       </ul>
@@ -281,12 +293,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../plots/backend.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">backend</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../plots/3D.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3D</span></a>
   </div>
 </li>
       </ul>
@@ -337,7 +343,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="packages" class="level3" data-number="0.1">
 <h3 data-number="0.1" class="anchored" data-anchor-id="packages"><span class="header-section-number">0.1</span> Packages</h3>
-<div id="60d88690" class="cell" data-execution_count="1">
+<div id="62d8f00b" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Pkg;</span> Pkg.add("RDatasets")</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">DataFrames</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">TypedTables</span></span>
@@ -348,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1" class="anchored" data-anchor-id="stack-pivot-longer"><span class="header-section-number">1</span> stack (<code>pivot-longer</code>)</h2>
 <section id="data1---students" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="data1---students"><span class="header-section-number">1.1</span> Data1 - students</h3>
-<div id="7353c9d7" class="cell" data-execution_count="2">
+<div id="6d66008c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using DataFrames</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>students <span class="op">=</span> <span class="fu">DataFrame</span>(</span>
@@ -369,7 +375,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="pivot_long-stack" class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="pivot_long-stack"><span class="header-section-number">1.2</span> Pivot_Long (<code>stack</code>)</h3>
-<div id="638d7981" class="cell" data-execution_count="3">
+<div id="9474181f" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>stacked_students <span class="op">=</span> <span class="fu">stack</span>(students, <span class="fl">1</span><span class="op">:</span><span class="fl">3</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>stacked_students <span class="op">|&gt;</span> Table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
@@ -390,7 +396,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data2---iris" class="level3" data-number="1.3">
 <h3 data-number="1.3" class="anchored" data-anchor-id="data2---iris"><span class="header-section-number">1.3</span> Data2 - Iris</h3>
-<div id="91d14480" class="cell" data-execution_count="4">
+<div id="a9f29830" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using RDatasets</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>iris <span class="op">=</span> <span class="fu">dataset</span>(<span class="st">"datasets"</span>,<span class="st">"iris"</span>)</span>
@@ -473,7 +479,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="rearrange-iris-columns" class="level3" data-number="1.4">
 <h3 data-number="1.4" class="anchored" data-anchor-id="rearrange-iris-columns"><span class="header-section-number">1.4</span> Rearrange iris columns</h3>
-<div id="14c9f663" class="cell" data-execution_count="5">
+<div id="e57c94fd" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>iris2 <span class="op">=</span> <span class="fu">select</span>(iris, <span class="fu">circshift</span>(<span class="fu">names</span>(iris),<span class="fl">1</span>))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(iris2,<span class="fl">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -551,7 +557,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="8567ed47" class="cell" data-execution_count="6">
+<div id="6e543ff6" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>iris3 <span class="op">=</span> <span class="fu">select</span>(iris, <span class="op">:</span>Species, <span class="op">:</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(iris3,<span class="fl">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -632,7 +638,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="pivot_long-stack-1" class="level3" data-number="1.5">
 <h3 data-number="1.5" class="anchored" data-anchor-id="pivot_long-stack-1"><span class="header-section-number">1.5</span> pivot_long (<code>stack</code>)</h3>
-<div id="982e4b8c" class="cell" data-execution_count="7">
+<div id="6b191931" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>iris_long <span class="op">=</span> <span class="fu">stack</span>(iris3, <span class="fl">2</span><span class="op">:</span><span class="fl">5</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">first</span>(iris_long,<span class="fl">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="8">
@@ -1106,8 +1112,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../plots/coordsPlots.html" class="pagination-link" aria-label="coordsPlots">
-        <span class="nav-page-text">coordsPlots</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../plots/coords2D.html" class="pagination-link" aria-label="coords2D">
+        <span class="nav-page-text">coords2D</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
