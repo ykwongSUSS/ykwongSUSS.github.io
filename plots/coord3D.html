@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.31">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>coords3D – WebJ</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c1fac2584b48ed01fb6e278e36375074.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      WebJ
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">WebJ</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../quartoJ.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">quartoJ</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Types</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../types/basics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../types/tables.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">tables</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">DataFrames</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/textEntry.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">textEntry</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/importExport.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">importExport</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/wrangle.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">wrangle</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/recode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">recode</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dataframe/pivot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">pivot</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Plots</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/coordsPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">coordsPlots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/statsPlots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">statsPlots</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/curves.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">curves</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/parametrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">parametrics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/3D.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3D</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true">
+ <span class="menu-text">PGFPlotsX</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/pgfplotsx.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">pgfplotsx</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../plots/backend.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">backend</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#packages" id="toc-packages" class="nav-link active" data-scroll-target="#packages"><span class="header-section-number">0.1</span> Packages</a></li>
+  <li><a href="#default-3d" id="toc-default-3d" class="nav-link" data-scroll-target="#default-3d"><span class="header-section-number">0.2</span> default 3d</a></li>
+  <li><a href="#scatter3d-matrix-columns" id="toc-scatter3d-matrix-columns" class="nav-link" data-scroll-target="#scatter3d-matrix-columns"><span class="header-section-number">0.3</span> scatter3d: matrix columns</a></li>
+  <li><a href="#plot3d-passing-coordinates" id="toc-plot3d-passing-coordinates" class="nav-link" data-scroll-target="#plot3d-passing-coordinates"><span class="header-section-number">0.4</span> plot3d: passing coordinates</a></li>
+  <li><a href="#scatter-3d-coords-tuple-to-matrix-of-vectors" id="toc-scatter-3d-coords-tuple-to-matrix-of-vectors" class="nav-link" data-scroll-target="#scatter-3d-coords-tuple-to-matrix-of-vectors"><span class="header-section-number">0.5</span> scatter 3d: coords tuple to matrix of vectors</a></li>
+  <li><a href="#scatter-scattered-plane" id="toc-scatter-scattered-plane" class="nav-link" data-scroll-target="#scatter-scattered-plane"><span class="header-section-number">0.6</span> scatter: Scattered plane</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">coords3D</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="packages" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="packages"><span class="header-section-number">0.1</span> Packages</h3>
+<div id="e5b2923f" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> <span class="bu">Pkg;</span> Pkg.add("Plots")</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">using</span> <span class="bu">Plots</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="default-3d" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="default-3d"><span class="header-section-number">0.2</span> default 3d</h3>
+<div id="4e559385" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># default axes is set for subsequent 3d plots</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># can change locally</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">default</span>(size<span class="op">=</span>(<span class="fl">300</span>,<span class="fl">300</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        xlabel<span class="op">=</span><span class="st">"x"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        ylabel<span class="op">=</span><span class="st">"y"</span>, </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        zlabel<span class="op">=</span><span class="st">"f(x,y)"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>        framestyle<span class="op">=:</span>box, </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        leg<span class="op">=</span><span class="cn">false</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        xlimits<span class="op">=</span>(<span class="op">-</span><span class="fl">4</span>,<span class="fl">4</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        ylimits<span class="op">=</span>(<span class="op">-</span><span class="fl">5</span>,<span class="fl">5</span>),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="scatter3d-matrix-columns" class="level3" data-number="0.3">
+<h3 data-number="0.3" class="anchored" data-anchor-id="scatter3d-matrix-columns"><span class="header-section-number">0.3</span> scatter3d: matrix columns</h3>
+<p><code>{scatter([0],[0],[0], seriestype=:scatter,)}</code></p>
+</section>
+<section id="plot3d-passing-coordinates" class="level3" data-number="0.4">
+<h3 data-number="0.4" class="anchored" data-anchor-id="plot3d-passing-coordinates"><span class="header-section-number">0.4</span> plot3d: passing coordinates</h3>
+<div id="3778c33a" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> [<span class="fl">0</span> <span class="fl">0</span> <span class="fl">0</span>; <span class="fl">1</span> <span class="fl">0</span> <span class="fl">0</span>; <span class="fl">1</span> <span class="fl">1</span> <span class="fl">0</span>; <span class="fl">0</span> <span class="fl">1</span> <span class="fl">0</span>]</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> [<span class="fl">0</span> <span class="fl">0</span> <span class="fl">1</span>; <span class="fl">1</span> <span class="fl">0</span> <span class="fl">1</span>; <span class="fl">1</span> <span class="fl">1</span> <span class="fl">1</span>; <span class="fl">0</span> <span class="fl">1</span> <span class="fl">1</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot3d</span>(d[<span class="op">:</span>,<span class="fl">1</span>],d[<span class="op">:</span>,<span class="fl">2</span>],d[<span class="op">:</span>,<span class="fl">3</span>], </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         marker<span class="op">=:</span>circle,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         color<span class="op">=:</span>red,)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot3d!</span>(t[<span class="op">:</span>,<span class="fl">1</span>],t[<span class="op">:</span>,<span class="fl">2</span>],t[<span class="op">:</span>,<span class="fl">3</span>], </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         color<span class="op">=:</span>blue,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>       marker<span class="op">=:</span>diamond)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<!--?xml version="1.0" encoding="utf-8"?-->
+<svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="300" height="300" viewbox="0 0 1200 1200">
+<defs>
+  <clippath id="clip990">
+    <rect x="0" y="0" width="1200" height="1200"></rect>
+  </clippath>
+</defs>
+<path clip-path="url(#clip990)" d="M0 1200 L1200 1200 L1200 0 L0 0  Z" fill="#ffffff" fill-rule="evenodd" fill-opacity="1"></path>
+<defs>
+  <clippath id="clip991">
+    <rect x="240" y="119" width="841" height="841"></rect>
+  </clippath>
+</defs>
+<defs>
+  <clippath id="clip992">
+    <rect x="261" y="47" width="892" height="940"></rect>
+  </clippath>
+</defs>
+<path clip-path="url(#clip992)" d="M619.146 570.684 L619.146 481.539 L683.481 436.966 L794.912 462.7 L794.912 551.845 L730.577 596.418 L619.146 570.684  Z" fill="#ffffff" fill-rule="evenodd" fill-opacity="1"></path>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="355.495,786.652 612.836,563.789 612.836,118.062 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="466.927,818.82 724.268,595.956 724.268,150.229 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="578.359,850.987 835.699,628.124 835.699,182.397 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="689.79,883.155 947.131,660.291 947.131,214.564 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="801.222,915.322 1058.56,692.459 1058.56,246.732 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="801.222,915.322 355.495,786.652 355.495,340.925 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="865.557,859.606 419.83,730.936 419.83,285.209 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="929.892,803.891 484.166,675.22 484.166,229.493 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="994.228,748.175 548.501,619.504 548.501,173.777 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="1058.56,692.459 612.836,563.789 612.836,118.062 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="355.495,774.037 612.836,551.174 1058.56,679.844 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="355.495,668.913 612.836,446.049 1058.56,574.72 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="355.495,563.789 612.836,340.925 1058.56,469.595 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="355.495,458.664 612.836,235.801 1058.56,364.471 "></polyline>
+<polyline clip-path="url(#clip992)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="355.495,353.54 612.836,130.677 1058.56,259.347 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="355.495,786.652 801.222,915.322 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="612.836,118.062 1058.56,246.732 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="355.495,786.652 358.583,783.978 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="466.927,818.82 470.015,816.145 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="578.359,850.987 581.447,848.313 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="689.79,883.155 692.879,880.48 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="801.222,915.322 804.31,912.648 "></polyline>
+<path clip-path="url(#clip990)" d="M290.056 801.134 L319.732 801.134 L319.732 805.069 L290.056 805.069 L290.056 801.134 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M342.672 787.477 L330.866 805.926 L342.672 805.926 L342.672 787.477 M341.445 783.403 L347.324 783.403 L347.324 805.926 L352.255 805.926 L352.255 809.815 L347.324 809.815 L347.324 817.963 L342.672 817.963 L342.672 809.815 L327.07 809.815 L327.07 805.301 L341.445 783.403 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M403.571 833.302 L433.247 833.302 L433.247 837.237 L403.571 837.237 L403.571 833.302 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M447.367 846.195 L463.687 846.195 L463.687 850.13 L441.742 850.13 L441.742 846.195 Q444.404 843.441 448.988 838.811 Q453.594 834.158 454.775 832.816 Q457.02 830.292 457.9 828.556 Q458.802 826.797 458.802 825.107 Q458.802 822.353 456.858 820.617 Q454.937 818.88 451.835 818.88 Q449.636 818.88 447.182 819.644 Q444.752 820.408 441.974 821.959 L441.974 817.237 Q444.798 816.103 447.252 815.524 Q449.705 814.945 451.742 814.945 Q457.113 814.945 460.307 817.63 Q463.502 820.316 463.502 824.806 Q463.502 826.936 462.691 828.857 Q461.904 830.755 459.798 833.348 Q459.219 834.019 456.117 837.237 Q453.015 840.431 447.367 846.195 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M563.174 850.817 Q559.563 850.817 557.734 854.381 Q555.929 857.923 555.929 865.053 Q555.929 872.159 557.734 875.724 Q559.563 879.265 563.174 879.265 Q566.808 879.265 568.614 875.724 Q570.443 872.159 570.443 865.053 Q570.443 857.923 568.614 854.381 Q566.808 850.817 563.174 850.817 M563.174 847.113 Q568.984 847.113 572.04 851.719 Q575.118 856.303 575.118 865.053 Q575.118 873.779 572.04 878.386 Q568.984 882.969 563.174 882.969 Q557.364 882.969 554.285 878.386 Q551.23 873.779 551.23 865.053 Q551.23 856.303 554.285 851.719 Q557.364 847.113 563.174 847.113 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M670.231 910.53 L686.55 910.53 L686.55 914.465 L664.606 914.465 L664.606 910.53 Q667.268 907.776 671.851 903.146 Q676.458 898.493 677.638 897.151 Q679.884 894.628 680.763 892.891 Q681.666 891.132 681.666 889.442 Q681.666 886.688 679.721 884.952 Q677.8 883.216 674.698 883.216 Q672.499 883.216 670.046 883.98 Q667.615 884.743 664.837 886.294 L664.837 881.572 Q667.661 880.438 670.115 879.859 Q672.569 879.28 674.606 879.28 Q679.976 879.28 683.171 881.966 Q686.365 884.651 686.365 889.142 Q686.365 891.271 685.555 893.192 Q684.768 895.091 682.661 897.683 Q682.083 898.354 678.981 901.572 Q675.879 904.766 670.231 910.53 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M788.399 916.147 L776.593 934.596 L788.399 934.596 L788.399 916.147 M787.172 912.073 L793.051 912.073 L793.051 934.596 L797.982 934.596 L797.982 938.485 L793.051 938.485 L793.051 946.633 L788.399 946.633 L788.399 938.485 L772.797 938.485 L772.797 933.971 L787.172 912.073 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M471.853 995.483 L458.963 1012.83 L472.522 1031.13 L465.615 1031.13 L455.239 1017.13 L444.863 1031.13 L437.956 1031.13 L451.801 1012.48 L439.133 995.483 L446.04 995.483 L455.493 1008.18 L464.946 995.483 L471.853 995.483 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="801.222,915.322 1058.56,692.459 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="355.495,340.925 612.836,118.062 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="801.222,915.322 795.873,913.778 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="865.557,859.606 860.209,858.062 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="929.892,803.891 924.544,802.347 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="994.228,748.175 988.879,746.631 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="1058.56,692.459 1053.21,690.915 "></polyline>
+<path clip-path="url(#clip990)" d="M809.423 927.61 L839.099 927.61 L839.099 931.546 L809.423 931.546 L809.423 927.61 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M849.237 909.879 L867.594 909.879 L867.594 913.814 L853.52 913.814 L853.52 922.286 Q854.538 921.939 855.557 921.777 Q856.575 921.592 857.594 921.592 Q863.381 921.592 866.761 924.763 Q870.14 927.934 870.14 933.351 Q870.14 938.93 866.668 942.032 Q863.196 945.11 856.876 945.11 Q854.7 945.11 852.432 944.74 Q850.187 944.37 847.779 943.629 L847.779 938.93 Q849.862 940.064 852.085 940.62 Q854.307 941.175 856.784 941.175 Q860.788 941.175 863.126 939.069 Q865.464 936.962 865.464 933.351 Q865.464 929.74 863.126 927.634 Q860.788 925.527 856.784 925.527 Q854.909 925.527 853.034 925.944 Q851.182 926.36 849.237 927.24 L849.237 909.879 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M879.353 938.559 L884.237 938.559 L884.237 944.439 L879.353 944.439 L879.353 938.559 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M904.422 912.958 Q900.811 912.958 898.983 916.523 Q897.177 920.064 897.177 927.194 Q897.177 934.3 898.983 937.865 Q900.811 941.407 904.422 941.407 Q908.057 941.407 909.862 937.865 Q911.691 934.3 911.691 927.194 Q911.691 920.064 909.862 916.523 Q908.057 912.958 904.422 912.958 M904.422 909.254 Q910.233 909.254 913.288 913.86 Q916.367 918.444 916.367 927.194 Q916.367 935.921 913.288 940.527 Q910.233 945.11 904.422 945.11 Q898.612 945.11 895.534 940.527 Q892.478 935.921 892.478 927.194 Q892.478 918.444 895.534 913.86 Q898.612 909.254 904.422 909.254 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M873.758 871.895 L903.434 871.895 L903.434 875.83 L873.758 875.83 L873.758 871.895 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M917.554 884.788 L933.873 884.788 L933.873 888.723 L911.929 888.723 L911.929 884.788 Q914.591 882.033 919.174 877.404 Q923.781 872.751 924.961 871.408 Q927.207 868.885 928.086 867.149 Q928.989 865.39 928.989 863.7 Q928.989 860.946 927.045 859.209 Q925.123 857.473 922.022 857.473 Q919.823 857.473 917.369 858.237 Q914.938 859.001 912.161 860.552 L912.161 855.83 Q914.985 854.696 917.438 854.117 Q919.892 853.538 921.929 853.538 Q927.299 853.538 930.494 856.223 Q933.688 858.909 933.688 863.399 Q933.688 865.529 932.878 867.45 Q932.091 869.348 929.985 871.941 Q929.406 872.612 926.304 875.83 Q923.202 879.024 917.554 884.788 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M943.688 882.844 L948.572 882.844 L948.572 888.723 L943.688 888.723 L943.688 882.844 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M958.804 854.163 L977.16 854.163 L977.16 858.098 L963.086 858.098 L963.086 866.571 Q964.105 866.223 965.123 866.061 Q966.142 865.876 967.16 865.876 Q972.947 865.876 976.327 869.047 Q979.707 872.219 979.707 877.635 Q979.707 883.214 976.234 886.316 Q972.762 889.394 966.443 889.394 Q964.267 889.394 961.998 889.024 Q959.753 888.654 957.346 887.913 L957.346 883.214 Q959.429 884.348 961.651 884.904 Q963.873 885.459 966.35 885.459 Q970.355 885.459 972.693 883.353 Q975.031 881.246 975.031 877.635 Q975.031 874.024 972.693 871.918 Q970.355 869.811 966.35 869.811 Q964.475 869.811 962.6 870.228 Q960.748 870.645 958.804 871.524 L958.804 854.163 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M950.038 801.526 Q946.426 801.526 944.598 805.091 Q942.792 808.632 942.792 815.762 Q942.792 822.868 944.598 826.433 Q946.426 829.975 950.038 829.975 Q953.672 829.975 955.477 826.433 Q957.306 822.868 957.306 815.762 Q957.306 808.632 955.477 805.091 Q953.672 801.526 950.038 801.526 M950.038 797.822 Q955.848 797.822 958.903 802.429 Q961.982 807.012 961.982 815.762 Q961.982 824.489 958.903 829.095 Q955.848 833.679 950.038 833.679 Q944.227 833.679 941.149 829.095 Q938.093 824.489 938.093 815.762 Q938.093 807.012 941.149 802.429 Q944.227 797.822 950.038 797.822 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M970.199 827.128 L975.084 827.128 L975.084 833.007 L970.199 833.007 L970.199 827.128 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M995.269 801.526 Q991.658 801.526 989.829 805.091 Q988.023 808.632 988.023 815.762 Q988.023 822.868 989.829 826.433 Q991.658 829.975 995.269 829.975 Q998.903 829.975 1000.71 826.433 Q1002.54 822.868 1002.54 815.762 Q1002.54 808.632 1000.71 805.091 Q998.903 801.526 995.269 801.526 M995.269 797.822 Q1001.08 797.822 1004.13 802.429 Q1007.21 807.012 1007.21 815.762 Q1007.21 824.489 1004.13 829.095 Q1001.08 833.679 995.269 833.679 Q989.459 833.679 986.38 829.095 Q983.324 824.489 983.324 815.762 Q983.324 807.012 986.38 802.429 Q989.459 797.822 995.269 797.822 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M1008.05 773.356 L1024.37 773.356 L1024.37 777.291 L1002.43 777.291 L1002.43 773.356 Q1005.09 770.602 1009.67 765.972 Q1014.28 761.319 1015.46 759.977 Q1017.71 757.454 1018.59 755.717 Q1019.49 753.958 1019.49 752.268 Q1019.49 749.514 1017.54 747.778 Q1015.62 746.042 1012.52 746.042 Q1010.32 746.042 1007.87 746.805 Q1005.44 747.569 1002.66 749.12 L1002.66 744.398 Q1005.48 743.264 1007.94 742.685 Q1010.39 742.106 1012.43 742.106 Q1017.8 742.106 1020.99 744.792 Q1024.19 747.477 1024.19 751.967 Q1024.19 754.097 1023.38 756.018 Q1022.59 757.917 1020.48 760.509 Q1019.91 761.18 1016.8 764.398 Q1013.7 767.592 1008.05 773.356 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M1034.19 771.412 L1039.07 771.412 L1039.07 777.291 L1034.19 777.291 L1034.19 771.412 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M1049.3 742.731 L1067.66 742.731 L1067.66 746.667 L1053.59 746.667 L1053.59 755.139 Q1054.6 754.792 1055.62 754.63 Q1056.64 754.444 1057.66 754.444 Q1063.45 754.444 1066.83 757.616 Q1070.21 760.787 1070.21 766.204 Q1070.21 771.782 1066.73 774.884 Q1063.26 777.963 1056.94 777.963 Q1054.77 777.963 1052.5 777.592 Q1050.25 777.222 1047.84 776.481 L1047.84 771.782 Q1049.93 772.916 1052.15 773.472 Q1054.37 774.028 1056.85 774.028 Q1060.85 774.028 1063.19 771.921 Q1065.53 769.815 1065.53 766.204 Q1065.53 762.592 1063.19 760.486 Q1060.85 758.38 1056.85 758.38 Q1054.97 758.38 1053.1 758.796 Q1051.25 759.213 1049.3 760.092 L1049.3 742.731 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M1068.22 687.016 L1086.58 687.016 L1086.58 690.951 L1072.5 690.951 L1072.5 699.423 Q1073.52 699.076 1074.54 698.914 Q1075.56 698.728 1076.58 698.728 Q1082.37 698.728 1085.74 701.9 Q1089.12 705.071 1089.12 710.488 Q1089.12 716.066 1085.65 719.168 Q1082.18 722.247 1075.86 722.247 Q1073.68 722.247 1071.42 721.876 Q1069.17 721.506 1066.76 720.765 L1066.76 716.066 Q1068.85 717.201 1071.07 717.756 Q1073.29 718.312 1075.77 718.312 Q1079.77 718.312 1082.11 716.205 Q1084.45 714.099 1084.45 710.488 Q1084.45 706.877 1082.11 704.77 Q1079.77 702.664 1075.77 702.664 Q1073.89 702.664 1072.02 703.08 Q1070.17 703.497 1068.22 704.377 L1068.22 687.016 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M1098.34 715.696 L1103.22 715.696 L1103.22 721.576 L1098.34 721.576 L1098.34 715.696 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M1123.41 690.094 Q1119.8 690.094 1117.97 693.659 Q1116.16 697.201 1116.16 704.33 Q1116.16 711.437 1117.97 715.002 Q1119.8 718.543 1123.41 718.543 Q1127.04 718.543 1128.85 715.002 Q1130.68 711.437 1130.68 704.33 Q1130.68 697.201 1128.85 693.659 Q1127.04 690.094 1123.41 690.094 M1123.41 686.391 Q1129.22 686.391 1132.27 690.997 Q1135.35 695.58 1135.35 704.33 Q1135.35 713.057 1132.27 717.664 Q1129.22 722.247 1123.41 722.247 Q1117.6 722.247 1114.52 717.664 Q1111.46 713.057 1111.46 704.33 Q1111.46 695.58 1114.52 690.997 Q1117.6 686.391 1123.41 686.391 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M1054.7 987.345 Q1052.22 993.71 1049.86 995.652 Q1047.51 997.594 1043.56 997.594 L1038.88 997.594 L1038.88 992.692 L1042.32 992.692 Q1044.74 992.692 1046.07 991.546 Q1047.41 990.4 1049.03 986.135 L1050.08 983.462 L1035.67 948.387 L1041.87 948.387 L1053.01 976.268 L1064.15 948.387 L1070.36 948.387 L1054.7 987.345 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="355.495,786.652 355.495,340.925 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="1058.56,692.459 1058.56,246.732 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="355.495,774.037 358.583,771.363 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="355.495,668.913 358.583,666.238 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="355.495,563.789 358.583,561.114 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="355.495,458.664 358.583,455.99 "></polyline>
+<polyline clip-path="url(#clip990)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="355.495,353.54 358.583,350.866 "></polyline>
+<path clip-path="url(#clip990)" d="M253.758 759.836 Q250.147 759.836 248.318 763.401 Q246.512 766.942 246.512 774.072 Q246.512 781.178 248.318 784.743 Q250.147 788.285 253.758 788.285 Q257.392 788.285 259.198 784.743 Q261.026 781.178 261.026 774.072 Q261.026 766.942 259.198 763.401 Q257.392 759.836 253.758 759.836 M253.758 756.132 Q259.568 756.132 262.623 760.739 Q265.702 765.322 265.702 774.072 Q265.702 782.799 262.623 787.405 Q259.568 791.988 253.758 791.988 Q247.948 791.988 244.869 787.405 Q241.813 782.799 241.813 774.072 Q241.813 765.322 244.869 760.739 Q247.948 756.132 253.758 756.132 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M273.92 785.438 L278.804 785.438 L278.804 791.317 L273.92 791.317 L273.92 785.438 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M298.989 759.836 Q295.378 759.836 293.549 763.401 Q291.744 766.942 291.744 774.072 Q291.744 781.178 293.549 784.743 Q295.378 788.285 298.989 788.285 Q302.623 788.285 304.429 784.743 Q306.257 781.178 306.257 774.072 Q306.257 766.942 304.429 763.401 Q302.623 759.836 298.989 759.836 M298.989 756.132 Q304.799 756.132 307.855 760.739 Q310.933 765.322 310.933 774.072 Q310.933 782.799 307.855 787.405 Q304.799 791.988 298.989 791.988 Q293.179 791.988 290.1 787.405 Q287.045 782.799 287.045 774.072 Q287.045 765.322 290.1 760.739 Q293.179 756.132 298.989 756.132 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M329.151 759.836 Q325.54 759.836 323.711 763.401 Q321.906 766.942 321.906 774.072 Q321.906 781.178 323.711 784.743 Q325.54 788.285 329.151 788.285 Q332.785 788.285 334.591 784.743 Q336.419 781.178 336.419 774.072 Q336.419 766.942 334.591 763.401 Q332.785 759.836 329.151 759.836 M329.151 756.132 Q334.961 756.132 338.017 760.739 Q341.095 765.322 341.095 774.072 Q341.095 782.799 338.017 787.405 Q334.961 791.988 329.151 791.988 Q323.341 791.988 320.262 787.405 Q317.206 782.799 317.206 774.072 Q317.206 765.322 320.262 760.739 Q323.341 756.132 329.151 756.132 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M254.753 654.712 Q251.142 654.712 249.313 658.276 Q247.508 661.818 247.508 668.948 Q247.508 676.054 249.313 679.619 Q251.142 683.16 254.753 683.16 Q258.387 683.16 260.193 679.619 Q262.022 676.054 262.022 668.948 Q262.022 661.818 260.193 658.276 Q258.387 654.712 254.753 654.712 M254.753 651.008 Q260.563 651.008 263.619 655.614 Q266.697 660.198 266.697 668.948 Q266.697 677.674 263.619 682.281 Q260.563 686.864 254.753 686.864 Q248.943 686.864 245.864 682.281 Q242.809 677.674 242.809 668.948 Q242.809 660.198 245.864 655.614 Q248.943 651.008 254.753 651.008 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M274.915 680.313 L279.799 680.313 L279.799 686.193 L274.915 686.193 L274.915 680.313 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M294.012 682.258 L310.331 682.258 L310.331 686.193 L288.387 686.193 L288.387 682.258 Q291.049 679.503 295.632 674.873 Q300.239 670.221 301.42 668.878 Q303.665 666.355 304.544 664.619 Q305.447 662.86 305.447 661.17 Q305.447 658.415 303.503 656.679 Q301.582 654.943 298.48 654.943 Q296.281 654.943 293.827 655.707 Q291.396 656.471 288.619 658.022 L288.619 653.299 Q291.443 652.165 293.896 651.587 Q296.35 651.008 298.387 651.008 Q303.757 651.008 306.952 653.693 Q310.146 656.378 310.146 660.869 Q310.146 662.999 309.336 664.92 Q308.549 666.818 306.443 669.411 Q305.864 670.082 302.762 673.299 Q299.66 676.494 294.012 682.258 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M320.193 651.633 L338.549 651.633 L338.549 655.568 L324.475 655.568 L324.475 664.04 Q325.493 663.693 326.512 663.531 Q327.53 663.346 328.549 663.346 Q334.336 663.346 337.716 666.517 Q341.095 669.688 341.095 675.105 Q341.095 680.684 337.623 683.785 Q334.151 686.864 327.831 686.864 Q325.655 686.864 323.387 686.494 Q321.142 686.123 318.734 685.383 L318.734 680.684 Q320.818 681.818 323.04 682.373 Q325.262 682.929 327.739 682.929 Q331.743 682.929 334.081 680.822 Q336.419 678.716 336.419 675.105 Q336.419 671.494 334.081 669.387 Q331.743 667.281 327.739 667.281 Q325.864 667.281 323.989 667.698 Q322.137 668.114 320.193 668.994 L320.193 651.633 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M253.758 549.587 Q250.147 549.587 248.318 553.152 Q246.512 556.694 246.512 563.823 Q246.512 570.93 248.318 574.495 Q250.147 578.036 253.758 578.036 Q257.392 578.036 259.198 574.495 Q261.026 570.93 261.026 563.823 Q261.026 556.694 259.198 553.152 Q257.392 549.587 253.758 549.587 M253.758 545.884 Q259.568 545.884 262.623 550.49 Q265.702 555.073 265.702 563.823 Q265.702 572.55 262.623 577.157 Q259.568 581.74 253.758 581.74 Q247.948 581.74 244.869 577.157 Q241.813 572.55 241.813 563.823 Q241.813 555.073 244.869 550.49 Q247.948 545.884 253.758 545.884 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M273.92 575.189 L278.804 575.189 L278.804 581.069 L273.92 581.069 L273.92 575.189 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M289.035 546.509 L307.392 546.509 L307.392 550.444 L293.318 550.444 L293.318 558.916 Q294.336 558.569 295.355 558.407 Q296.373 558.221 297.392 558.221 Q303.179 558.221 306.558 561.393 Q309.938 564.564 309.938 569.981 Q309.938 575.559 306.466 578.661 Q302.994 581.74 296.674 581.74 Q294.498 581.74 292.23 581.369 Q289.984 580.999 287.577 580.258 L287.577 575.559 Q289.66 576.694 291.883 577.249 Q294.105 577.805 296.582 577.805 Q300.586 577.805 302.924 575.698 Q305.262 573.592 305.262 569.981 Q305.262 566.37 302.924 564.263 Q300.586 562.157 296.582 562.157 Q294.707 562.157 292.832 562.573 Q290.98 562.99 289.035 563.87 L289.035 546.509 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M329.151 549.587 Q325.54 549.587 323.711 553.152 Q321.906 556.694 321.906 563.823 Q321.906 570.93 323.711 574.495 Q325.54 578.036 329.151 578.036 Q332.785 578.036 334.591 574.495 Q336.419 570.93 336.419 563.823 Q336.419 556.694 334.591 553.152 Q332.785 549.587 329.151 549.587 M329.151 545.884 Q334.961 545.884 338.017 550.49 Q341.095 555.073 341.095 563.823 Q341.095 572.55 338.017 577.157 Q334.961 581.74 329.151 581.74 Q323.341 581.74 320.262 577.157 Q317.206 572.55 317.206 563.823 Q317.206 555.073 320.262 550.49 Q323.341 545.884 329.151 545.884 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M254.753 444.463 Q251.142 444.463 249.313 448.028 Q247.508 451.569 247.508 458.699 Q247.508 465.805 249.313 469.37 Q251.142 472.912 254.753 472.912 Q258.387 472.912 260.193 469.37 Q262.022 465.805 262.022 458.699 Q262.022 451.569 260.193 448.028 Q258.387 444.463 254.753 444.463 M254.753 440.759 Q260.563 440.759 263.619 445.366 Q266.697 449.949 266.697 458.699 Q266.697 467.426 263.619 472.032 Q260.563 476.616 254.753 476.616 Q248.943 476.616 245.864 472.032 Q242.809 467.426 242.809 458.699 Q242.809 449.949 245.864 445.366 Q248.943 440.759 254.753 440.759 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M274.915 470.065 L279.799 470.065 L279.799 475.944 L274.915 475.944 L274.915 470.065 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M288.804 441.384 L311.026 441.384 L311.026 443.375 L298.48 475.944 L293.595 475.944 L305.401 445.319 L288.804 445.319 L288.804 441.384 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M320.193 441.384 L338.549 441.384 L338.549 445.319 L324.475 445.319 L324.475 453.792 Q325.493 453.444 326.512 453.282 Q327.53 453.097 328.549 453.097 Q334.336 453.097 337.716 456.268 Q341.095 459.44 341.095 464.856 Q341.095 470.435 337.623 473.537 Q334.151 476.616 327.831 476.616 Q325.655 476.616 323.387 476.245 Q321.142 475.875 318.734 475.134 L318.734 470.435 Q320.818 471.569 323.04 472.125 Q325.262 472.68 327.739 472.68 Q331.743 472.68 334.081 470.574 Q336.419 468.467 336.419 464.856 Q336.419 461.245 334.081 459.139 Q331.743 457.032 327.739 457.032 Q325.864 457.032 323.989 457.449 Q322.137 457.866 320.193 458.745 L320.193 441.384 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M244.568 366.885 L252.207 366.885 L252.207 340.519 L243.897 342.186 L243.897 337.927 L252.161 336.26 L256.836 336.26 L256.836 366.885 L264.475 366.885 L264.475 370.82 L244.568 370.82 L244.568 366.885 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M273.92 364.94 L278.804 364.94 L278.804 370.82 L273.92 370.82 L273.92 364.94 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M298.989 339.339 Q295.378 339.339 293.549 342.903 Q291.744 346.445 291.744 353.575 Q291.744 360.681 293.549 364.246 Q295.378 367.788 298.989 367.788 Q302.623 367.788 304.429 364.246 Q306.257 360.681 306.257 353.575 Q306.257 346.445 304.429 342.903 Q302.623 339.339 298.989 339.339 M298.989 335.635 Q304.799 335.635 307.855 340.241 Q310.933 344.825 310.933 353.575 Q310.933 362.302 307.855 366.908 Q304.799 371.491 298.989 371.491 Q293.179 371.491 290.1 366.908 Q287.045 362.302 287.045 353.575 Q287.045 344.825 290.1 340.241 Q293.179 335.635 298.989 335.635 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M329.151 339.339 Q325.54 339.339 323.711 342.903 Q321.906 346.445 321.906 353.575 Q321.906 360.681 323.711 364.246 Q325.54 367.788 329.151 367.788 Q332.785 367.788 334.591 364.246 Q336.419 360.681 336.419 353.575 Q336.419 346.445 334.591 342.903 Q332.785 339.339 329.151 339.339 M329.151 335.635 Q334.961 335.635 338.017 340.241 Q341.095 344.825 341.095 353.575 Q341.095 362.302 338.017 366.908 Q334.961 371.491 329.151 371.491 Q323.341 371.491 320.262 366.908 Q317.206 362.302 317.206 353.575 Q317.206 344.825 320.262 340.241 Q323.341 335.635 329.151 335.635 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M156.432 623.387 L161.302 623.387 L161.302 628.989 Q161.302 632.14 162.575 633.382 Q163.848 634.591 167.158 634.591 L170.309 634.591 L170.309 624.947 L174.861 624.947 L174.861 634.591 L205.957 634.591 L205.957 640.479 L174.861 640.479 L174.861 646.081 L170.309 646.081 L170.309 640.479 L167.827 640.479 Q161.875 640.479 159.169 637.71 Q156.432 634.941 156.432 628.926 L156.432 623.387 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M156.496 604.418 Q163.816 608.683 170.978 610.752 Q178.139 612.82 185.492 612.82 Q192.844 612.82 200.069 610.752 Q207.262 608.651 214.551 604.418 L214.551 609.51 Q207.071 614.285 199.846 616.672 Q192.621 619.027 185.492 619.027 Q178.394 619.027 171.201 616.672 Q164.007 614.316 156.496 609.51 L156.496 604.418 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M170.309 563.423 L187.656 576.313 L205.957 562.754 L205.957 569.661 L191.953 580.037 L205.957 590.413 L205.957 597.32 L187.306 583.475 L170.309 596.142 L170.309 589.235 L183.009 579.782 L170.309 570.329 L170.309 563.423 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M197.873 552.983 L197.873 546.267 L203.347 546.267 L213.533 551.487 L213.533 555.593 L203.347 552.983 L197.873 552.983 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M209.268 518.926 Q215.633 521.409 217.575 523.764 Q219.516 526.119 219.516 530.066 L219.516 534.745 L214.615 534.745 L214.615 531.308 Q214.615 528.889 213.469 527.552 Q212.323 526.215 208.058 524.592 L205.384 523.541 L170.309 537.96 L170.309 531.753 L198.191 520.613 L170.309 509.473 L170.309 503.267 L209.268 518.926 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip990)" d="M156.496 496.105 L156.496 491.013 Q164.007 486.238 171.201 483.883 Q178.394 481.496 185.492 481.496 Q192.621 481.496 199.846 483.883 Q207.071 486.238 214.551 491.013 L214.551 496.105 Q207.262 491.872 200.069 489.803 Q192.844 487.702 185.492 487.702 Q178.139 487.702 170.978 489.803 Q163.816 491.872 156.496 496.105 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><polyline clip-path="url(#clip992)" style="stroke:#ff0000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="707.029,726.941 762.745,743.024 788.479,720.738 732.763,704.654 "></polyline>
+<circle clip-path="url(#clip992)" cx="707.029" cy="726.941" r="14.4" fill="#ff0000" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></circle>
+<circle clip-path="url(#clip992)" cx="762.745" cy="743.024" r="14.4" fill="#ff0000" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></circle>
+<circle clip-path="url(#clip992)" cx="788.479" cy="720.738" r="14.4" fill="#ff0000" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></circle>
+<circle clip-path="url(#clip992)" cx="732.763" cy="704.654" r="14.4" fill="#ff0000" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></circle>
+<polyline clip-path="url(#clip992)" style="stroke:#0000ff; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="707.029,306.443 762.745,322.527 788.479,300.241 732.763,284.157 "></polyline>
+<path clip-path="url(#clip992)" d="M707.029 290.443 L691.029 306.443 L707.029 322.443 L723.029 306.443 L707.029 290.443 Z" fill="#0000ff" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></path>
+<path clip-path="url(#clip992)" d="M762.745 306.527 L746.745 322.527 L762.745 338.527 L778.745 322.527 L762.745 306.527 Z" fill="#0000ff" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></path>
+<path clip-path="url(#clip992)" d="M788.479 284.241 L772.479 300.241 L788.479 316.241 L804.479 300.241 L788.479 284.241 Z" fill="#0000ff" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></path>
+<path clip-path="url(#clip992)" d="M732.763 268.157 L716.763 284.157 L732.763 300.157 L748.763 284.157 L732.763 268.157 Z" fill="#0000ff" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></path>
+</svg>
+</div>
+</div>
+</section>
+<section id="scatter-3d-coords-tuple-to-matrix-of-vectors" class="level3" data-number="0.5">
+<h3 data-number="0.5" class="anchored" data-anchor-id="scatter-3d-coords-tuple-to-matrix-of-vectors"><span class="header-section-number">0.5</span> scatter 3d: coords tuple to matrix of vectors</h3>
+<div id="46db985a" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># coords to vectors</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="cf">begin</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>coords <span class="op">=</span> [(<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>),(<span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">0</span>),(<span class="fl">1</span>,<span class="fl">1</span>,<span class="fl">0</span>),(<span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0</span>)]</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> <span class="fu">collect</span>(coords)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(V)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>vvec1 <span class="op">=</span> <span class="fu">getindex</span>.(V,<span class="fl">1</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>vvec2 <span class="op">=</span> <span class="fu">getindex</span>.(V,<span class="fl">2</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>vvec3 <span class="op">=</span> <span class="fu">getindex</span>.(V,<span class="fl">3</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>mm <span class="op">=</span>[vvec1 vvec2 vvec3]</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">display</span>(mm)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">scatter</span>(mm[<span class="op">:</span>,<span class="fl">1</span>],mm[<span class="op">:</span>,<span class="fl">2</span>],mm[<span class="op">:</span>,<span class="fl">3</span>],</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        framestyle<span class="op">=:</span>origin, color<span class="op">=:</span>red)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="cf">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>4-element Vector{Tuple{Int64, Int64, Int64}}:
+ (0, 0, 0)
+ (1, 0, 0)
+ (1, 1, 0)
+ (0, 1, 0)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>4×3 Matrix{Int64}:
+ 0  0  0
+ 1  0  0
+ 1  1  0
+ 0  1  0</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<!--?xml version="1.0" encoding="utf-8"?-->
+<svg xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" width="300" height="300" viewbox="0 0 1200 1200">
+<defs>
+  <clippath id="clip080">
+    <rect x="0" y="0" width="1200" height="1200"></rect>
+  </clippath>
+</defs>
+<path clip-path="url(#clip080)" d="M0 1200 L1200 1200 L1200 0 L0 0  Z" fill="#ffffff" fill-rule="evenodd" fill-opacity="1"></path>
+<defs>
+  <clippath id="clip081">
+    <rect x="240" y="119" width="841" height="841"></rect>
+  </clippath>
+</defs>
+<defs>
+  <clippath id="clip082">
+    <rect x="261" y="47" width="892" height="940"></rect>
+  </clippath>
+</defs>
+<path clip-path="url(#clip082)" d="M619.146 570.684 L619.146 481.539 L683.481 436.966 L794.912 462.7 L794.912 551.845 L730.577 596.418 L619.146 570.684  Z" fill="#ffffff" fill-rule="evenodd" fill-opacity="1"></path>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="355.495,774.037 612.836,551.174 "></polyline>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="466.927,806.205 724.268,583.341 "></polyline>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="689.79,870.54 947.131,647.676 "></polyline>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="801.222,902.707 1058.56,679.844 "></polyline>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="355.495,774.037 801.222,902.707 "></polyline>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="419.83,718.321 865.557,846.992 "></polyline>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="548.501,606.89 994.228,735.56 "></polyline>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="612.836,551.174 1058.56,679.844 "></polyline>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="578.359,733.248 835.699,510.385 "></polyline>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="578.359,628.124 835.699,405.26 "></polyline>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="578.359,522.999 835.699,300.136 "></polyline>
+<polyline clip-path="url(#clip082)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:2; stroke-opacity:0.1; fill:none" points="578.359,417.875 835.699,195.012 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="484.166,662.605 929.892,791.276 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="481.077,665.28 487.254,659.931 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="592.509,697.447 598.685,692.099 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="815.373,761.782 821.549,756.434 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="926.804,793.95 932.981,788.601 "></polyline>
+<path clip-path="url(#clip080)" d="M418.727 677.087 L448.402 677.087 L448.402 681.023 L418.727 681.023 L418.727 677.087 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M471.342 663.43 L459.536 681.879 L471.342 681.879 L471.342 663.43 M470.115 659.356 L475.995 659.356 L475.995 681.879 L480.925 681.879 L480.925 685.768 L475.995 685.768 L475.995 693.916 L471.342 693.916 L471.342 685.768 L455.74 685.768 L455.74 681.254 L470.115 659.356 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M532.242 709.255 L561.917 709.255 L561.917 713.19 L532.242 713.19 L532.242 709.255 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M576.038 722.148 L592.357 722.148 L592.357 726.084 L570.413 726.084 L570.413 722.148 Q573.075 719.394 577.658 714.764 Q582.264 710.112 583.445 708.769 Q585.69 706.246 586.57 704.51 Q587.473 702.75 587.473 701.061 Q587.473 698.306 585.528 696.57 Q583.607 694.834 580.505 694.834 Q578.306 694.834 575.852 695.598 Q573.422 696.362 570.644 697.913 L570.644 693.19 Q573.468 692.056 575.922 691.477 Q578.376 690.899 580.413 690.899 Q585.783 690.899 588.977 693.584 Q592.172 696.269 592.172 700.76 Q592.172 702.889 591.362 704.811 Q590.575 706.709 588.468 709.301 Q587.889 709.973 584.788 713.19 Q581.686 716.385 576.038 722.148 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M798.901 786.484 L815.22 786.484 L815.22 790.419 L793.276 790.419 L793.276 786.484 Q795.938 783.729 800.521 779.099 Q805.128 774.447 806.308 773.104 Q808.554 770.581 809.433 768.845 Q810.336 767.086 810.336 765.396 Q810.336 762.641 808.392 760.905 Q806.47 759.169 803.369 759.169 Q801.17 759.169 798.716 759.933 Q796.285 760.697 793.508 762.248 L793.508 757.525 Q796.332 756.391 798.785 755.813 Q801.239 755.234 803.276 755.234 Q808.646 755.234 811.841 757.919 Q815.035 760.604 815.035 765.095 Q815.035 767.224 814.225 769.146 Q813.438 771.044 811.332 773.636 Q810.753 774.308 807.651 777.525 Q804.549 780.72 798.901 786.484 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M917.069 792.1 L905.263 810.549 L917.069 810.549 L917.069 792.1 M915.842 788.026 L921.722 788.026 L921.722 810.549 L926.652 810.549 L926.652 814.438 L921.722 814.438 L921.722 822.586 L917.069 822.586 L917.069 814.438 L901.467 814.438 L901.467 809.924 L915.842 788.026 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M471.853 995.483 L458.963 1012.83 L472.522 1031.13 L465.615 1031.13 L455.239 1017.13 L444.863 1031.13 L437.956 1031.13 L451.801 1012.48 L439.133 995.483 L446.04 995.483 L455.493 1008.18 L464.946 995.483 L471.853 995.483 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="578.359,838.372 835.699,615.509 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="573.01,836.828 583.707,839.916 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="637.345,781.112 648.043,784.2 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="766.015,669.681 776.713,672.769 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="830.351,613.965 841.048,617.053 "></polyline>
+<path clip-path="url(#clip080)" d="M586.559 850.66 L616.235 850.66 L616.235 854.596 L586.559 854.596 L586.559 850.66 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M626.374 832.929 L644.73 832.929 L644.73 836.864 L630.656 836.864 L630.656 845.336 Q631.675 844.989 632.693 844.827 Q633.712 844.642 634.73 844.642 Q640.517 844.642 643.897 847.813 Q647.277 850.984 647.277 856.401 Q647.277 861.98 643.804 865.082 Q640.332 868.16 634.013 868.16 Q631.837 868.16 629.568 867.79 Q627.323 867.42 624.916 866.679 L624.916 861.98 Q626.999 863.114 629.221 863.67 Q631.443 864.225 633.92 864.225 Q637.925 864.225 640.263 862.119 Q642.601 860.012 642.601 856.401 Q642.601 852.79 640.263 850.684 Q637.925 848.577 633.92 848.577 Q632.045 848.577 630.17 848.994 Q628.318 849.41 626.374 850.29 L626.374 832.929 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M656.49 861.609 L661.374 861.609 L661.374 867.489 L656.49 867.489 L656.49 861.609 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M681.559 836.008 Q677.948 836.008 676.119 839.572 Q674.314 843.114 674.314 850.244 Q674.314 857.35 676.119 860.915 Q677.948 864.457 681.559 864.457 Q685.193 864.457 686.999 860.915 Q688.827 857.35 688.827 850.244 Q688.827 843.114 686.999 839.572 Q685.193 836.008 681.559 836.008 M681.559 832.304 Q687.369 832.304 690.425 836.91 Q693.503 841.494 693.503 850.244 Q693.503 858.971 690.425 863.577 Q687.369 868.16 681.559 868.16 Q675.749 868.16 672.67 863.577 Q669.615 858.971 669.615 850.244 Q669.615 841.494 672.67 836.91 Q675.749 832.304 681.559 832.304 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M650.895 794.945 L680.57 794.945 L680.57 798.88 L650.895 798.88 L650.895 794.945 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M694.691 807.838 L711.01 807.838 L711.01 811.773 L689.066 811.773 L689.066 807.838 Q691.728 805.083 696.311 800.454 Q700.917 795.801 702.098 794.458 Q704.343 791.935 705.223 790.199 Q706.126 788.44 706.126 786.75 Q706.126 783.995 704.181 782.259 Q702.26 780.523 699.158 780.523 Q696.959 780.523 694.505 781.287 Q692.075 782.051 689.297 783.602 L689.297 778.88 Q692.121 777.746 694.575 777.167 Q697.029 776.588 699.066 776.588 Q704.436 776.588 707.63 779.273 Q710.825 781.958 710.825 786.449 Q710.825 788.579 710.015 790.5 Q709.228 792.398 707.121 794.991 Q706.542 795.662 703.441 798.88 Q700.339 802.074 694.691 807.838 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M720.825 805.894 L725.709 805.894 L725.709 811.773 L720.825 811.773 L720.825 805.894 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M735.94 777.213 L754.297 777.213 L754.297 781.148 L740.223 781.148 L740.223 789.62 Q741.241 789.273 742.26 789.111 Q743.278 788.926 744.297 788.926 Q750.084 788.926 753.463 792.097 Q756.843 795.269 756.843 800.685 Q756.843 806.264 753.371 809.366 Q749.899 812.444 743.579 812.444 Q741.403 812.444 739.135 812.074 Q736.889 811.704 734.482 810.963 L734.482 806.264 Q736.565 807.398 738.788 807.954 Q741.01 808.509 743.487 808.509 Q747.491 808.509 749.829 806.403 Q752.167 804.296 752.167 800.685 Q752.167 797.074 749.829 794.968 Q747.491 792.861 743.487 792.861 Q741.612 792.861 739.737 793.278 Q737.885 793.695 735.94 794.574 L735.94 777.213 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M785.19 696.406 L801.509 696.406 L801.509 700.341 L779.565 700.341 L779.565 696.406 Q782.227 693.652 786.81 689.022 Q791.417 684.369 792.597 683.027 Q794.843 680.504 795.722 678.767 Q796.625 677.008 796.625 675.318 Q796.625 672.564 794.68 670.828 Q792.759 669.092 789.657 669.092 Q787.458 669.092 785.005 669.855 Q782.574 670.619 779.796 672.17 L779.796 667.448 Q782.62 666.314 785.074 665.735 Q787.528 665.156 789.565 665.156 Q794.935 665.156 798.13 667.842 Q801.324 670.527 801.324 675.017 Q801.324 677.147 800.514 679.068 Q799.727 680.966 797.62 683.559 Q797.042 684.23 793.94 687.448 Q790.838 690.642 785.19 696.406 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M811.324 694.462 L816.208 694.462 L816.208 700.341 L811.324 700.341 L811.324 694.462 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M826.44 665.781 L844.796 665.781 L844.796 669.717 L830.722 669.717 L830.722 678.189 Q831.74 677.842 832.759 677.679 Q833.778 677.494 834.796 677.494 Q840.583 677.494 843.963 680.666 Q847.342 683.837 847.342 689.253 Q847.342 694.832 843.87 697.934 Q840.398 701.013 834.078 701.013 Q831.903 701.013 829.634 700.642 Q827.389 700.272 824.981 699.531 L824.981 694.832 Q827.065 695.966 829.287 696.522 Q831.509 697.078 833.986 697.078 Q837.99 697.078 840.328 694.971 Q842.666 692.865 842.666 689.253 Q842.666 685.642 840.328 683.536 Q837.99 681.429 833.986 681.429 Q832.111 681.429 830.236 681.846 Q828.384 682.263 826.44 683.142 L826.44 665.781 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M845.358 610.066 L863.715 610.066 L863.715 614.001 L849.641 614.001 L849.641 622.473 Q850.659 622.126 851.678 621.964 Q852.696 621.778 853.715 621.778 Q859.502 621.778 862.881 624.95 Q866.261 628.121 866.261 633.538 Q866.261 639.116 862.789 642.218 Q859.317 645.297 852.997 645.297 Q850.821 645.297 848.553 644.926 Q846.307 644.556 843.9 643.815 L843.9 639.116 Q845.983 640.251 848.206 640.806 Q850.428 641.362 852.905 641.362 Q856.909 641.362 859.247 639.255 Q861.585 637.149 861.585 633.538 Q861.585 629.927 859.247 627.82 Q856.909 625.714 852.905 625.714 Q851.03 625.714 849.155 626.13 Q847.303 626.547 845.358 627.427 L845.358 610.066 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M875.474 638.746 L880.358 638.746 L880.358 644.626 L875.474 644.626 L875.474 638.746 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M900.543 613.144 Q896.932 613.144 895.103 616.709 Q893.298 620.251 893.298 627.38 Q893.298 634.487 895.103 638.051 Q896.932 641.593 900.543 641.593 Q904.177 641.593 905.983 638.051 Q907.812 634.487 907.812 627.38 Q907.812 620.251 905.983 616.709 Q904.177 613.144 900.543 613.144 M900.543 609.441 Q906.353 609.441 909.409 614.047 Q912.488 618.63 912.488 627.38 Q912.488 636.107 909.409 640.714 Q906.353 645.297 900.543 645.297 Q894.733 645.297 891.654 640.714 Q888.599 636.107 888.599 627.38 Q888.599 618.63 891.654 614.047 Q894.733 609.441 900.543 609.441 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M1054.7 987.345 Q1052.22 993.71 1049.86 995.652 Q1047.51 997.594 1043.56 997.594 L1038.88 997.594 L1038.88 992.692 L1042.32 992.692 Q1044.74 992.692 1046.07 991.546 Q1047.41 990.4 1049.03 986.135 L1050.08 983.462 L1035.67 948.387 L1041.87 948.387 L1053.01 976.268 L1064.15 948.387 L1070.36 948.387 L1054.7 987.345 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="707.029,739.555 707.029,293.829 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="703.941,624.491 710.117,619.142 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="703.941,519.366 710.117,514.018 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="703.941,414.242 710.117,408.893 "></polyline>
+<polyline clip-path="url(#clip080)" style="stroke:#000000; stroke-linecap:round; stroke-linejoin:round; stroke-width:4; stroke-opacity:1; fill:none" points="703.941,309.118 710.117,303.769 "></polyline>
+<path clip-path="url(#clip080)" d="M606.287 607.615 Q602.676 607.615 600.847 611.18 Q599.042 614.721 599.042 621.851 Q599.042 628.957 600.847 632.522 Q602.676 636.064 606.287 636.064 Q609.921 636.064 611.727 632.522 Q613.555 628.957 613.555 621.851 Q613.555 614.721 611.727 611.18 Q609.921 607.615 606.287 607.615 M606.287 603.911 Q612.097 603.911 615.153 608.518 Q618.231 613.101 618.231 621.851 Q618.231 630.578 615.153 635.184 Q612.097 639.768 606.287 639.768 Q600.477 639.768 597.398 635.184 Q594.342 630.578 594.342 621.851 Q594.342 613.101 597.398 608.518 Q600.477 603.911 606.287 603.911 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M626.449 633.217 L631.333 633.217 L631.333 639.096 L626.449 639.096 L626.449 633.217 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M645.546 635.161 L661.865 635.161 L661.865 639.096 L639.921 639.096 L639.921 635.161 Q642.583 632.406 647.166 627.777 Q651.773 623.124 652.953 621.782 Q655.199 619.258 656.078 617.522 Q656.981 615.763 656.981 614.073 Q656.981 611.319 655.037 609.583 Q653.115 607.846 650.013 607.846 Q647.814 607.846 645.361 608.61 Q642.93 609.374 640.152 610.925 L640.152 606.203 Q642.976 605.069 645.43 604.49 Q647.884 603.911 649.921 603.911 Q655.291 603.911 658.486 606.596 Q661.68 609.282 661.68 613.772 Q661.68 615.902 660.87 617.823 Q660.083 619.721 657.976 622.314 Q657.398 622.985 654.296 626.203 Q651.194 629.397 645.546 635.161 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M671.726 604.536 L690.083 604.536 L690.083 608.471 L676.009 608.471 L676.009 616.944 Q677.027 616.596 678.046 616.434 Q679.064 616.249 680.083 616.249 Q685.87 616.249 689.249 619.42 Q692.629 622.592 692.629 628.008 Q692.629 633.587 689.157 636.689 Q685.685 639.768 679.365 639.768 Q677.189 639.768 674.921 639.397 Q672.675 639.027 670.268 638.286 L670.268 633.587 Q672.351 634.721 674.574 635.277 Q676.796 635.832 679.273 635.832 Q683.277 635.832 685.615 633.726 Q687.953 631.619 687.953 628.008 Q687.953 624.397 685.615 622.291 Q683.277 620.184 679.273 620.184 Q677.398 620.184 675.523 620.601 Q673.671 621.018 671.726 621.897 L671.726 604.536 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M605.291 502.491 Q601.68 502.491 599.852 506.055 Q598.046 509.597 598.046 516.727 Q598.046 523.833 599.852 527.398 Q601.68 530.94 605.291 530.94 Q608.926 530.94 610.731 527.398 Q612.56 523.833 612.56 516.727 Q612.56 509.597 610.731 506.055 Q608.926 502.491 605.291 502.491 M605.291 498.787 Q611.102 498.787 614.157 503.393 Q617.236 507.977 617.236 516.727 Q617.236 525.453 614.157 530.06 Q611.102 534.643 605.291 534.643 Q599.481 534.643 596.403 530.06 Q593.347 525.453 593.347 516.727 Q593.347 507.977 596.403 503.393 Q599.481 498.787 605.291 498.787 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M625.453 528.092 L630.338 528.092 L630.338 533.972 L625.453 533.972 L625.453 528.092 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M640.569 499.412 L658.925 499.412 L658.925 503.347 L644.851 503.347 L644.851 511.819 Q645.87 511.472 646.888 511.31 Q647.907 511.125 648.925 511.125 Q654.713 511.125 658.092 514.296 Q661.472 517.467 661.472 522.884 Q661.472 528.463 658 531.565 Q654.527 534.643 648.208 534.643 Q646.032 534.643 643.763 534.273 Q641.518 533.903 639.111 533.162 L639.111 528.463 Q641.194 529.597 643.416 530.153 Q645.638 530.708 648.115 530.708 Q652.12 530.708 654.458 528.602 Q656.796 526.495 656.796 522.884 Q656.796 519.273 654.458 517.167 Q652.12 515.06 648.115 515.06 Q646.24 515.06 644.365 515.477 Q642.513 515.893 640.569 516.773 L640.569 499.412 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M680.685 502.491 Q677.073 502.491 675.245 506.055 Q673.439 509.597 673.439 516.727 Q673.439 523.833 675.245 527.398 Q677.073 530.94 680.685 530.94 Q684.319 530.94 686.124 527.398 Q687.953 523.833 687.953 516.727 Q687.953 509.597 686.124 506.055 Q684.319 502.491 680.685 502.491 M680.685 498.787 Q686.495 498.787 689.55 503.393 Q692.629 507.977 692.629 516.727 Q692.629 525.453 689.55 530.06 Q686.495 534.643 680.685 534.643 Q674.874 534.643 671.796 530.06 Q668.74 525.453 668.74 516.727 Q668.74 507.977 671.796 503.393 Q674.874 498.787 680.685 498.787 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M606.287 397.366 Q602.676 397.366 600.847 400.931 Q599.042 404.473 599.042 411.602 Q599.042 418.709 600.847 422.274 Q602.676 425.815 606.287 425.815 Q609.921 425.815 611.727 422.274 Q613.555 418.709 613.555 411.602 Q613.555 404.473 611.727 400.931 Q609.921 397.366 606.287 397.366 M606.287 393.663 Q612.097 393.663 615.153 398.269 Q618.231 402.852 618.231 411.602 Q618.231 420.329 615.153 424.936 Q612.097 429.519 606.287 429.519 Q600.477 429.519 597.398 424.936 Q594.342 420.329 594.342 411.602 Q594.342 402.852 597.398 398.269 Q600.477 393.663 606.287 393.663 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M626.449 422.968 L631.333 422.968 L631.333 428.848 L626.449 428.848 L626.449 422.968 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M640.338 394.288 L662.56 394.288 L662.56 396.278 L650.013 428.848 L645.129 428.848 L656.935 398.223 L640.338 398.223 L640.338 394.288 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M671.726 394.288 L690.083 394.288 L690.083 398.223 L676.009 398.223 L676.009 406.695 Q677.027 406.348 678.046 406.186 Q679.064 406.001 680.083 406.001 Q685.87 406.001 689.249 409.172 Q692.629 412.343 692.629 417.76 Q692.629 423.338 689.157 426.44 Q685.685 429.519 679.365 429.519 Q677.189 429.519 674.921 429.149 Q672.675 428.778 670.268 428.038 L670.268 423.338 Q672.351 424.473 674.574 425.028 Q676.796 425.584 679.273 425.584 Q683.277 425.584 685.615 423.477 Q687.953 421.371 687.953 417.76 Q687.953 414.149 685.615 412.042 Q683.277 409.936 679.273 409.936 Q677.398 409.936 675.523 410.352 Q673.671 410.769 671.726 411.649 L671.726 394.288 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M596.102 319.788 L603.741 319.788 L603.741 293.423 L595.43 295.089 L595.43 290.83 L603.694 289.163 L608.37 289.163 L608.37 319.788 L616.009 319.788 L616.009 323.723 L596.102 323.723 L596.102 319.788 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M625.453 317.844 L630.338 317.844 L630.338 323.723 L625.453 323.723 L625.453 317.844 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M650.523 292.242 Q646.912 292.242 645.083 295.807 Q643.277 299.349 643.277 306.478 Q643.277 313.585 645.083 317.149 Q646.912 320.691 650.523 320.691 Q654.157 320.691 655.962 317.149 Q657.791 313.585 657.791 306.478 Q657.791 299.349 655.962 295.807 Q654.157 292.242 650.523 292.242 M650.523 288.538 Q656.333 288.538 659.388 293.145 Q662.467 297.728 662.467 306.478 Q662.467 315.205 659.388 319.811 Q656.333 324.395 650.523 324.395 Q644.713 324.395 641.634 319.811 Q638.578 315.205 638.578 306.478 Q638.578 297.728 641.634 293.145 Q644.713 288.538 650.523 288.538 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M680.685 292.242 Q677.073 292.242 675.245 295.807 Q673.439 299.349 673.439 306.478 Q673.439 313.585 675.245 317.149 Q677.073 320.691 680.685 320.691 Q684.319 320.691 686.124 317.149 Q687.953 313.585 687.953 306.478 Q687.953 299.349 686.124 295.807 Q684.319 292.242 680.685 292.242 M680.685 288.538 Q686.495 288.538 689.55 293.145 Q692.629 297.728 692.629 306.478 Q692.629 315.205 689.55 319.811 Q686.495 324.395 680.685 324.395 Q674.874 324.395 671.796 319.811 Q668.74 315.205 668.74 306.478 Q668.74 297.728 671.796 293.145 Q674.874 288.538 680.685 288.538 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M156.432 623.387 L161.302 623.387 L161.302 628.989 Q161.302 632.14 162.575 633.382 Q163.848 634.591 167.158 634.591 L170.309 634.591 L170.309 624.947 L174.861 624.947 L174.861 634.591 L205.957 634.591 L205.957 640.479 L174.861 640.479 L174.861 646.081 L170.309 646.081 L170.309 640.479 L167.827 640.479 Q161.875 640.479 159.169 637.71 Q156.432 634.941 156.432 628.926 L156.432 623.387 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M156.496 604.418 Q163.816 608.683 170.978 610.752 Q178.139 612.82 185.492 612.82 Q192.844 612.82 200.069 610.752 Q207.262 608.651 214.551 604.418 L214.551 609.51 Q207.071 614.285 199.846 616.672 Q192.621 619.027 185.492 619.027 Q178.394 619.027 171.201 616.672 Q164.007 614.316 156.496 609.51 L156.496 604.418 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M170.309 563.423 L187.656 576.313 L205.957 562.754 L205.957 569.661 L191.953 580.037 L205.957 590.413 L205.957 597.32 L187.306 583.475 L170.309 596.142 L170.309 589.235 L183.009 579.782 L170.309 570.329 L170.309 563.423 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M197.873 552.983 L197.873 546.267 L203.347 546.267 L213.533 551.487 L213.533 555.593 L203.347 552.983 L197.873 552.983 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M209.268 518.926 Q215.633 521.409 217.575 523.764 Q219.516 526.119 219.516 530.066 L219.516 534.745 L214.615 534.745 L214.615 531.308 Q214.615 528.889 213.469 527.552 Q212.323 526.215 208.058 524.592 L205.384 523.541 L170.309 537.96 L170.309 531.753 L198.191 520.613 L170.309 509.473 L170.309 503.267 L209.268 518.926 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><path clip-path="url(#clip080)" d="M156.496 496.105 L156.496 491.013 Q164.007 486.238 171.201 483.883 Q178.394 481.496 185.492 481.496 Q192.621 481.496 199.846 483.883 Q207.071 486.238 214.551 491.013 L214.551 496.105 Q207.262 491.872 200.069 489.803 Q192.844 487.702 185.492 487.702 Q178.139 487.702 170.978 489.803 Q163.816 491.872 156.496 496.105 Z" fill="#000000" fill-rule="nonzero" fill-opacity="1"></path><circle clip-path="url(#clip082)" cx="707.029" cy="726.941" r="14.4" fill="#ff0000" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></circle>
+<circle clip-path="url(#clip082)" cx="762.745" cy="743.024" r="14.4" fill="#ff0000" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></circle>
+<circle clip-path="url(#clip082)" cx="788.479" cy="720.738" r="14.4" fill="#ff0000" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></circle>
+<circle clip-path="url(#clip082)" cx="732.763" cy="704.654" r="14.4" fill="#ff0000" fill-rule="evenodd" fill-opacity="1" stroke="#000000" stroke-opacity="1" stroke-width="2.4"></circle>
+</svg>
+</div>
+</div>
+</section>
+<section id="scatter-scattered-plane" class="level3" data-number="0.6">
+<h3 data-number="0.6" class="anchored" data-anchor-id="scatter-scattered-plane"><span class="header-section-number">0.6</span> scatter: Scattered plane</h3>
+<pre class="{julia}`}"><code>
+  a = -4:2:4
+    b = -5:2.5:5
+    f(x,y) = -x/6+y/2
+    ab = Iterators.product(a,b)
+  t = collect(Tuple(ab))    
+    xvec = getindex.(t,1)
+    yvec = getindex.(t,2)
+#   scatter(xvec,yvec,f(xvec,yvec))
+#   plot!(a,b,f, 
+            xlimits=(-4,4),
+        ylimits=(-5,5),
+        zlimits=(-4,4),
+            color=:blue)</code></pre>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
