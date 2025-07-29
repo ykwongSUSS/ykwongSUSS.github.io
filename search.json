@@ -1,0 +1,326 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "github.io",
+    "section": "",
+    "text": "These are notes for creating and editing websites using Quarto. This site resides on the ykwongsuss.github.io page and contains branches to other study websites as listed below.\nNotes\n\nyaml\nmarkdown\ncompute blocks\nedit blocks\ntex\n\nWebsites\n\nykwongWebR: R Basics\nykwongWebJ: Julia Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebNPar: NonParametric Statistics with R\nykwongWebSurv: Survival Analysis with R\nykwongWebLA: Linear Algebra with Julia",
+    "crumbs": [
+      "Notes"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "notes/yaml.html",
+    "href": "notes/yaml.html",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Notes",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "notes/yaml.html#code-block-yaml-html",
+    "href": "notes/yaml.html#code-block-yaml-html",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false\n\n\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: \n    pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Notes",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "notes/yaml.html#navigation-sidebar-in-_quarto.yml",
+    "href": "notes/yaml.html#navigation-sidebar-in-_quarto.yml",
+    "title": "yaml",
+    "section": "3 Navigation sidebar in _quarto.yml",
+    "text": "3 Navigation sidebar in _quarto.yml\n---\nproject:\n  type: website\n\nwebsite:\n  title: \"WebQuarto\"\n  page-navigation: true\n  sidebar:\n    search: true\n    contents:\n      - section: Notes\n        href: index.qmd\n        contents:\n          - text: yaml\n            href: notes/yaml.qmd\n          - text: qmd\n            href: notes/qmd.qm\n   ...",
+    "crumbs": [
+      "Notes",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "notes/qmd.html",
+    "href": "notes/qmd.html",
+    "title": "WebQ",
+    "section": "",
+    "text": "This page describes how Quarto is used to build static web pages hosted on &lt;username&gt;.github.io. Quarto is a multilanguage format that is supported by IDEs RStudio and Positron (based on VSCode). The file extension for a Quarto document is .qmd .\nQuarto input is basically text and Quarto supports markdown by default. With code chunks it further supports computational (R, Python and Julia) and descriptive coding (LaTeX, Markdown).\nQuarto output is usually in HTML or PDF formats.",
+    "crumbs": [
+      "Notes",
+      "qmd"
+    ]
+  },
+  {
+    "objectID": "notes/qmd.html#footnotes",
+    "href": "notes/qmd.html#footnotes",
+    "title": "WebQ",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nDevore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. 2021. Modern Mathematical Statistics with Applications. Vol. 285. Springer.↩︎",
+    "crumbs": [
+      "Notes",
+      "qmd"
+    ]
+  },
+  {
+    "objectID": "notes/computeBlocks.html",
+    "href": "notes/computeBlocks.html",
+    "title": "computeBlocks",
+    "section": "",
+    "text": "The main compute blocks are R, Julia and Python. These are created using forward slash in Quarto’s Visual mode editing or ```Rfor example.",
+    "crumbs": [
+      "Notes",
+      "computeBlocks"
+    ]
+  },
+  {
+    "objectID": "notes/computeBlocks.html#r-code-chunk",
+    "href": "notes/computeBlocks.html#r-code-chunk",
+    "title": "computeBlocks",
+    "section": "1 R Code chunk",
+    "text": "1 R Code chunk\n\n# comment\nqnorm(0.95)\n\n[1] 1.644854\n\n\nChunk options can be indicated inside the r parenthesis or using #| eval: false , in the header for example.\n\nqnorm(0.95)\n\n(no output)\n\nversion$version.string\n\n[1] \"R version 4.5.0 (2025-04-11)\"",
+    "crumbs": [
+      "Notes",
+      "computeBlocks"
+    ]
+  },
+  {
+    "objectID": "notes/computeBlocks.html#display---code-block",
+    "href": "notes/computeBlocks.html#display---code-block",
+    "title": "computeBlocks",
+    "section": "1 Display - Code block",
+    "text": "1 Display - Code block\n{ / Code Block... &lt;source code display&gt; }\n\n1.1 Display R\n# style=\"border:black 1px solid\"\n\nqnorm(0.95)\n\n\n1.2 Display latex\n\\begin{align}\n  \\bar x = \\frac{\\sum x_i}{n} \\\\\n  \\sigma^2\n\\end{align}\n\n\n1.3 Display data default\n{border: black 1px solid; background: white}\n\nSource: Example 8.17 Devore\nData: vector of measurements\n\n22.7 16.3 13.6 16.8 29.9 15.9 14.0 15.0 14.1 18.1 22.8 27.6 \n16.4 16.1 19.0 13.5 18.9 20.2 19.7 18.2 15.4 15.7 19.0 11.5 \n18.4 16.0 16.9 12.0 40.1 19.2",
+    "crumbs": [
+      "Notes",
+      "computeBlocks"
+    ]
+  },
+  {
+    "objectID": "notes/computeBlocks.html#div-block",
+    "href": "notes/computeBlocks.html#div-block",
+    "title": "computeBlocks",
+    "section": "2 Div Block",
+    "text": "2 Div Block\n{/ Div... } can format with css html\n\n2.1 Div block - embed TeX\n\n\\[\n\\int udv = uv - \\int vdu\n\\]\n\n\n\n2.2 Div Block - css and padding\n\n\\(\\textbf{Gosset's Theorem}\\)\nIf \\(X_1, X_2, \\ldots, X_n\\) is a random sample from a \\(N(\\mu, \\sigma)\\) distribution, then the rv\n\\[\n\\frac{\\bar X - \\mu}{S/\\sqrt{n}}\n\\]\nhas the t distribution with (n-1) degrees of freedom, \\(t_{n-1}.\\)",
+    "crumbs": [
+      "Notes",
+      "computeBlocks"
+    ]
+  },
+  {
+    "objectID": "notes/editBlocks.html",
+    "href": "notes/editBlocks.html",
+    "title": "Blocks in HTML",
+    "section": "",
+    "text": "{/R Code Chunk}\n\n# normal executable\nqnorm(0.95)\n\n[1] 1.644854\n\n\n\n #| eval: false\nqnorm(0.95)\n\n(No output)",
+    "crumbs": [
+      "Notes",
+      "editBlocks"
+    ]
+  },
+  {
+    "objectID": "notes/editBlocks.html#r-code-chunk",
+    "href": "notes/editBlocks.html#r-code-chunk",
+    "title": "Blocks in HTML",
+    "section": "",
+    "text": "{/R Code Chunk}\n\n# normal executable\nqnorm(0.95)\n\n[1] 1.644854\n\n\n\n #| eval: false\nqnorm(0.95)\n\n(No output)",
+    "crumbs": [
+      "Notes",
+      "editBlocks"
+    ]
+  },
+  {
+    "objectID": "notes/editBlocks.html#display---code-block",
+    "href": "notes/editBlocks.html#display---code-block",
+    "title": "Blocks in HTML",
+    "section": "2 Display - Code block",
+    "text": "2 Display - Code block\n{ / Code Block... &lt;source code display&gt; }\n\n2.1 Display R\n# style=\"border:black 1px solid\"\n\nqnorm(0.95)\n\n\n2.2 Display latex\n\\begin{align}\n  \\bar x = \\frac{\\sum x_i}{n} \\\\\n  \\sigma^2\n\\end{align}\n\n\n2.3 Display data default\n{border: black 1px solid; background: white}\n\nSource: Example 8.17 Devore\nData: vector of measurements\n\n22.7 16.3 13.6 16.8 29.9 15.9 14.0 15.0 14.1 18.1 22.8 27.6 \n16.4 16.1 19.0 13.5 18.9 20.2 19.7 18.2 15.4 15.7 19.0 11.5 \n18.4 16.0 16.9 12.0 40.1 19.2",
+    "crumbs": [
+      "Notes",
+      "editBlocks"
+    ]
+  },
+  {
+    "objectID": "notes/editBlocks.html#div-block",
+    "href": "notes/editBlocks.html#div-block",
+    "title": "Blocks in HTML",
+    "section": "3 Div Block",
+    "text": "3 Div Block\n{/ Div... } can format with css html\n\n3.1 Div block - embed TeX\n\n\\[\n\\int udv = uv - \\int vdu\n\\]\n\n\n\n3.2 Div Block - css and padding\n\n\\(\\textbf{Gosset's Theorem}\\)\nIf \\(X_1, X_2, \\ldots, X_n\\) is a random sample from a \\(N(\\mu, \\sigma)\\) distribution, then the rv\n\\[\n\\frac{\\bar X - \\mu}{S/\\sqrt{n}}\n\\]\nhas the t distribution with (n-1) degrees of freedom, \\(t_{n-1}.\\)",
+    "crumbs": [
+      "Notes",
+      "editBlocks"
+    ]
+  },
+  {
+    "objectID": "notes/tex.html",
+    "href": "notes/tex.html",
+    "title": "Selected TeX Codes",
+    "section": "",
+    "text": "(use cmd-shift-p and expand at cursor)\n\nali*\n\nbegin{align*}\n  |\n\\end{align*}\n\narray\n\n\\begin{array}{c c c}\n\\hline\n  |\n\\end{array}",
+    "crumbs": [
+      "Notes",
+      "tex"
+    ]
+  },
+  {
+    "objectID": "notes/tex.html#tex-snippets",
+    "href": "notes/tex.html#tex-snippets",
+    "title": "Selected TeX Codes",
+    "section": "",
+    "text": "(use cmd-shift-p and expand at cursor)\n\nali*\n\nbegin{align*}\n  |\n\\end{align*}\n\narray\n\n\\begin{array}{c c c}\n\\hline\n  |\n\\end{array}",
+    "crumbs": [
+      "Notes",
+      "tex"
+    ]
+  },
+  {
+    "objectID": "notes/tex.html#definitions-propositions-and-theorems",
+    "href": "notes/tex.html#definitions-propositions-and-theorems",
+    "title": "Selected TeX Codes",
+    "section": "2 Definitions, propositions and theorems",
+    "text": "2 Definitions, propositions and theorems\n\nare usually placed in a fenced qmd div block\ncss style: border: 1pt black solid; padding: 6pt\nmath notation in TeX may be used in qmd\nno cross referencing below. Just use qmd double asterisks for bold def.\n\n\nDefinition 3.4.3 A subspace of \\(\\mathbb{W}\\) of \\(\\mathbb{R^n}\\) is a set of vectors such that for every \\(c \\in \\mathbb{R^n}\\) and for every \\(\\mathbf{uv} \\in \\mathbb{W}\\), then\n\n\\(\\mathbf{0} \\in \\mathbb{W}\\)\n\\(\\mathbf{u + v} \\in \\mathbb{W}\\)\nc\\(\\mathbf{u} \\in \\mathbb{W}\\)\n\nWhen these properties hold we say that \\(\\mathbb{W}\\) is closed under addition and scalar multiplication.\n\n# this is a code-block\n\ndiv-ID : #thm-line; \n#lem-; #cor-; #prp; #cnj-; #def-; \n#exm-; #exr-; #sol-; #rem-\n.proof\n\n2.0.1 Cross referencing a theorem and proof in div\n\n#thm-line is used to cross reference displaying Theorem 1\n.proof is a class in the div block\na tex-block is used for the displayed equation (4.5)\ntex commands: \\qquad\\blacksquare and \\tag{4.5} are used\n\n\nTheorem 1 \\[\\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx  = \\Gamma(\\alpha) \\tag{4.5}\\]\n\n\nProof. Make the substitution \\(u= x/\\beta\\), so that \\(x=\\beta u\\) and \\(dx = \\beta du\\):\n\\[\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx\n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare\n\\end{align*}\\]\n\nMake the substitution $u = x/\\beta$, so that $x=\\beta u$ and $dx = \\beta du$: \n\\begin{align*}\n    \\int_0^\\infty x^{\\alpha-1}e^{-x/\\beta} dx \n     &=  \\int_0^\\infty (\\beta u)^{\\alpha-1} e^{-u} \\beta du \\\\[12pt]\n   & = \\int_0^\\infty u^{\\alpha-1}e^{-u} du \\\\[12pt]\n   & = \\int_0^\\infty x^{\\alpha-1}e^{-x} dx \\\\[12pt]\n   & = \\Gamma(\\alpha) \\qquad\\blacksquare \\tag{4.5}\n \\end{align*}\n\n\n2.1 TeX Block - \\boxed equations\nIntegration by parts:\n\\[\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}\\]\n\\begin{equation}\n  \\boxed{ \\int udv = uv - \\int vdu }\n\\end{equation}",
+    "crumbs": [
+      "Notes",
+      "tex"
+    ]
+  },
+  {
+    "objectID": "notes/tex.html#tex-tables",
+    "href": "notes/tex.html#tex-tables",
+    "title": "Selected TeX Codes",
+    "section": "3 TeX Tables",
+    "text": "3 TeX Tables\n\n3.1 TeX Block - Tex-table using array\nExample Collett 1 - Table 2.7\n\\[\\begin{array}{c c c c }\n\\hline\n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\\n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\\n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\\n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\\n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\\n\\hline\n\\end{array}\\]\nnote: tabular not supported, use array to form a Tex-table\n\\begin{array}{c c c c } \n\\hline \n\\text{Group} & \\text{Number of Deaths} & \\text{Number Surviving} & \\text{Number at Risk} \\\\ \n      & \\text{at $t_{(j)}$} & \\text{beyond $t_{(j)}$} & \\text{just before $t_{(j)}$} \\\\ \n\\hline\n\\rm{I} & d_{1j} & n_{1j}-d_{1j} & n_{1j} \\\\ \n\\rm{II} & d_{2j} & n_{2j}-d_{2j} & n_{2j} \\\\ \n\\hline\n\\text{Total} & d_{j} & n_{j}-d_{j} & n_{j} \\\\ \n\\hline \n\\end{array}\n\n\n3.2 TeX block with Div block over it\n# div-block - style=border: 1px solid; background:white; padding-right:1cm\n\n\\[\\begin{align}\nSample\\ mean\\\\\n  \\bar x &= \\frac{\\sum x_i}{n} \\tag{1.1}\\\\\n  \nSample\\ variance\\\\\n  S^2 &= \\frac{\\sum (X_i - \\bar X)}{n-1}. \\tag{1.2}\n\\end{align}\\]",
+    "crumbs": [
+      "Notes",
+      "tex"
+    ]
+  },
+  {
+    "objectID": "notes/tex.html#footnotes",
+    "href": "notes/tex.html#footnotes",
+    "title": "Selected TeX Codes",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nCollett, David. 2023. Modelling Survival Data in Medical Research. Fourth Ed., CRC Press.↩︎",
+    "crumbs": [
+      "Notes",
+      "tex"
+    ]
+  },
+  {
+    "objectID": "notes/yaml.html#yaml-for-html",
+    "href": "notes/yaml.html#yaml-for-html",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false\n\n\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: \n    pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Notes",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "notes/yaml.html#yaml-for-html-only",
+    "href": "notes/yaml.html#yaml-for-html-only",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Notes",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "notes/yaml.html#yaml-for-html-and-pdf",
+    "href": "notes/yaml.html#yaml-for-html-and-pdf",
+    "title": "yaml",
+    "section": "2 yaml for html and pdf",
+    "text": "2 yaml for html and pdf\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: \n    pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "Notes",
+      "yaml"
+    ]
+  },
+  {
+    "objectID": "notes/computeBlocks.html#julia-code-chunk",
+    "href": "notes/computeBlocks.html#julia-code-chunk",
+    "title": "computeBlocks",
+    "section": "2 Julia Code chunk",
+    "text": "2 Julia Code chunk\nC = [1 2 3 ; 4 5 6]\nC |&gt; println",
+    "crumbs": [
+      "Notes",
+      "computeBlocks"
+    ]
+  },
+  {
+    "objectID": "notes/computeBlocks.html#python-code-chunk",
+    "href": "notes/computeBlocks.html#python-code-chunk",
+    "title": "computeBlocks",
+    "section": "3 Python Code chunk",
+    "text": "3 Python Code chunk",
+    "crumbs": [
+      "Notes",
+      "computeBlocks"
+    ]
+  },
+  {
+    "objectID": "notes/computeBlocks.html#section",
+    "href": "notes/computeBlocks.html#section",
+    "title": "computeBlocks",
+    "section": "2 ",
+    "text": "2",
+    "crumbs": [
+      "Notes",
+      "computeBlocks"
+    ]
+  },
+  {
+    "objectID": "notes/rCodeChunk.html",
+    "href": "notes/rCodeChunk.html",
+    "title": "rCodeChunk",
+    "section": "",
+    "text": "R compute chunk is the default computational engine for Quarto. No further action is necessary except to place the R code in the code chunk generated by /R.\nThe basic R Code chunks features are indciated below:\n\n0.1 Comments\n\n# comment are preceded with hashtag\nqnorm(0.95)\n\n[1] 1.644854\n\n\n\n\n0.2 Chunk options\nCan be place within the parenthesized r statement, or in the main statement preceded by the code option symbols: #| eval: false\n\n# eval: false\nqnorm(0.95)\n\n[1] 1.644854\n\n\n(no output)\n\nversion$version.string\n\n[1] \"R version 4.5.1 (2025-06-13)\"",
+    "crumbs": [
+      "Notes",
+      "computeBlocks",
+      "rCodeChunk"
+    ]
+  },
+  {
+    "objectID": "notes/rCodeChunk.html#r-code-chunk",
+    "href": "notes/rCodeChunk.html#r-code-chunk",
+    "title": "rCodeChunk",
+    "section": "1 R Code chunk",
+    "text": "1 R Code chunk\n\n# comment\nqnorm(0.95)\n\n[1] 1.644854\n\n\nChunk options can be indicated inside the r parenthesis or using #| eval: false , in the header for example.\n\nqnorm(0.95)\n\n(no output)\n\nversion$version.string\n\n[1] \"R version 4.5.0 (2025-04-11)\"",
+    "crumbs": [
+      "Notes",
+      "computeBlocks",
+      "rCodeChunk"
+    ]
+  },
+  {
+    "objectID": "notes/juliaCodeChunk.html",
+    "href": "notes/juliaCodeChunk.html",
+    "title": "juliaCodeChunk",
+    "section": "",
+    "text": "Julia code chunks may be used “directly” without additional statements in the yaml. If using with R code chunks for example, it may be necessary to load Julia code chunk first.\nJulia code chunk may be indicated from quarto’s Visual mode / command or from ```julia for example\n\n0.1 Adding Julia Package"
+  },
+  {
+    "objectID": "notes/juliaCodeChunk.html#julia-code-chunk",
+    "href": "notes/juliaCodeChunk.html#julia-code-chunk",
+    "title": "juliaCodeChunk",
+    "section": "1 Julia Code chunk",
+    "text": "1 Julia Code chunk\n\n# julia comments are indicated by the pound sign\n1+1\n\n2\n\n\n\n1.1 Adding Julia Package\n\nimport Pkg; \nPkg.add(\"Pipe\");\nusing Pipe",
+    "crumbs": [
+      "Notes",
+      "computeBlocks",
+      "juliaCodeChunk"
+    ]
+  }
+]
