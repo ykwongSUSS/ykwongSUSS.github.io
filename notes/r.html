@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Q markdown – githubio</title>
+<title>rCodeChunk – githubio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../notes/r.qmd" rel="next">
-<link href="../notes/yaml.html" rel="prev">
+<link href="../notes/julia.html" rel="next">
+<link href="../notes/qmd.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -105,35 +105,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -147,7 +118,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../index.html">Quarto</a></li><li class="breadcrumb-item"><a href="../notes/qmd.html">qmd</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/r.html">CodeChunks</a></li><li class="breadcrumb-item"><a href="../notes/r.html">r</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -189,7 +160,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/qmd.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notes/qmd.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">qmd</span></a>
   </div>
 </li>
@@ -206,13 +177,13 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/r.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../notes/r.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">r</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/julia.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../notes/julia.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">julia</span></a>
   </div>
 </li>
@@ -246,19 +217,17 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quarto-check" id="toc-quarto-check" class="nav-link active" data-scroll-target="#quarto-check"><span class="header-section-number">0.1</span> Quarto check</a></li>
-  <li><a href="#selected-code-chunks-and-code-blocks" id="toc-selected-code-chunks-and-code-blocks" class="nav-link" data-scroll-target="#selected-code-chunks-and-code-blocks"><span class="header-section-number">0.2</span> Selected Code Chunks and Code Blocks</a></li>
-  <li><a href="#markdown-or-latex" id="toc-markdown-or-latex" class="nav-link" data-scroll-target="#markdown-or-latex"><span class="header-section-number">0.3</span> Markdown or LaTeX</a></li>
-  <li><a href="#footnote" id="toc-footnote" class="nav-link" data-scroll-target="#footnote"><span class="header-section-number">0.4</span> Footnote</a></li>
+  <li><a href="#comments" id="toc-comments" class="nav-link active" data-scroll-target="#comments"><span class="header-section-number">0.1</span> Comments</a></li>
+  <li><a href="#chunk-options" id="toc-chunk-options" class="nav-link" data-scroll-target="#chunk-options"><span class="header-section-number">0.2</span> Chunk options</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../index.html">Quarto</a></li><li class="breadcrumb-item"><a href="../notes/qmd.html">qmd</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/r.html">CodeChunks</a></li><li class="breadcrumb-item"><a href="../notes/r.html">r</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Q markdown</h1>
+<h1 class="title">rCodeChunk</h1>
 </div>
 
 
@@ -275,147 +244,40 @@ window.Quarto = {
 </header>
 
 
-<p>Quarto is a markdown format that is supported by RStudio and Positron (based on VSCode). The file extension for a Quarto document is <code>.qmd</code> .</p>
-<p>Quarto <code>qmd</code> allows markdown to be written directly. It also supports TeX using <code>$</code> or <code>$$</code> tags (both inline and display modes). With code chunks it further supports computational (R, Python and Julia) and descriptive coding (LaTeX, Mermaid and GraphViz). Quarto extensions also allow for special support such as Tikz.</p>
-<p>Quarto output is usually in HTML or PDF formats as per YAML indications.</p>
-<section id="quarto-check" class="level3" data-number="0.1">
-<h3 data-number="0.1" class="anchored" data-anchor-id="quarto-check"><span class="header-section-number">0.1</span> Quarto check</h3>
-<p>To find out what packages and tools are installed in your Quarto environment, the following commands are available at the <code>terminal</code> prompt.</p>
-<blockquote class="blockquote">
-<ol type="1">
-<li>quarto check</li>
-<li>quarto tools</li>
-</ol>
-</blockquote>
+<p>R compute chunk is the default computational engine for Quarto. No further action is necessary except to place the R code in the code chunk generated by /R.</p>
+<p>The basic R Code chunks features are indciated below:</p>
+<section id="comments" class="level3" data-number="0.1">
+<h3 data-number="0.1" class="anchored" data-anchor-id="comments"><span class="header-section-number">0.1</span> Comments</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># comment are preceded with hashtag</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.644854</code></pre>
+</div>
+</div>
 </section>
-<section id="selected-code-chunks-and-code-blocks" class="level3" data-number="0.2">
-<h3 data-number="0.2" class="anchored" data-anchor-id="selected-code-chunks-and-code-blocks"><span class="header-section-number">0.2</span> Selected Code Chunks and Code Blocks</h3>
-<p><strong>Computational</strong> <code>Code Chunks</code> are available for <code>R,Python, Julia.</code> Other code chunks include support for <code>Mermaid, GraphViz</code> . Some of these are detailed in accompanying References. Type backslash <code>/</code> to see the selections (under visual editor of RStudio).</p>
-<p>Code Blocks (descriptive) are available to cater to <code>TeX, HTML, Line, Div and Raw</code> .</p>
-<p>Example <code>code chunk</code> with <code>GraphViz(dot)</code></p>
-<div class="cell" data-fig-width="4" data-fig-height="2" data-layout-align="default">
-<div class="cell-output-display">
-<div>
-<p></p><figure class="figure"><p></p>
-<div>
-<svg width="384" height="192" viewbox="0.00 0.00 334.00 126.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 122)">
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-122 330,-122 330,4 -4,4"></polygon>
-<!-- A -->
-<g id="node1" class="node">
-<title>A</title>
-<ellipse fill="lightblue" stroke="black" cx="25" cy="-93" rx="25" ry="25"></ellipse>
-<text text-anchor="middle" x="25" y="-88.8" font-family="roboto" font-size="14.00">nodeA</text>
-</g>
-<!-- C -->
-<g id="node4" class="node">
-<title>C</title>
-<ellipse fill="none" stroke="black" cx="163" cy="-59" rx="25" ry="25"></ellipse>
-<text text-anchor="middle" x="163" y="-54.8" font-family="roboto" font-size="14.00">C</text>
-</g>
-<!-- A&#45;&gt;C -->
-<g id="edge1" class="edge">
-<title>A-&gt;C</title>
-<path fill="none" stroke="brown" d="M49.38,-87.16C71.18,-81.71 103.92,-73.52 128.5,-67.38"></path>
-<polygon fill="brown" stroke="brown" points="129.62,-70.7 138.47,-64.88 127.92,-63.91 129.62,-70.7"></polygon>
-<text text-anchor="middle" x="94" y="-81.2" font-family="roboto" font-size="14.00">13</text>
-</g>
-<!-- B -->
-<g id="node2" class="node">
-<title>B</title>
-<ellipse fill="yellow" stroke="black" cx="25" cy="-25" rx="25" ry="25"></ellipse>
-<text text-anchor="middle" x="25" y="-20.8" font-family="roboto" font-size="14.00">B</text>
-</g>
-<!-- B&#45;&gt;C -->
-<g id="edge2" class="edge">
-<title>B-&gt;C</title>
-<path fill="none" stroke="brown" d="M49.38,-30.84C71.18,-36.29 103.92,-44.48 128.5,-50.62"></path>
-<polygon fill="brown" stroke="brown" points="127.92,-54.09 138.47,-53.12 129.62,-47.3 127.92,-54.09"></polygon>
-<text text-anchor="middle" x="94" y="-48.2" font-family="roboto" font-size="14.00">12</text>
-</g>
-<!-- D -->
-<g id="node3" class="node">
-<title>D</title>
-<polygon fill="orange" stroke="black" points="326,-77 276,-77 276,-41 326,-41 326,-77"></polygon>
-<text text-anchor="middle" x="301" y="-54.8" font-family="roboto" font-size="14.00">D</text>
-</g>
-<!-- C&#45;&gt;D -->
-<g id="edge3" class="edge">
-<title>C-&gt;D</title>
-<path fill="none" stroke="brown" d="M188,-59C209.52,-59 241.35,-59 265.58,-59"></path>
-<polygon fill="brown" stroke="brown" points="265.78,-62.5 275.78,-59 265.78,-55.5 265.78,-62.5"></polygon>
-<text text-anchor="middle" x="232" y="-63.2" font-family="roboto" font-size="14.00">11</text>
-</g>
-</g>
-</svg>
-</div>
-<p></p></figure><p></p>
+<section id="chunk-options" class="level3" data-number="0.2">
+<h3 data-number="0.2" class="anchored" data-anchor-id="chunk-options"><span class="header-section-number">0.2</span> Chunk options</h3>
+<p>Can be place within the parenthesized r statement, or in the main statement preceded by the code option symbols: <code>#| eval: false</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># eval: false</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.644854</code></pre>
 </div>
 </div>
+<p>(no output)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>version<span class="sc">$</span>version.string</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R version 4.5.1 (2025-06-13)"</code></pre>
 </div>
-<p>*Note: cell options <code>#| for {r} ; //| for {dot} ; %%/ for {mermaid}</code></p>
-<div class="sourceCode" id="cb1" style="border: 1px solid black; background: white"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{</span><span class="va">dot</span><span class="ot">}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">//| fig-width: 4</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">//| fig-height: 2</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="ot">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  </span><span class="at">rankdir</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="va">LR</span><span class="ot">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="va">fixedsize</span><span class="ot">=</span><span class="va">true</span><span class="co">, </span><span class="at">width</span><span class="ot">=</span><span class="dv">0.7</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="va">roboto</span><span class="ot">];</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="ot">=</span><span class="va">brown</span><span class="co">,</span><span class="at">minlen</span><span class="ot">=</span><span class="dv">2</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="va">roboto</span><span class="ot">]</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">lightblue</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">label</span><span class="ot">=</span><span class="st">"nodeA"</span><span class="ot">]</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">yellow</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">label</span><span class="ot">=</span><span class="st">"B"</span><span class="ot">]</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">rect</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">orange</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="ot">]</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="dv">13</span><span class="ot">]</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="dv">12</span><span class="ot">]</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="dv">11</span><span class="ot">]</span><span class="co">    </span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="markdown-or-latex" class="level3" data-number="0.3">
-<h3 data-number="0.3" class="anchored" data-anchor-id="markdown-or-latex"><span class="header-section-number">0.3</span> Markdown or LaTeX</h3>
-<p>Formulas and equations can be written in qMarkdown <code>/math</code> or a LaTeX block <code>/tex</code> (or even in a Typst block). Math inline and display modes can be used in qMarkdown but it is better to use a TeX block for multi-line equations. More at the LaTeX reference note.</p>
-<ol type="1">
-<li><p>Use markdown <code>math mode</code></p>
-<p>Theorem: For any <span class="math inline">\(\alpha, \beta &gt; 0\)</span></p></li>
-</ol>
-<p><span class="math display">\[
-\int_0^\infty x^{\alpha-1} e^{-x/\beta} dx = \beta^\alpha \Gamma(\alpha)
-\]</span></p>
-<ol start="2" type="1">
-<li><p>Use <code>TeX code block</code></p>
-<p>Proof: Substitute <span class="math inline">\(u=x/\beta\)</span> so that <span class="math inline">\(x=\beta u\)</span> and <span class="math inline">\(dx = \beta\ du\)</span></p></li>
-</ol>
-<p><span class="math display">\[\begin{align*}
-   \int_0^\infty x^{\alpha-1} e^{-x/\beta} dx &amp;= \int_0^\infty (\beta u)^{\alpha-1} e^{-u} \beta du \\[6pt]
-   &amp;= \beta^\alpha \int_0^\infty u^{\alpha-1} e^{-u} du \\[6pt]
-   &amp;= \beta^\alpha \Gamma(\alpha)  \qquad\blacksquare
-\end{align*}\]</span></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode texinfo code-with-copy"><code class="sourceCode texinfo"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>\begin{align*}</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   \int_0^\infty x^{\alpha-1} e^{-x/\beta} dx </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>     &amp;= \int_0^\infty (\beta u)^{\alpha-1} e^{-u} \beta du \\[6pt]</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>     &amp;= \beta^\alpha \int_0^\infty u^{\alpha-1} e^{-u} du  \\[6pt]</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>     &amp;= \beta^\alpha \Gamma(\alpha)  \qquad\blacksquare</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>\end{align*}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="footnote" class="level3" data-number="0.4">
-<h3 data-number="0.4" class="anchored" data-anchor-id="footnote"><span class="header-section-number">0.4</span> Footnote</h3>
-<p>Devore’s book as a footnote.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p>… the footnote is usually written on the next line but will appear at the bottom of the page as a footnote. This footnote is in QMarkdown. A LaTeX footnote is different and has a separate <code>\footnote</code> command. Tip: check for extra backslashes if footnote is not working.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Devore’s book. [^1]</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>[^1]: Devore, Jay L, Kenneth N Berk, Matthew A Carlton, et al. </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>2021. Modern Mathematical Statistics with Applications. </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Vol. 285. Springer.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p>Devore, Jay L, Kenneth N Berk, Matthew A Carlton, et al.&nbsp;2021. Modern Mathematical Statistics with Applications. Vol. 285. Springer.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -817,13 +679,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../notes/yaml.html" class="pagination-link" aria-label="yaml">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">yaml</span>
+      <a href="../notes/qmd.html" class="pagination-link" aria-label="qmd">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">qmd</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../notes/r.qmd" class="pagination-link" aria-label="r">
-        <span class="nav-page-text">r</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notes/julia.html" class="pagination-link" aria-label="julia">
+        <span class="nav-page-text">julia</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
