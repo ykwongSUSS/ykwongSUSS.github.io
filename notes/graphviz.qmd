@@ -1,0 +1,15 @@
+---
+title: "julia"
+format: html
+number-sections: true
+warning: false
+---
+
+Julia code chunks may be used "directly" without additional statements in the yaml. If using with R code chunks for example, it may be necessary to load Julia code chunk first.
+
+Julia code chunk may be indicated from quarto's Visual mode `/` command or from \`\`\`julia for example
+
+### Adding Julia Package
+
+```         
+```

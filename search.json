@@ -54,7 +54,7 @@
     "href": "notes/qmd.html",
     "title": "Q markdown",
     "section": "",
-    "text": "Quarto is a markdown format that is supported by RStudio and Positron (based on VSCode). The file extension for a Quarto document is .qmd .\nQuarto qmd allows markdown to be written directly. It also supports TeX using $ or $$ tags (both inline and display modes). With code chunks it further supports computational (R, Python and Julia) and descriptive coding (LaTeX, Mermaid and GraphViz). Quarto extensions also allow for special support such as Tikz.\nQuarto output is usually in HTML or PDF formats as per YAML indications.",
+    "text": "Quarto is a file format that is supported by RStudio and Positron (based on VSCode). The file extension for a Quarto document is .qmd .\nQuarto qmd allows markdown to be written directly. It also supports TeX using $ or $$ tags (both inline and display modes). With code chunks it further supports both computational (R, Python and Julia) and descriptive coding (LaTeX, Mermaid and GraphViz). Quarto extensions also allow for special support such as Tikz.\nQuarto output is usually in HTML or PDF formats as per YAML indications.",
     "crumbs": [
       "Quarto",
       "qmd"
@@ -360,6 +360,61 @@
     "crumbs": [
       "CodeChunks",
       "r"
+    ]
+  },
+  {
+    "objectID": "notes/version.html",
+    "href": "notes/version.html",
+    "title": "version",
+    "section": "",
+    "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\nquarto check\nquarto tools\n\n\n\nquarto --version\njulia --version\nR --version\npython3 --version\ntex --version\n\n\n\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor\n\n\n\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.15} \n\\begin{document}\n   \\pgfplotsversion\n\\end{document}",
+    "crumbs": [
+      "Versions",
+      "version"
+    ]
+  },
+  {
+    "objectID": "notes/version.html#version-commands",
+    "href": "notes/version.html#version-commands",
+    "title": "version",
+    "section": "",
+    "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\n\n\nquarto check\nquarto tools",
+    "crumbs": [
+      "Versions",
+      "version"
+    ]
+  },
+  {
+    "objectID": "notes/version.html#terminal-commands",
+    "href": "notes/version.html#terminal-commands",
+    "title": "version",
+    "section": "",
+    "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\nquarto check\nquarto tools\n\n\n\nquarto --version\njulia --version\nR --version\npython3 --version\ntex --version\n\n\n\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor\n\n\n\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.15} \n\\begin{document}\n   \\pgfplotsversion\n\\end{document}",
+    "crumbs": [
+      "Versions",
+      "version"
+    ]
+  },
+  {
+    "objectID": "notes/tikz.html",
+    "href": "notes/tikz.html",
+    "title": "julia",
+    "section": "",
+    "text": "Julia code chunks may be used “directly” without additional statements in the yaml. If using with R code chunks for example, it may be necessary to load Julia code chunk first.\nJulia code chunk may be indicated from quarto’s Visual mode / command or from ```julia for example\n\n0.1 Adding Julia Package",
+    "crumbs": [
+      "CodeChunks",
+      "tikz"
+    ]
+  },
+  {
+    "objectID": "notes/graphviz.html",
+    "href": "notes/graphviz.html",
+    "title": "julia",
+    "section": "",
+    "text": "Julia code chunks may be used “directly” without additional statements in the yaml. If using with R code chunks for example, it may be necessary to load Julia code chunk first.\nJulia code chunk may be indicated from quarto’s Visual mode / command or from ```julia for example\n\n0.1 Adding Julia Package",
+    "crumbs": [
+      "CodeChunks",
+      "graphviz"
     ]
   }
 ]
