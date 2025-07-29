@@ -1,0 +1,26 @@
+---
+title: "github.io"
+format: html
+warning: FALSE
+---
+
+------------------------------------------------------------------------
+
+These are notes for creating and editing websites using Quarto. This site resides on the [ykwongsuss.github.io](https://ykwongsuss.github.io) page and contains branches to other study websites as listed below.
+
+Notes
+
+1.  yaml
+2.  markdown
+3.  compute blocks
+4.  edit blocks
+5.  tex
+
+Websites
+
+1.  [ykwongWebR](http://ykwongwebr.netlify.app/): R Basics
+2.  [ykwongWebJ](http://ykwongSUSS.github.io): Julia Basics
+3.  [ykwongWebStats](http://ykwongwebstats.netlify.app/): Mathematical Statistics with R
+4.  [ykwongWebNPar](http://ykwongwebnpar.netlify.app/): NonParametric Statistics with R
+5.  [ykwongWebSurv](http://ykwongwebsurv.netlify.app/): Survival Analysis with R
+6.  [ykwongWebLA](http://ykwongwebla.netlify.app/): Linear Algebra with Julia
