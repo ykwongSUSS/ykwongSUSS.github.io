@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="189.23111"
+   height="151.43536"
+   viewBox="0 0 189.23111 151.43536"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <g
+     id="g1"
+     transform="translate(-5.000015e-4,-0.01080712)">
+    <path
+       id="path1"
+       d="M 0,0 H 141.73404 M 0,28.3468 H 141.73404 M 0,56.69362 H 141.73404 M 0,85.04042 H 141.73404 M 0,113.37727 H 141.73404 M 0,0 V 113.38724 M 28.3468,0 V 113.38724 M 56.69362,0 V 113.38724 M 85.04042,0 V 113.38724 M 113.38724,0 V 113.38724 M 141.72409,0 v 113.38724"
+       style="fill:none;stroke:#808080;stroke-width:0.19925;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.3333333,0,0,-1.3333333,0.13333333,151.31333)" />
+    <path
+       id="path2"
+       d="M 28.3468,28.3468 V 56.69362 H 85.04042 V 28.3468 Z"
+       style="fill:none;stroke:#ff0000;stroke-width:1.19553;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(1.3333333,0,0,-1.3333333,0.13333333,151.31333)" />
+    <path
+       id="path3"
+       d="m 118.08354,85.04042 c 0,2.59374 -2.10258,4.69632 -4.6963,4.69632 -2.59374,0 -4.69632,-2.10258 -4.69632,-4.69632 0,-2.59373 2.10258,-4.69632 4.69632,-4.69632 2.59372,0 4.6963,2.10259 4.6963,4.69632 z"
+       style="fill:#0000ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="matrix(1.3333333,0,0,-1.3333333,0.13333333,151.31333)" />
+  </g>
+</svg>

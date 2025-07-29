@@ -400,7 +400,7 @@
     "href": "notes/tikz.html",
     "title": "Tikz",
     "section": "",
-    "text": "0.1 Adding Tikz Extension",
+    "text": "install danmackinlay extension on project folder. Run the code below using Terminal.\nquarto add danmackinlay/quarto_tikz\nthis will install the extension under the _extensions subdirectory. Check using directory command ls.\ninclude in yaml\nfilters: \n  - tikz\ncreate a code block with class .tikz\n```tikz",
     "crumbs": [
       "CodeChunks",
       "tikz"
@@ -415,6 +415,28 @@
     "crumbs": [
       "CodeChunks",
       "graphviz"
+    ]
+  },
+  {
+    "objectID": "notes/tikz.html#adding-tikz-extension",
+    "href": "notes/tikz.html#adding-tikz-extension",
+    "title": "Tikz",
+    "section": "",
+    "text": "install danmackinlay extension on project folder. Run the code below using Terminal.\nquarto add danmackinlay/quarto_tikz\nthis will install the extension under the _extensions subdirectory. Check using directory command ls.\ninclude in yaml\nfilters: \n  - tikz\ncreate a code block with class .tikz\n```tikz",
+    "crumbs": [
+      "CodeChunks",
+      "tikz"
+    ]
+  },
+  {
+    "objectID": "notes/tikz.html#minimal-tikz",
+    "href": "notes/tikz.html#minimal-tikz",
+    "title": "Tikz",
+    "section": "2 Minimal TikZ",
+    "text": "2 Minimal TikZ",
+    "crumbs": [
+      "CodeChunks",
+      "tikz"
     ]
   }
 ]
