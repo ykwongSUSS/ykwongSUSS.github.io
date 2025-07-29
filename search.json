@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "github.io",
+    "title": "WebQ",
     "section": "",
     "text": "These are notes for creating and editing websites using Quarto. This site resides on the ykwongsuss.github.io page and contains branches to other study websites as listed below.\nNotes\n\nyaml\nmarkdown\ncompute blocks\nedit blocks\ntex\n\nWebsites\n\nykwongWebR: R Basics\nykwongWebJ: Julia Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebNPar: NonParametric Statistics with R\nykwongWebSurv: Survival Analysis with R\nykwongWebLA: Linear Algebra with Julia",
     "crumbs": [
