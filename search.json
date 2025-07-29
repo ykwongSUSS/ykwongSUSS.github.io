@@ -398,9 +398,9 @@
   {
     "objectID": "notes/tikz.html",
     "href": "notes/tikz.html",
-    "title": "julia",
+    "title": "Tikz",
     "section": "",
-    "text": "Julia code chunks may be used “directly” without additional statements in the yaml. If using with R code chunks for example, it may be necessary to load Julia code chunk first.\nJulia code chunk may be indicated from quarto’s Visual mode / command or from ```julia for example\n\n0.1 Adding Julia Package",
+    "text": "0.1 Adding Tikz Extension",
     "crumbs": [
       "CodeChunks",
       "tikz"
