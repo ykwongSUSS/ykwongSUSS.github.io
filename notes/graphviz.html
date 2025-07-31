@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -238,6 +273,83 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="dot-code-chunk" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="dot-code-chunk"><span class="header-section-number">1</span> .dot Code Chunk</h2>
+<p>Example <code>code chunk</code> with <code>GraphViz(dot)</code></p>
+<div class="cell" data-fig-width="4" data-fig-height="2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="384" height="192" viewbox="0.00 0.00 334.00 126.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 122)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-122 330,-122 330,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<ellipse fill="lightblue" stroke="black" cx="25" cy="-93" rx="25" ry="25"></ellipse>
+<text text-anchor="middle" x="25" y="-88.8" font-family="roboto" font-size="14.00">nodeA</text>
+</g>
+<!-- C -->
+<g id="node4" class="node">
+<title>C</title>
+<ellipse fill="none" stroke="black" cx="163" cy="-59" rx="25" ry="25"></ellipse>
+<text text-anchor="middle" x="163" y="-54.8" font-family="roboto" font-size="14.00">C</text>
+</g>
+<!-- A&#45;&gt;C -->
+<g id="edge1" class="edge">
+<title>A-&gt;C</title>
+<path fill="none" stroke="brown" d="M49.38,-87.16C71.18,-81.71 103.92,-73.52 128.5,-67.38"></path>
+<polygon fill="brown" stroke="brown" points="129.62,-70.7 138.47,-64.88 127.92,-63.91 129.62,-70.7"></polygon>
+<text text-anchor="middle" x="94" y="-81.2" font-family="roboto" font-size="14.00">13</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<ellipse fill="yellow" stroke="black" cx="25" cy="-25" rx="25" ry="25"></ellipse>
+<text text-anchor="middle" x="25" y="-20.8" font-family="roboto" font-size="14.00">B</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="brown" d="M49.38,-30.84C71.18,-36.29 103.92,-44.48 128.5,-50.62"></path>
+<polygon fill="brown" stroke="brown" points="127.92,-54.09 138.47,-53.12 129.62,-47.3 127.92,-54.09"></polygon>
+<text text-anchor="middle" x="94" y="-48.2" font-family="roboto" font-size="14.00">12</text>
+</g>
+<!-- D -->
+<g id="node3" class="node">
+<title>D</title>
+<polygon fill="orange" stroke="black" points="326,-77 276,-77 276,-41 326,-41 326,-77"></polygon>
+<text text-anchor="middle" x="301" y="-54.8" font-family="roboto" font-size="14.00">D</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="brown" d="M188,-59C209.52,-59 241.35,-59 265.58,-59"></path>
+<polygon fill="brown" stroke="brown" points="265.78,-62.5 275.78,-59 265.78,-55.5 265.78,-62.5"></polygon>
+<text text-anchor="middle" x="232" y="-63.2" font-family="roboto" font-size="14.00">11</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>*Note: cell options <code>#| for {r} ; //| for {dot} ; %%/ for {mermaid}</code></p>
+<div class="sourceCode" id="cb1" style="border: 1px solid black; background: white"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{</span><span class="va">dot</span><span class="ot">}</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">//| fig-width: 4</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">//| fig-height: 2</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="ot">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  </span><span class="at">rankdir</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="va">LR</span><span class="ot">;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="va">fixedsize</span><span class="ot">=</span><span class="va">true</span><span class="co">, </span><span class="at">width</span><span class="ot">=</span><span class="dv">0.7</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="va">roboto</span><span class="ot">];</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="ot">=</span><span class="va">brown</span><span class="co">,</span><span class="at">minlen</span><span class="ot">=</span><span class="dv">2</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="va">roboto</span><span class="ot">]</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">lightblue</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">label</span><span class="ot">=</span><span class="st">"nodeA"</span><span class="ot">]</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">yellow</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">label</span><span class="ot">=</span><span class="st">"B"</span><span class="ot">]</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">rect</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">orange</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="ot">]</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="dv">13</span><span class="ot">]</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="dv">12</span><span class="ot">]</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="dv">11</span><span class="ot">]</span><span class="co">    </span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
