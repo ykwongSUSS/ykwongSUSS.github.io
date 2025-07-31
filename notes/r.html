@@ -147,7 +147,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/r.html">CodeChunk</a></li><li class="breadcrumb-item"><a href="../notes/r.html">r</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/r.html">CodeChunk</a></li><li class="breadcrumb-item"><a href="../notes/r.html">R</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -207,7 +207,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notes/r.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">r</span></a>
+ <span class="menu-text">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -274,14 +274,18 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#r-code-chunk" id="toc-r-code-chunk" class="nav-link active" data-scroll-target="#r-code-chunk"><span class="header-section-number">1</span> R Code Chunk</a>
+  <li><a href="#r-code-chunk-options" id="toc-r-code-chunk-options" class="nav-link active" data-scroll-target="#r-code-chunk-options"><span class="header-section-number">1</span> R Code Chunk Options</a>
   <ul class="collapse">
-  <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments"><span class="header-section-number">1.1</span> Comments</a></li>
-  <li><a href="#chunk-options" id="toc-chunk-options" class="nav-link" data-scroll-target="#chunk-options"><span class="header-section-number">1.2</span> Chunk options</a></li>
-  <li><a href="#figure-caption-options" id="toc-figure-caption-options" class="nav-link" data-scroll-target="#figure-caption-options"><span class="header-section-number">1.3</span> Figure, Caption options</a></li>
-  <li><a href="#margin-tables" id="toc-margin-tables" class="nav-link" data-scroll-target="#margin-tables"><span class="header-section-number">1.4</span> Margin Tables</a></li>
-  <li><a href="#column-margins" id="toc-column-margins" class="nav-link" data-scroll-target="#column-margins"><span class="header-section-number">1.5</span> Column Margins</a></li>
-  <li><a href="#asides" id="toc-asides" class="nav-link" data-scroll-target="#asides"><span class="header-section-number">1.6</span> Asides</a></li>
+  <li><a href="#echofalse" id="toc-echofalse" class="nav-link" data-scroll-target="#echofalse"><span class="header-section-number">1.1</span> <code>echo=FALSE</code></a></li>
+  <li><a href="#eval-false" id="toc-eval-false" class="nav-link" data-scroll-target="#eval-false"><span class="header-section-number">1.2</span> <code>eval: FALSE</code></a></li>
+  <li><a href="#code-fold-true" id="toc-code-fold-true" class="nav-link" data-scroll-target="#code-fold-true"><span class="header-section-number">1.3</span> <code>code-fold: TRUE</code></a></li>
+  <li><a href="#figure-and-caption" id="toc-figure-and-caption" class="nav-link" data-scroll-target="#figure-and-caption"><span class="header-section-number">1.4</span> Figure and Caption</a></li>
+  </ul></li>
+  <li><a href="#margins" id="toc-margins" class="nav-link" data-scroll-target="#margins"><span class="header-section-number">2</span> Margins</a>
+  <ul class="collapse">
+  <li><a href="#margin-tables" id="toc-margin-tables" class="nav-link" data-scroll-target="#margin-tables"><span class="header-section-number">2.1</span> Margin Tables</a></li>
+  <li><a href="#column-margins" id="toc-column-margins" class="nav-link" data-scroll-target="#column-margins"><span class="header-section-number">2.2</span> Column Margins</a></li>
+  <li><a href="#asides" id="toc-asides" class="nav-link" data-scroll-target="#asides"><span class="header-section-number">2.3</span> Asides</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -289,7 +293,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/r.html">CodeChunk</a></li><li class="breadcrumb-item"><a href="../notes/r.html">r</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/r.html">CodeChunk</a></li><li class="breadcrumb-item"><a href="../notes/r.html">R</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">R</h1>
 </div>
@@ -309,13 +313,13 @@ window.Quarto = {
 
 
 <p>R compute chunk is the default computational engine for Quarto. No further action is necessary. Just place the R code in the code chunk generated by <code>/R</code>.</p>
-<p>The basic R Code chunks features are indciated below:</p>
-<section id="r-code-chunk" class="level2 page-columns page-full" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="r-code-chunk"><span class="header-section-number">1</span> R Code Chunk</h2>
-<section id="comments" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="comments"><span class="header-section-number">1.1</span> Comments</h3>
+<p>The basic R Code chunks features are indicated below:</p>
+<section id="r-code-chunk-options" class="level2 page-columns page-full" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="r-code-chunk-options"><span class="header-section-number">1</span> R Code Chunk Options</h2>
+<section id="echofalse" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="echofalse"><span class="header-section-number">1.1</span> <code>echo=FALSE</code></h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>{r echo=FALSE}</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a># uses BaseR function</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a># note use of include=FALSE as well</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>qnorm(0.95)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
@@ -323,18 +327,16 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="chunk-options" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="chunk-options"><span class="header-section-number">1.2</span> Chunk options</h3>
-<section id="eval-false" class="level4" data-number="1.2.1">
-<h4 data-number="1.2.1" class="anchored" data-anchor-id="eval-false"><span class="header-section-number">1.2.1</span> <code>eval: FALSE</code></h4>
+<section id="eval-false" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="eval-false"><span class="header-section-number">1.2</span> <code>eval: FALSE</code></h3>
 <p>Can be place within the parenthesized r statement, or in the main statement preceded by the code option symbols: <code>#| eval: false</code></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>{r}</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>#| eval: FALSE</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>qnorm(0.95)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>(no output)</p>
 </section>
-<section id="code-fold-true" class="level4" data-number="1.2.2">
-<h4 data-number="1.2.2" class="anchored" data-anchor-id="code-fold-true"><span class="header-section-number">1.2.2</span> <code>code-fold: TRUE</code></h4>
+<section id="code-fold-true" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="code-fold-true"><span class="header-section-number">1.3</span> <code>code-fold: TRUE</code></h3>
 <div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>{r}</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>#| code-fold: TRUE</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -350,9 +352,8 @@ window.Quarto = {
 </details>
 </div>
 </section>
-</section>
-<section id="figure-caption-options" class="level3 page-columns page-full" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="figure-caption-options"><span class="header-section-number">1.3</span> Figure, Caption options</h3>
+<section id="figure-and-caption" class="level3 page-columns page-full" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="figure-and-caption"><span class="header-section-number">1.4</span> Figure and Caption</h3>
 <div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>{r}</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>#| fig.width: 4</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>#| fig.height: 3</span>
@@ -374,8 +375,11 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="margin-tables" class="level3 page-columns page-full" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="margin-tables"><span class="header-section-number">1.4</span> Margin Tables</h3>
+</section>
+<section id="margins" class="level2 page-columns page-full" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="margins"><span class="header-section-number">2</span> Margins</h2>
+<section id="margin-tables" class="level3 page-columns page-full" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="margin-tables"><span class="header-section-number">2.1</span> Margin Tables</h3>
 <div class="cell page-columns page-full">
 
 <div class="no-row-height column-margin column-container"><div class="cell-output-display">
@@ -437,23 +441,28 @@ window.Quarto = {
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
-<section id="column-margins" class="level3 page-columns page-full" data-number="1.5">
-<h3 data-number="1.5" class="anchored" data-anchor-id="column-margins"><span class="header-section-number">1.5</span> Column Margins</h3>
+<section id="column-margins" class="level3 page-columns page-full" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="column-margins"><span class="header-section-number">2.2</span> Column Margins</h3>
 <p>Set aside some text, math or images in the margin. In this case, it is a side comment that does not detract for the main proof.</p>
 
 <div class="no-row-height column-margin column-container"><div class="">
 <p>We know from <em>the first fundamental theorem of calculus</em> that for <span class="math inline">\(x\)</span> in <span class="math inline">\([a, b]\)</span>:</p>
 <p><span class="math display">\[\frac{d}{dx} \left( \int_{a}^{x} f(u)\,du \right)=f(x).\]</span></p>
 </div></div><div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>::: column-margin</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>We know from *the first fundamental theorem of calculus* that for $x$ in $[a, b]$:</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>$$\frac{d}{dx} \left( \int_{a}^{x} f(u)\,du \right)=f(x).$$</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>We know from *the first fundamental theorem of calculus* </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>that for $x$ in $[a, b]$:</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>$$\frac{d}{dx} \left( \int_{a}^{x} f(u)\,du \right)=f(x).$$</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 </section>
-<section id="asides" class="level3 page-columns page-full" data-number="1.6">
-<h3 data-number="1.6" class="anchored" data-anchor-id="asides"><span class="header-section-number">1.6</span> Asides</h3>
+<section id="asides" class="level3 page-columns page-full" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="asides"><span class="header-section-number">2.3</span> Asides</h3>
 <p>Asides allow you to place content aside from the content it is placed in. Asides look like footnotes, but do not include the footnote mark (the superscript number).</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>::: aside</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>This is a span (div) that has the class `aside` which places </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>it in the margin without a footnote number.</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 
