@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "WebQ",
     "section": "",
-    "text": "These are notes for creating and editing websites using Quarto. This site resides on the ykwongsuss.github.io page and contains branches to other study websites as listed below.\nQuarto Notes:\n\nyaml\nqmd\nr code\njulia code\ntex\ntikz\ngraphviz\n\nWebsites:\n\nykwongWebR: R Basics\nykwongWebJ: Julia Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebNPar: NonParametric Statistics with R\nykwongWebSurv: Survival Analysis with R\nykwongWebLA: Linear Algebra with Julia",
+    "text": "These are notes for creating and editing websites using Quarto. This site resides on the ykwongsuss.github.io page and contains branches to other study websites as listed below.\nQuarto Notes:\n\nyaml\nqmd\nR\njulia\ntex\ntikz\ngraphviz\n\nWebsites:\n\nykwongWebR: R Basics\nykwongWebJ: Julia Basics\nykwongWebStats: Mathematical Statistics with R\nykwongWebNPar: NonParametric Statistics with R\nykwongWebSurv: Survival Analysis with R\nykwongWebLA: Linear Algebra with Julia",
     "crumbs": [
       "Quarto"
     ]
@@ -345,7 +345,7 @@
     "href": "notes/julia.html",
     "title": "julia",
     "section": "",
-    "text": "Julia code chunks may be used “directly” without additional statements in the yaml. If using with R code chunks for example, it may be necessary to load Julia code chunk first.\nJulia code chunk may be indicated from quarto’s Visual mode / command or from ```julia for example\n\n0.1 Adding Julia Package",
+    "text": "Julia code chunks may be used “directly” without additional statements in the yaml. Julia code chunk may be indicated from quarto’s Visual mode /julia command.",
     "crumbs": [
       "CodeChunk",
       "julia"
@@ -547,6 +547,17 @@
     "crumbs": [
       "CodeChunk",
       "R"
+    ]
+  },
+  {
+    "objectID": "notes/julia.html#adding-julia-package",
+    "href": "notes/julia.html#adding-julia-package",
+    "title": "julia",
+    "section": "1 Adding Julia Package",
+    "text": "1 Adding Julia Package\n\n1+1\n\n2",
+    "crumbs": [
+      "CodeChunk",
+      "julia"
     ]
   }
 ]
