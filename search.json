@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "WebQ",
+    "title": "github.io",
     "section": "",
     "text": "These are notes for creating and editing websites using Quarto. This site resides on the ykwongsuss.github.io page and contains branches to other study websites as listed below.\nWebsites:",
     "crumbs": [
@@ -651,7 +651,7 @@
   {
     "objectID": "index.html#quarto-notes",
     "href": "index.html#quarto-notes",
-    "title": "WebQ",
+    "title": "github.io",
     "section": "Quarto Notes",
     "text": "Quarto Notes\n\nyaml: html, pdf\nqmd: md in Quarto\nR: R in Quarto\njulia: Julia in Quarto\ntex: TeX in Quarto\ntikz extension: Tikz in Quarto\ngraphviz: Graphviz\nversion: how to version",
     "crumbs": [
