@@ -565,7 +565,7 @@
     "href": "notes/tikz.html#drawing-diagrams",
     "title": "Tikz",
     "section": "3 Drawing Diagrams",
-    "text": "3 Drawing Diagrams\n\\begin{tikzpicture}[thick]\n  %\\draw [help lines] (0,0) grid (10,5);\n  \n  \\node at (0,4.2) {html};\n  \\draw[fill=yellow] (0,3) rectangle ++(2,1);\n  \\node at (1,3.5) {WebQ};\n  \\draw [-&gt;, shorten &gt;=1mm] (1,3) -- (1,2);\n  \n  \\node at (0,2.2) {qmd};\n  \\draw[fill=yellow] (0,1) rectangle ++(2,1);\n  \\node at (1,1.5) {html site}\n  \\draw [-&gt;, shorten &gt;=1mm] (2,1.5) -- (4,1.5);\n  \n  \\node at (4,2.2) {html}\n  \\draw[fill=cyan!20] (4,1) rectangle ++(2,1);\n  \\node at (5,1.5) {ghDesktop}\n  \\draw [-&gt;, shorten &gt;=1mm] (6,1.5) -- (8,3);\n    \n  \\node at (7,4.2) {html}\n   \\draw[fill=orange!30] (7,3) rectangle ++(2,1);\n   \\node at (8,3.5) {github.com}\n\\end{tikzpicture}",
+    "text": "3 Drawing Diagrams\n\\begin{tikzpicture} %-- style definitions\n  [nd/.style={draw, thick, minimum width=2cm, minimum height=1cm},\n  lbl/.style={yshift=2mm},\n  e/.style={red,fill=white}]\n  \n  % node 1\n  \\node[nd, fill=yellow!40] (webQ) at (1,5.5){WebQ};\n  \\node[lbl] at (webQ.north west) {qmd};\n  \n  % node 2\n  \\node[nd, fill=yellow!40] (qSite) at (1,1.5){qSite};\n  \\node[lbl] at (qSite.north west) {html};\n  \\draw (webQ) edge[-&gt;] node[e]{render}(qSite);\n \n   % node 3\n  \\node[nd, fill=cyan!20] (ghDesk) at (6,1.5){ghDesk};\n  \\node[lbl] at (ghDesk.north west) {html};\n  \\draw (qSite) edge[-&gt;] node[e]{rsync}(ghDesk);\n  \n  % node 4\n  \\node[nd, fill=orange!20] (github) at (9,5.5){github};\n  \\node[lbl] at (github.north west) {html};\n  \\draw (ghDesk) edge[-&gt;] node[e]{commit}(github);   \n\\end{tikzpicture}",
     "crumbs": [
       "CodeBlock",
       "tikz"
@@ -575,8 +575,30 @@
     "objectID": "notes/tikz.html#plots-without-pgfplots",
     "href": "notes/tikz.html#plots-without-pgfplots",
     "title": "Tikz",
-    "section": "4 Plots without pgfplots",
-    "text": "4 Plots without pgfplots",
+    "section": "4 Plots without pgfPlots",
+    "text": "4 Plots without pgfPlots",
+    "crumbs": [
+      "CodeBlock",
+      "tikz"
+    ]
+  },
+  {
+    "objectID": "notes/tikz.html#tikz-plots-without-pgfplots",
+    "href": "notes/tikz.html#tikz-plots-without-pgfplots",
+    "title": "Tikz",
+    "section": "4 Tikz plots without pgfPlots",
+    "text": "4 Tikz plots without pgfPlots\n\\tikz{\n\\draw[thick, lightgray] (-4,-1) grid (4,5);\n\\draw[&lt;-&gt;] (-4.5,0) -- (4.5,0) node[right] {$x$};\n\\draw[&lt;-&gt;] (0,-1.5) -- (0,5.5) node[above] {$y$};\n\n\\begin{scope}[rotate=-30]\n   \\clip (-4,-1) rectangle (4,5);\n   \\draw[domain=-4:4, variable=\\x, sample=50, smooth,\n   blue,very thick] plot ({\\x},{(\\x)^2});\n\\end{scope} \n}",
+    "crumbs": [
+      "CodeBlock",
+      "tikz"
+    ]
+  },
+  {
+    "objectID": "notes/tikz.html#graphs",
+    "href": "notes/tikz.html#graphs",
+    "title": "Tikz",
+    "section": "5 Graphs",
+    "text": "5 Graphs",
     "crumbs": [
       "CodeBlock",
       "tikz"

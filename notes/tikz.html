@@ -248,7 +248,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#adding-tikz-extension" id="toc-adding-tikz-extension" class="nav-link active" data-scroll-target="#adding-tikz-extension"><span class="header-section-number">1</span> Adding Tikz Extension</a></li>
   <li><a href="#minimal-tikz" id="toc-minimal-tikz" class="nav-link" data-scroll-target="#minimal-tikz"><span class="header-section-number">2</span> Minimal TikZ</a></li>
   <li><a href="#drawing-diagrams" id="toc-drawing-diagrams" class="nav-link" data-scroll-target="#drawing-diagrams"><span class="header-section-number">3</span> Drawing Diagrams</a></li>
-  <li><a href="#plots-without-pgfplots" id="toc-plots-without-pgfplots" class="nav-link" data-scroll-target="#plots-without-pgfplots"><span class="header-section-number">4</span> Plots without pgfplots</a></li>
+  <li><a href="#tikz-plots-without-pgfplots" id="toc-tikz-plots-without-pgfplots" class="nav-link" data-scroll-target="#tikz-plots-without-pgfplots"><span class="header-section-number">4</span> Tikz plots without pgfPlots</a></li>
+  <li><a href="#graphs" id="toc-graphs" class="nav-link" data-scroll-target="#graphs"><span class="header-section-number">5</span> Graphs</a></li>
   </ul>
 </nav>
     </div>
@@ -305,37 +306,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  \draw [-Stealth,shorten &gt;=1mm] (3,2) -- (5,4);</span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>\end{tikzpicture}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <img src="tikz_files/mediabag/d9071937195dababb38d0b339431814371de6476.svg" class="img-fluid">
+<hr>
 </section>
 <section id="drawing-diagrams" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="drawing-diagrams"><span class="header-section-number">3</span> Drawing Diagrams</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>\begin{tikzpicture}[thick]</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  %\draw [help lines] (0,0) grid (10,5);</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  \node at (0,4.2) {html};</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  \draw[fill=yellow] (0,3) rectangle ++(2,1);</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  \node at (1,3.5) {WebQ};</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  \draw [-&gt;, shorten &gt;=1mm] (1,3) -- (1,2);</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  \node at (0,2.2) {qmd};</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  \draw[fill=yellow] (0,1) rectangle ++(2,1);</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  \node at (1,1.5) {html site}</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  \draw [-&gt;, shorten &gt;=1mm] (2,1.5) -- (4,1.5);</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  \node at (4,2.2) {html}</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  \draw[fill=cyan!20] (4,1) rectangle ++(2,1);</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  \node at (5,1.5) {ghDesktop}</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  \draw [-&gt;, shorten &gt;=1mm] (6,1.5) -- (8,3);</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  \node at (7,4.2) {html}</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>   \draw[fill=orange!30] (7,3) rectangle ++(2,1);</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>   \node at (8,3.5) {github.com}</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>\end{tikzpicture}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<hr>
-<img src="tikz_files/mediabag/5738edf4457d4b6ca15b33036d74ac25317d2082.svg" class="img-fluid">
+<div class="sourceCode" id="cb5"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>\begin{tikzpicture} %-- style definitions</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  [nd/.style={draw, thick, minimum width=2cm, minimum height=1cm},</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  lbl/.style={yshift=2mm},</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  e/.style={red,fill=white}]</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  % node 1</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  \node[nd, fill=yellow!40] (webQ) at (1,5.5){WebQ};</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  \node[lbl] at (webQ.north west) {qmd};</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  % node 2</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  \node[nd, fill=yellow!40] (qSite) at (1,1.5){qSite};</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  \node[lbl] at (qSite.north west) {html};</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  \draw (webQ) edge[-&gt;] node[e]{render}(qSite);</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>   % node 3</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  \node[nd, fill=cyan!20] (ghDesk) at (6,1.5){ghDesk};</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  \node[lbl] at (ghDesk.north west) {html};</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  \draw (qSite) edge[-&gt;] node[e]{rsync}(ghDesk);</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  % node 4</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  \node[nd, fill=orange!20] (github) at (9,5.5){github};</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  \node[lbl] at (github.north west) {html};</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  \draw (ghDesk) edge[-&gt;] node[e]{commit}(github);   </span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>\end{tikzpicture}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img src="tikz_files/mediabag/fe3825d5847212ac9eae1dece4de7d4d8e243e71.svg" class="img-fluid">
 <hr>
 </section>
-<section id="plots-without-pgfplots" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="plots-without-pgfplots"><span class="header-section-number">4</span> Plots without pgfplots</h2>
+<section id="tikz-plots-without-pgfplots" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="tikz-plots-without-pgfplots"><span class="header-section-number">4</span> Tikz plots without pgfPlots</h2>
+<div class="sourceCode" id="cb6"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>\tikz{</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>\draw[thick, lightgray] (-4,-1) grid (4,5);</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>\draw[&lt;-&gt;] (-4.5,0) -- (4.5,0) node[right] {$x$};</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>\draw[&lt;-&gt;] (0,-1.5) -- (0,5.5) node[above] {$y$};</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>\begin{scope}[rotate=-30]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>   \clip (-4,-1) rectangle (4,5);</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>   \draw[domain=-4:4, variable=\x, sample=50, smooth,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>   blue,very thick] plot ({\x},{(\x)^2});</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>\end{scope} </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img src="tikz_files/mediabag/671d10fbe0a2d99e546b8fa0ac76226124384541.svg" class="img-fluid">
+</section>
+<section id="graphs" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="graphs"><span class="header-section-number">5</span> Graphs</h2>
 
 
 </section>
