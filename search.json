@@ -554,7 +554,7 @@
     "href": "notes/julia.html#adding-julia-package",
     "title": "julia",
     "section": "1 Adding Julia Package",
-    "text": "1 Adding Julia Package\n\n1+1\n\n2",
+    "text": "1 Adding Julia Package\n\nVERSION\n\nv\"1.11.6\"\n\n\n\nimport Pkg; Pkg.add(\"Plots\"); Pkg.add(\"Pipe\")",
     "crumbs": [
       "CodeChunk",
       "julia"
@@ -613,6 +613,39 @@
     "crumbs": [
       "CodeBlock",
       "graphviz"
+    ]
+  },
+  {
+    "objectID": "notes/julia.html#add-julia-packages",
+    "href": "notes/julia.html#add-julia-packages",
+    "title": "julia",
+    "section": "1 Add Julia Packages",
+    "text": "1 Add Julia Packages\n\nimport Pkg; \nPkg.add(\"Plots\"); \nPkg.add(\"Pipe\");\nVERSION\n\nv\"1.11.6\"",
+    "crumbs": [
+      "CodeChunk",
+      "julia"
+    ]
+  },
+  {
+    "objectID": "notes/julia.html#using-julia-package",
+    "href": "notes/julia.html#using-julia-package",
+    "title": "julia",
+    "section": "2 Using Julia package",
+    "text": "2 Using Julia package\n\nusing Plots\nplot(sin, \n     x-&gt;sin(2x), \n     0, 2π, \n     leg=false, \n     fill=(0,:lavender))\nplot!(size=(300,200))\n\n\n\n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n  \n    \n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFigure 1: Parametric Plots",
+    "crumbs": [
+      "CodeChunk",
+      "julia"
+    ]
+  },
+  {
+    "objectID": "notes/julia.html#using-pipe",
+    "href": "notes/julia.html#using-pipe",
+    "title": "julia",
+    "section": "3 Using Pipe",
+    "text": "3 Using Pipe\n\nusing Pipe\n# allows for _underscore as placeholder for var\n@pipe pi |&gt; round(_, digits=4) |&gt; println\n\n3.1416",
+    "crumbs": [
+      "CodeChunk",
+      "julia"
     ]
   }
 ]
