@@ -178,7 +178,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notes/r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">r</span></a>
+ <span class="menu-text">R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -246,6 +246,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#dot-code-chunk" id="toc-dot-code-chunk" class="nav-link active" data-scroll-target="#dot-code-chunk"><span class="header-section-number">1</span> .dot Code Chunk</a></li>
+  <li><a href="#graphviz-examples" id="toc-graphviz-examples" class="nav-link" data-scroll-target="#graphviz-examples"><span class="header-section-number">2</span> Graphviz Examples</a>
+  <ul class="collapse">
+  <li><a href="#simple-digraph-with-labels" id="toc-simple-digraph-with-labels" class="nav-link" data-scroll-target="#simple-digraph-with-labels"><span class="header-section-number">2.1</span> Simple digraph with labels</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -274,6 +278,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="dot-code-chunk" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="dot-code-chunk"><span class="header-section-number">1</span> .dot Code Chunk</h2>
 <p>Example <code>code chunk</code> with <code>GraphViz(dot)</code></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>{dot}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>//| fig-width: 4</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>//| fig-height: 2</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>digraph {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  rankdir = LR;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  node [shape=circle, fixedsize=true, width=0.7, fontname=roboto];</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  edge [color=brown,minlen=2, fontname=roboto]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    A [fillcolor=lightblue, style=filled, label="nodeA"]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    B [fillcolor=yellow, style=filled, label="B"]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    D [shape=rect, fillcolor=orange, style=filled]</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    A -&gt; C [label=13]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    B -&gt; C [label=12]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    C -&gt; D [label=11]    </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>*Note: cell options <code>#| for {r} ; //| for {dot} ; %%/ for {mermaid}</code></p>
 <div class="cell" data-fig-width="4" data-fig-height="2" data-layout-align="default">
 <div class="cell-output-display">
 <div>
@@ -334,24 +354,97 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>*Note: cell options <code>#| for {r} ; //| for {dot} ; %%/ for {mermaid}</code></p>
-<div class="sourceCode" id="cb1" style="border: 1px solid black; background: white"><pre class="sourceCode dot code-with-copy"><code class="sourceCode dot"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ot">{</span><span class="va">dot</span><span class="ot">}</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">//| fig-width: 4</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">//| fig-height: 2</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">digraph</span> <span class="ot">{</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">  </span><span class="at">rankdir</span><span class="co"> </span><span class="ot">=</span><span class="co"> </span><span class="va">LR</span><span class="ot">;</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">  </span><span class="kw">node</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">circle</span><span class="co">, </span><span class="va">fixedsize</span><span class="ot">=</span><span class="va">true</span><span class="co">, </span><span class="at">width</span><span class="ot">=</span><span class="dv">0.7</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="va">roboto</span><span class="ot">];</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">  </span><span class="kw">edge</span><span class="co"> </span><span class="ot">[</span><span class="at">color</span><span class="ot">=</span><span class="va">brown</span><span class="co">,</span><span class="at">minlen</span><span class="ot">=</span><span class="dv">2</span><span class="co">, </span><span class="at">fontname</span><span class="ot">=</span><span class="va">roboto</span><span class="ot">]</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">[</span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">lightblue</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">label</span><span class="ot">=</span><span class="st">"nodeA"</span><span class="ot">]</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">[</span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">yellow</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="co">, </span><span class="at">label</span><span class="ot">=</span><span class="st">"B"</span><span class="ot">]</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">shape</span><span class="ot">=</span><span class="va">rect</span><span class="co">, </span><span class="at">fillcolor</span><span class="ot">=</span><span class="va">orange</span><span class="co">, </span><span class="at">style</span><span class="ot">=</span><span class="va">filled</span><span class="ot">]</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">A</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="dv">13</span><span class="ot">]</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">B</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">C</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="dv">12</span><span class="ot">]</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">    </span><span class="va">C</span><span class="co"> </span><span class="ot">-&gt;</span><span class="co"> </span><span class="va">D</span><span class="co"> </span><span class="ot">[</span><span class="at">label</span><span class="ot">=</span><span class="dv">11</span><span class="ot">]</span><span class="co">    </span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="ot">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="graphviz-examples" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="graphviz-examples"><span class="header-section-number">2</span> Graphviz Examples</h2>
+<section id="simple-digraph-with-labels" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="simple-digraph-with-labels"><span class="header-section-number">2.1</span> Simple digraph with labels</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>{dot}</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>//| fig-width: 4</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>//| fig-height: 2</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>digraph{</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  rankdir=TD;</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  node[shape=circle, fixedsize=true, width=0.5, fontname=roboto];</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  edge[minlen=2]</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>   {rank=same; A,B,D}  </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    A -&gt; B [label=1]</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    B -&gt; D [label=1]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    A -&gt; C [label=2]</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    C -&gt; D [label=3]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-fig-width="4" data-fig-height="2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="384" height="192" viewbox="0.00 0.00 260.00 170.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 166.8)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-166.8 256,-166.8 256,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<ellipse fill="none" stroke="black" cx="18" cy="-144.8" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="18" y="-140.6" font-family="roboto" font-size="14.00">A</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<ellipse fill="none" stroke="black" cx="126" cy="-144.8" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="126" y="-140.6" font-family="roboto" font-size="14.00">B</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M36.32,-144.8C53.18,-144.8 78.43,-144.8 97.85,-144.8"></path>
+<polygon fill="black" stroke="black" points="97.95,-148.3 107.95,-144.8 97.95,-141.3 97.95,-148.3"></polygon>
+<text text-anchor="middle" x="72" y="-152" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- C -->
+<g id="node4" class="node">
+<title>C</title>
+<ellipse fill="none" stroke="black" cx="125" cy="-18" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="125" y="-13.8" font-family="roboto" font-size="14.00">C</text>
+</g>
+<!-- A&#45;&gt;C -->
+<g id="edge3" class="edge">
+<title>A-&gt;C</title>
+<path fill="none" stroke="black" d="M29.45,-130.44C48.03,-108.77 84.9,-65.77 107.01,-39.98"></path>
+<polygon fill="black" stroke="black" points="109.78,-42.13 113.63,-32.26 104.47,-37.57 109.78,-42.13"></polygon>
+<text text-anchor="middle" x="82.5" y="-77.2" font-family="Times,serif" font-size="14.00">2</text>
+</g>
+<!-- D -->
+<g id="node3" class="node">
+<title>D</title>
+<ellipse fill="none" stroke="black" cx="234" cy="-144.8" rx="18" ry="18"></ellipse>
+<text text-anchor="middle" x="234" y="-140.6" font-family="roboto" font-size="14.00">D</text>
+</g>
+<!-- B&#45;&gt;D -->
+<g id="edge2" class="edge">
+<title>B-&gt;D</title>
+<path fill="none" stroke="black" d="M144.32,-144.8C161.18,-144.8 186.43,-144.8 205.85,-144.8"></path>
+<polygon fill="black" stroke="black" points="205.95,-148.3 215.95,-144.8 205.95,-141.3 205.95,-148.3"></polygon>
+<text text-anchor="middle" x="180" y="-152" font-family="Times,serif" font-size="14.00">1</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge4" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M136.58,-32.26C155.46,-53.87 193.01,-96.87 215.58,-122.71"></path>
+<polygon fill="black" stroke="black" points="213.12,-125.21 222.34,-130.44 218.39,-120.61 213.12,-125.21"></polygon>
+<text text-anchor="middle" x="190.5" y="-77.2" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

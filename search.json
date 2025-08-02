@@ -411,7 +411,7 @@
     "href": "notes/graphviz.html",
     "title": "GraphViz",
     "section": "",
-    "text": "Example code chunk with GraphViz(dot)\n\n\n\n\n\n\n\n\n\n\nA\n\nnodeA\n\n\n\nC\n\nC\n\n\n\nA-&gt;C\n\n\n13\n\n\n\nB\n\nB\n\n\n\nB-&gt;C\n\n\n12\n\n\n\nD\n\nD\n\n\n\nC-&gt;D\n\n\n11\n\n\n\n\n\n\n\n\n*Note: cell options #| for {r} ; //| for {dot} ; %%/ for {mermaid}\n{dot}\n//| fig-width: 4\n//| fig-height: 2\ndigraph {\n  rankdir = LR;\n  node [shape=circle, fixedsize=true, width=0.7, fontname=roboto];\n  edge [color=brown,minlen=2, fontname=roboto]\n    \n    A [fillcolor=lightblue, style=filled, label=\"nodeA\"]\n    B [fillcolor=yellow, style=filled, label=\"B\"]\n    D [shape=rect, fillcolor=orange, style=filled]\n    A -&gt; C [label=13]\n    B -&gt; C [label=12]\n    C -&gt; D [label=11]    \n}",
+    "text": "Example code chunk with GraphViz(dot)\n{dot}\n//| fig-width: 4\n//| fig-height: 2\ndigraph {\n  rankdir = LR;\n  node [shape=circle, fixedsize=true, width=0.7, fontname=roboto];\n  edge [color=brown,minlen=2, fontname=roboto]\n    \n    A [fillcolor=lightblue, style=filled, label=\"nodeA\"]\n    B [fillcolor=yellow, style=filled, label=\"B\"]\n    D [shape=rect, fillcolor=orange, style=filled]\n    A -&gt; C [label=13]\n    B -&gt; C [label=12]\n    C -&gt; D [label=11]    \n}\n*Note: cell options #| for {r} ; //| for {dot} ; %%/ for {mermaid}\n\n\n\n\n\n\n\n\n\n\nA\n\nnodeA\n\n\n\nC\n\nC\n\n\n\nA-&gt;C\n\n\n13\n\n\n\nB\n\nB\n\n\n\nB-&gt;C\n\n\n12\n\n\n\nD\n\nD\n\n\n\nC-&gt;D\n\n\n11",
     "crumbs": [
       "CodeBlock",
       "graphviz"
@@ -488,7 +488,7 @@
     "href": "notes/graphviz.html#dot-code-chunk",
     "title": "GraphViz",
     "section": "",
-    "text": "Example code chunk with GraphViz(dot)\n\n\n\n\n\n\n\n\n\n\nA\n\nnodeA\n\n\n\nC\n\nC\n\n\n\nA-&gt;C\n\n\n13\n\n\n\nB\n\nB\n\n\n\nB-&gt;C\n\n\n12\n\n\n\nD\n\nD\n\n\n\nC-&gt;D\n\n\n11\n\n\n\n\n\n\n\n\n*Note: cell options #| for {r} ; //| for {dot} ; %%/ for {mermaid}\n{dot}\n//| fig-width: 4\n//| fig-height: 2\ndigraph {\n  rankdir = LR;\n  node [shape=circle, fixedsize=true, width=0.7, fontname=roboto];\n  edge [color=brown,minlen=2, fontname=roboto]\n    \n    A [fillcolor=lightblue, style=filled, label=\"nodeA\"]\n    B [fillcolor=yellow, style=filled, label=\"B\"]\n    D [shape=rect, fillcolor=orange, style=filled]\n    A -&gt; C [label=13]\n    B -&gt; C [label=12]\n    C -&gt; D [label=11]    \n}",
+    "text": "Example code chunk with GraphViz(dot)\n{dot}\n//| fig-width: 4\n//| fig-height: 2\ndigraph {\n  rankdir = LR;\n  node [shape=circle, fixedsize=true, width=0.7, fontname=roboto];\n  edge [color=brown,minlen=2, fontname=roboto]\n    \n    A [fillcolor=lightblue, style=filled, label=\"nodeA\"]\n    B [fillcolor=yellow, style=filled, label=\"B\"]\n    D [shape=rect, fillcolor=orange, style=filled]\n    A -&gt; C [label=13]\n    B -&gt; C [label=12]\n    C -&gt; D [label=11]    \n}\n*Note: cell options #| for {r} ; //| for {dot} ; %%/ for {mermaid}\n\n\n\n\n\n\n\n\n\n\nA\n\nnodeA\n\n\n\nC\n\nC\n\n\n\nA-&gt;C\n\n\n13\n\n\n\nB\n\nB\n\n\n\nB-&gt;C\n\n\n12\n\n\n\nD\n\nD\n\n\n\nC-&gt;D\n\n\n11",
     "crumbs": [
       "CodeBlock",
       "graphviz"
@@ -602,6 +602,17 @@
     "crumbs": [
       "CodeBlock",
       "tikz"
+    ]
+  },
+  {
+    "objectID": "notes/graphviz.html#graphviz-examples",
+    "href": "notes/graphviz.html#graphviz-examples",
+    "title": "GraphViz",
+    "section": "2 Graphviz Examples",
+    "text": "2 Graphviz Examples\n\n2.1 Simple digraph with labels\n{dot}\n//| fig-width: 4\n//| fig-height: 2\ndigraph{\n  rankdir=TD;\n  node[shape=circle, fixedsize=true, width=0.5, fontname=roboto];\n  edge[minlen=2]\n\n   {rank=same; A,B,D}  \n    A -&gt; B [label=1]\n    B -&gt; D [label=1]\n    \n    A -&gt; C [label=2]\n    C -&gt; D [label=3]\n  }\n}\n\n\n\n\n\n\n\n\n\n\nA\n\nA\n\n\n\nB\n\nB\n\n\n\nA-&gt;B\n\n\n1\n\n\n\nC\n\nC\n\n\n\nA-&gt;C\n\n\n2\n\n\n\nD\n\nD\n\n\n\nB-&gt;D\n\n\n1\n\n\n\nC-&gt;D\n\n\n3",
+    "crumbs": [
+      "CodeBlock",
+      "graphviz"
     ]
   }
 ]
