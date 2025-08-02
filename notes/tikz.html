@@ -249,7 +249,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#minimal-tikz" id="toc-minimal-tikz" class="nav-link" data-scroll-target="#minimal-tikz"><span class="header-section-number">2</span> Minimal TikZ</a></li>
   <li><a href="#drawing-diagrams" id="toc-drawing-diagrams" class="nav-link" data-scroll-target="#drawing-diagrams"><span class="header-section-number">3</span> Drawing Diagrams</a></li>
   <li><a href="#tikz-plots-without-pgfplots" id="toc-tikz-plots-without-pgfplots" class="nav-link" data-scroll-target="#tikz-plots-without-pgfplots"><span class="header-section-number">4</span> Tikz plots without pgfPlots</a></li>
-  <li><a href="#graphs" id="toc-graphs" class="nav-link" data-scroll-target="#graphs"><span class="header-section-number">5</span> Graphs</a></li>
+  <li><a href="#graphs" id="toc-graphs" class="nav-link" data-scroll-target="#graphs"><span class="header-section-number">5</span> Graphs</a>
+  <ul class="collapse">
+  <li><a href="#method1-nodes-and-edges" id="toc-method1-nodes-and-edges" class="nav-link" data-scroll-target="#method1-nodes-and-edges"><span class="header-section-number">5.1</span> Method1: nodes and edges</a></li>
+  <li><a href="#method2-usetikzlibrarygraphs" id="toc-method2-usetikzlibrarygraphs" class="nav-link" data-scroll-target="#method2-usetikzlibrarygraphs"><span class="header-section-number">5.2</span> Method2: <code>usetikzlibrary{graphs}</code></a></li>
+  <li><a href="#graphs-library-another-example" id="toc-graphs-library-another-example" class="nav-link" data-scroll-target="#graphs-library-another-example"><span class="header-section-number">5.3</span> graphs library: Another example</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -354,9 +359,61 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="graphs" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="graphs"><span class="header-section-number">5</span> Graphs</h2>
-<img src="tikz_files/mediabag/681addb855d15e00d02d4c3eeb6ef197ce1235a4.svg" class="img-fluid">
+<p>Graphs can be drawn in Tikz using nodes and edges. It can also be drawn (statically) using <code>\usetikzlibrary{graphs}</code> . For dynamic (automatic) placements of nodes use <code>\setikzlibrary{graphdrawing}</code>. Graphviz (.dot) can be used for quick layouts and is covered in a separate section.</p>
+<section id="method1-nodes-and-edges" class="level3" data-number="5.1">
+<h3 data-number="5.1" class="anchored" data-anchor-id="method1-nodes-and-edges"><span class="header-section-number">5.1</span> Method1: nodes and edges</h3>
+<div class="sourceCode" id="cb7"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>\begin{tikzpicture}</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>[every node/.style={draw, circle}]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>\node (A) at (0,0) {A}; </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>\node (B) at (2,0) {B};</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>\node (D) at (4,0) {D};</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>\node (C) at (2,-2) {C};</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>\draw (A) edge[-&gt;] node[draw=none, above]{1} (B);</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>\draw (B) edge[-&gt;] node[draw=none, above]{1} (D);</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>\draw (A) edge[-&gt;] node[draw=none, below]{2} (C);</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>\draw (C) edge[-&gt;] node[draw=none, below]{3} (D);</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>\end{tikzpicture}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img src="tikz_files/mediabag/60baffbc99fa5f3d0d79b5ac406e013527e552d6.svg" class="img-fluid">
+</section>
+<section id="method2-usetikzlibrarygraphs" class="level3" data-number="5.2">
+<h3 data-number="5.2" class="anchored" data-anchor-id="method2-usetikzlibrarygraphs"><span class="header-section-number">5.2</span> Method2: <code>usetikzlibrary{graphs}</code></h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>\usetikzlibrary{graphs}</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>\begin{tikzpicture}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>[n/.style={draw, circle}]</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>\node[n] (A) at (0,0) {A}; </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>\node[n] (B) at (2,0) {B};</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>\node[n] (D) at (4,0) {D};</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>\node[n] (C) at (2,-2) {C};</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>\graph {</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>(A) -&gt;[edge label=1] (B);</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>(A) -&gt;[edge label=2, swap] (C);</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>(C) -&gt;[edge label=3, swap] (D);</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>(B) -&gt;[edge label=1] (D);</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>\end{tikzpicture}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img src="tikz_files/mediabag/4945848bbd096afa0b63aee3839b514b505950fb.svg" class="img-fluid">
+<hr>
+</section>
+<section id="graphs-library-another-example" class="level3" data-number="5.3">
+<h3 data-number="5.3" class="anchored" data-anchor-id="graphs-library-another-example"><span class="header-section-number">5.3</span> graphs library: Another example</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>\usetikzlibrary{graphs, graphs.standard, quotes}</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>   % quotes library is for the [""] edges</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>\begin{tikzpicture}[node distance = {4cm and 3cm}, v/.style = {draw, circle}]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  \graph[nodes={circle, draw}, grow right=4cm, branch down=3cm]{</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    A -- ["1"] C -- ["3"] E,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    B -- ["1",swap] D -- ["4",swap] F,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    B -- ["2"] A,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    C -- ["2"] {D,B},</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    D -- ["3",swap] E -- ["1"] F</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  };</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>\end{tikzpicture}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<img src="tikz_files/mediabag/4f81ef8882c2f08e550301be435318389b78641a.svg" class="img-fluid">
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
