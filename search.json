@@ -369,7 +369,7 @@
     "section": "",
     "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\nquarto check\nquarto tools\n\n\n\nquarto --version\njulia --version\nR --version\npython3 --version\ntex --version\n\n\n\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor\n\n\n\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.15} \n\\begin{document}\n   \\pgfplotsversion\n\\end{document}",
     "crumbs": [
-      "Version",
+      "Versioning",
       "version"
     ]
   },
@@ -391,7 +391,7 @@
     "section": "",
     "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\nquarto check\nquarto tools\n\n\n\nquarto --version\njulia --version\nR --version\npython3 --version\ntex --version\n\n\n\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor\n\n\n\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.15} \n\\begin{document}\n   \\pgfplotsversion\n\\end{document}",
     "crumbs": [
-      "Version",
+      "Versioning",
       "version"
     ]
   },
@@ -656,6 +656,94 @@
     "text": "Quarto Notes\n\nyaml: html, pdf\nqmd: md in Quarto\nR: R in Quarto\njulia: Julia in Quarto\ntex: TeX in Quarto\ntikz extension: Tikz in Quarto\ngraphviz: Graphviz\nversion: how to version",
     "crumbs": [
       "Quarto"
+    ]
+  },
+  {
+    "objectID": "notes/update.html",
+    "href": "notes/update.html",
+    "title": "update",
+    "section": "",
+    "text": "quarto check\nquarto tools",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#terminal-commands",
+    "href": "notes/update.html#terminal-commands",
+    "title": "update",
+    "section": "",
+    "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\nquarto check\nquarto tools\n\n\n\nquarto --version\njulia --version\nR --version\npython3 --version\ntex --version\n\n\n\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor\n\n\n\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.15} \n\\begin{document}\n   \\pgfplotsversion\n\\end{document}",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#quarto-update",
+    "href": "notes/update.html#quarto-update",
+    "title": "update",
+    "section": "",
+    "text": "quarto check\nquarto tools",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#julia-update",
+    "href": "notes/update.html#julia-update",
+    "title": "update",
+    "section": "2 Julia update",
+    "text": "2 Julia update\n\njuliaup",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#r-update",
+    "href": "notes/update.html#r-update",
+    "title": "update",
+    "section": "3 R update",
+    "text": "3 R update",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#python3-update",
+    "href": "notes/update.html#python3-update",
+    "title": "update",
+    "section": "4 Python3 update",
+    "text": "4 Python3 update",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#tex-update",
+    "href": "notes/update.html#tex-update",
+    "title": "update",
+    "section": "5 TeX update",
+    "text": "5 TeX update\n\n5.1 tlmgr\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#quick-versions",
+    "href": "notes/update.html#quick-versions",
+    "title": "update",
+    "section": "",
+    "text": "quarto --version\njulia --version\nR --version\npython3 --version\ntex --version",
+    "crumbs": [
+      "Versioning",
+      "update"
     ]
   }
 ]
