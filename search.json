@@ -663,7 +663,7 @@
     "href": "notes/update.html",
     "title": "update",
     "section": "",
-    "text": "quarto check\nquarto tools",
+    "text": "These are software installs and julialang.org",
     "crumbs": [
       "Versioning",
       "update"
@@ -684,8 +684,8 @@
     "objectID": "notes/update.html#quarto-update",
     "href": "notes/update.html#quarto-update",
     "title": "update",
-    "section": "",
-    "text": "quarto check\nquarto tools",
+    "section": "1 Quarto update",
+    "text": "1 Quarto update\n\nTerminal: quarto –-version\nGo quarto.org and download new version of Quarto\ninstall Quarto\nTerminal: do quarto check and quarto tools",
     "crumbs": [
       "Versioning",
       "update"
@@ -696,7 +696,7 @@
     "href": "notes/update.html#julia-update",
     "title": "update",
     "section": "2 Julia update",
-    "text": "2 Julia update\n\njuliaup",
+    "text": "2 Julia update\n\nTerminal: julia –-version\nGo julialang.org for new Julia download, otherwise us\nTerminal: juliaup",
     "crumbs": [
       "Versioning",
       "update"
@@ -707,7 +707,7 @@
     "href": "notes/update.html#r-update",
     "title": "update",
     "section": "3 R update",
-    "text": "3 R update",
+    "text": "3 R update\n\nTerminal: R --version\nGo CRAN r-project.org for R-x.x.x-arm64.pkg\nInstall to Applications folder",
     "crumbs": [
       "Versioning",
       "update"
@@ -755,6 +755,17 @@
     "crumbs": [
       "CodeChunk",
       "R"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#rstudio-update",
+    "href": "notes/update.html#rstudio-update",
+    "title": "update",
+    "section": "1 RStudio update",
+    "text": "1 RStudio update\n\nRStudio: Menu item RStudio-&gt;About RStudio to check current version\nGo posit.co to download RStudio Desktop and install",
+    "crumbs": [
+      "Versioning",
+      "update"
     ]
   }
 ]

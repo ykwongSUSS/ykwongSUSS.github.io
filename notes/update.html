@@ -283,19 +283,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>These are software installs and <a href="https://julialang.org/install/">julialang.org</a></p>
+<ol type="1">
+<li>RStudio: Menu item <code>RStudio-&gt;About RStudio</code> to check current version</li>
+<li>Go <a href="https://posit.co/products/open-source/rstudio/">posit.co</a> to download RStudio Desktop and install</li>
+</ol>
 <section id="quarto-update" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="quarto-update"><span class="header-section-number">1</span> Quarto update</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> check</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> tools</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol type="1">
+<li>Terminal: <code>quarto –-version</code></li>
+<li>Go <a href="https://quarto.org/docs/get-started/">quarto.org</a> and download new version of Quarto</li>
+<li>install Quarto</li>
+<li>Terminal: do <code>quarto check</code> and <code>quarto tools</code></li>
+</ol>
 </section>
 <section id="julia-update" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="julia-update"><span class="header-section-number">2</span> Julia update</h2>
 <ol type="1">
-<li>juliaup</li>
+<li>Terminal: <code>julia –-version</code></li>
+<li>Go <a href="https://julialang.org">julialang.org</a> for new Julia download, otherwise us</li>
+<li>Terminal: <code>juliaup</code></li>
 </ol>
 </section>
 <section id="r-update" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="r-update"><span class="header-section-number">3</span> R update</h2>
+<ol type="1">
+<li>Terminal: <code>R --version</code></li>
+<li>Go CRAN <a href="https://www.r-project.org">r-project.org</a> for R-x.x.x-arm64.pkg</li>
+<li>Install to Applications folder</li>
+</ol>
 </section>
 <section id="python3-update" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="python3-update"><span class="header-section-number">4</span> Python3 update</h2>
@@ -304,15 +320,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="5" class="anchored" data-anchor-id="tex-update"><span class="header-section-number">5</span> TeX update</h2>
 <section id="tlmgr" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="tlmgr"><span class="header-section-number">5.1</span> tlmgr</h3>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> info <span class="pp">*</span>what<span class="pp">*</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> update <span class="at">--list</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> update all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> info <span class="pp">*</span>what<span class="pp">*</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> update <span class="at">--list</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> update all</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>e.g.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> info <span class="at">--list</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> info pgfplots  <span class="er">(</span><span class="ex">1.18.1</span><span class="kw">)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> info luatex</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> update tex</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> install pagecolor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> info <span class="at">--list</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> info pgfplots  <span class="er">(</span><span class="ex">1.18.1</span><span class="kw">)</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> info luatex</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> update tex</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">tlmgr</span> install pagecolor</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
