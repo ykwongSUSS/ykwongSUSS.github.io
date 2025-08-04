@@ -767,5 +767,71 @@
       "Versioning",
       "update"
     ]
+  },
+  {
+    "objectID": "notes/update.html#rstudio",
+    "href": "notes/update.html#rstudio",
+    "title": "update",
+    "section": "1 RStudio",
+    "text": "1 RStudio\n\nRStudio: Menu item RStudio-&gt;About RStudio to check current version\nGo posit.co to download RStudio Desktop and install",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#quarto",
+    "href": "notes/update.html#quarto",
+    "title": "update",
+    "section": "2 Quarto",
+    "text": "2 Quarto\n\nTerminal: quarto –-version\nGo quarto.org and download new version of Quarto\ninstall Quarto\nTerminal: do quarto check and quarto tools",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#julia",
+    "href": "notes/update.html#julia",
+    "title": "update",
+    "section": "3 Julia",
+    "text": "3 Julia\n\nTerminal: julia –-version\nGo julialang.org for new Julia download, otherwise use\nTerminal: juliaup update",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#r",
+    "href": "notes/update.html#r",
+    "title": "update",
+    "section": "4 R",
+    "text": "4 R\n\nTerminal: R --version\nGo CRAN r-project.org for R-x.x.x-arm64.pkg\nInstall to Applications folder",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#python3",
+    "href": "notes/update.html#python3",
+    "title": "update",
+    "section": "5 Python3",
+    "text": "5 Python3",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
+  },
+  {
+    "objectID": "notes/update.html#tex",
+    "href": "notes/update.html#tex",
+    "title": "update",
+    "section": "6 TeX",
+    "text": "6 TeX\n\nTerminal: tex --version\nGo TUG.org for downloads\n\n\n6.1 or tlmgr\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor",
+    "crumbs": [
+      "Versioning",
+      "update"
+    ]
   }
 ]
