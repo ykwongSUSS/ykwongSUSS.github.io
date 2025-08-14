@@ -400,10 +400,10 @@
     "href": "notes/tikz.html",
     "title": "Tikz",
     "section": "",
-    "text": "install danmackinlay extension on project folder. Run the code below using Terminal.\nquarto add danmackinlay/quarto_tikz\nthis will install the extension under the _extensions subdirectory. Check using directory command ls.\ninclude in yaml\nfilters: \n  - tikz\ncreate a code block with class .tikz\n```tikz",
+    "text": "TikzWeb",
     "crumbs": [
       "CodeBlock",
-      "tikz extension"
+      "tikz"
     ]
   },
   {
@@ -421,22 +421,22 @@
     "objectID": "notes/tikz.html#adding-tikz-extension",
     "href": "notes/tikz.html#adding-tikz-extension",
     "title": "Tikz",
-    "section": "",
-    "text": "install danmackinlay extension on project folder. Run the code below using Terminal.\nquarto add danmackinlay/quarto_tikz\nthis will install the extension under the _extensions subdirectory. Check using directory command ls.\ninclude in yaml\nfilters: \n  - tikz\ncreate a code block with class .tikz\n```tikz",
+    "section": "2 Adding Tikz Extension",
+    "text": "2 Adding Tikz Extension\n\ninstall danmackinlay extension on project folder. Run the code below using Terminal.\nquarto add danmackinlay/quarto_tikz\nthis will install the extension under the _extensions subdirectory. Check using directory command ls.\ninclude in yaml\nfilters: \n  - tikz\ncreate a code block with class .tikz\n```tikz",
     "crumbs": [
       "CodeBlock",
-      "tikz extension"
+      "tikz"
     ]
   },
   {
     "objectID": "notes/tikz.html#minimal-tikz",
     "href": "notes/tikz.html#minimal-tikz",
     "title": "Tikz",
-    "section": "2 Minimal TikZ",
-    "text": "2 Minimal TikZ\n\\begin{tikzpicture}\n  \\draw [help lines] (0,0) grid (5,4);\n  % draw axes\n  \\draw[-&gt;] (0,0) -- (5.2,0) node[right]{$x$};\n  \\draw[-&gt;] (0,0) -- (0,4.2) node[above]{$y$};\n  \n  % draw rectangle\n  \\draw [very thick,red] (1,1) rectangle (3,2);\n  \n  %draw point\n  \\node[fill, circle, blue] at (5,4) {};\n  \n  % draw arrow line\n  \\draw [-Stealth,shorten &gt;=1mm] (3,2) -- (5,4);\n\\end{tikzpicture}",
+    "section": "3 Minimal TikZ",
+    "text": "3 Minimal TikZ\n\\begin{tikzpicture}\n  \\draw [help lines] (0,0) grid (5,4);\n  % draw axes\n  \\draw[-&gt;] (0,0) -- (5.2,0) node[right]{$x$};\n  \\draw[-&gt;] (0,0) -- (0,4.2) node[above]{$y$};\n  \n  % draw rectangle\n  \\draw [very thick,red] (1,1) rectangle (3,2);\n  \n  %draw point\n  \\node[fill, circle, blue] at (5,4) {};\n  \n  % draw arrow line\n  \\draw [-Stealth,shorten &gt;=1mm] (3,2) -- (5,4);\n\\end{tikzpicture}",
     "crumbs": [
       "CodeBlock",
-      "tikz extension"
+      "tikz"
     ]
   },
   {
@@ -568,7 +568,7 @@
     "text": "3 Drawing Diagrams\n\\begin{tikzpicture} %-- style definitions\n  [nd/.style={draw, thick, minimum width=2cm, minimum height=1cm},\n  lbl/.style={yshift=2mm},\n  e/.style={red,fill=white}]\n  \n  % node 1\n  \\node[nd, fill=yellow!40] (webQ) at (1,5.5){WebQ};\n  \\node[lbl] at (webQ.north west) {qmd};\n  \n  % node 2\n  \\node[nd, fill=yellow!40] (qSite) at (1,1.5){qSite};\n  \\node[lbl] at (qSite.north west) {html};\n  \\draw (webQ) edge[-&gt;] node[e]{render}(qSite);\n \n   % node 3\n  \\node[nd, fill=cyan!20] (ghDesk) at (6,1.5){ghDesk};\n  \\node[lbl] at (ghDesk.north west) {html};\n  \\draw (qSite) edge[-&gt;] node[e]{rsync}(ghDesk);\n  \n  % node 4\n  \\node[nd, fill=orange!20] (github) at (9,5.5){github};\n  \\node[lbl] at (github.north west) {html};\n  \\draw (ghDesk) edge[-&gt;] node[e]{commit}(github);   \n\\end{tikzpicture}",
     "crumbs": [
       "CodeBlock",
-      "tikz extension"
+      "tikz"
     ]
   },
   {
@@ -590,7 +590,7 @@
     "text": "4 Tikz plots without pgfPlots\n\\tikz{\n\\draw[thick, lightgray] (-4,-1) grid (4,5);\n\\draw[&lt;-&gt;] (-4.5,0) -- (4.5,0) node[right] {$x$};\n\\draw[&lt;-&gt;] (0,-1.5) -- (0,5.5) node[above] {$y$};\n\n\\begin{scope}[rotate=-30]\n   \\clip (-4,-1) rectangle (4,5);\n   \\draw[domain=-4:4, variable=\\x, sample=50, smooth,\n   blue,very thick] plot ({\\x},{(\\x)^2});\n\\end{scope} \n}",
     "crumbs": [
       "CodeBlock",
-      "tikz extension"
+      "tikz"
     ]
   },
   {
@@ -601,7 +601,7 @@
     "text": "5 Graphs\nGraphs can be drawn in Tikz using nodes and edges. It can also be drawn (statically) using \\usetikzlibrary{graphs} . For dynamic (automatic) placements of nodes use \\setikzlibrary{graphdrawing}. Graphviz (.dot) can be used for quick layouts and is covered in a separate section.\n\n5.1 Method1: nodes and edges\n\\begin{tikzpicture}\n[every node/.style={draw, circle}]\n{\n\\node (A) at (0,0) {A}; \n\\node (B) at (2,0) {B};\n\\node (D) at (4,0) {D};\n\\node (C) at (2,-2) {C};\n\\draw (A) edge[-&gt;] node[draw=none, above]{1} (B);\n\\draw (B) edge[-&gt;] node[draw=none, above]{1} (D);\n\\draw (A) edge[-&gt;] node[draw=none, below]{2} (C);\n\\draw (C) edge[-&gt;] node[draw=none, below]{3} (D);\n\\end{tikzpicture}\n\n\n\n5.2 Method2: usetikzlibrary{graphs}\n\\usetikzlibrary{graphs}\n\n\\begin{tikzpicture}\n[n/.style={draw, circle}]\n\\node[n] (A) at (0,0) {A}; \n\\node[n] (B) at (2,0) {B};\n\\node[n] (D) at (4,0) {D};\n\\node[n] (C) at (2,-2) {C};\n\n\\graph {\n(A) -&gt;[edge label=1] (B);\n(A) -&gt;[edge label=2, swap] (C);\n(C) -&gt;[edge label=3, swap] (D);\n(B) -&gt;[edge label=1] (D);\n}\n\\end{tikzpicture}\n\n\n\n\n5.3 graphs library: Another example\n\\usetikzlibrary{graphs, graphs.standard, quotes}\n   % quotes library is for the [\"\"] edges\n\\begin{tikzpicture}[node distance = {4cm and 3cm}, v/.style = {draw, circle}]\n  \\graph[nodes={circle, draw}, grow right=4cm, branch down=3cm]{\n    A -- [\"1\"] C -- [\"3\"] E,\n    B -- [\"1\",swap] D -- [\"4\",swap] F,\n    B -- [\"2\"] A,\n    C -- [\"2\"] {D,B},\n    D -- [\"3\",swap] E -- [\"1\"] F\n  };\n\\end{tikzpicture}",
     "crumbs": [
       "CodeBlock",
-      "tikz extension"
+      "tikz"
     ]
   },
   {
@@ -832,6 +832,17 @@
     "crumbs": [
       "Versioning",
       "update"
+    ]
+  },
+  {
+    "objectID": "notes/tikz.html#more-details-at",
+    "href": "notes/tikz.html#more-details-at",
+    "title": "Tikz",
+    "section": "",
+    "text": "TikzWeb",
+    "crumbs": [
+      "CodeBlock",
+      "tikz"
     ]
   }
 ]
