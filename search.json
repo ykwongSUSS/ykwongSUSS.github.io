@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "github.io",
     "section": "",
-    "text": "These are notes for creating and editing websites using Quarto. This site resides on the ykwongsuss.github.io page and contains branches to other study websites as listed below.\nWebsites:",
+    "text": "These are notes for languages such as markdown, R, Julia and Tikz using Quarto. In addition, there are links to Quarto websites and notes for several subjects in Statistics and Algebra. The links are found in WebCentral ykwongsuss.github.io.",
     "crumbs": [
       "Quarto"
     ]
@@ -370,7 +370,7 @@
     "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\nquarto check\nquarto tools\n\n\n\nquarto --version\njulia --version\nR --version\npython3 --version\ntex --version\n\n\n\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor\n\n\n\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.15} \n\\begin{document}\n   \\pgfplotsversion\n\\end{document}",
     "crumbs": [
       "Versioning",
-      "version"
+      "versions"
     ]
   },
   {
@@ -392,7 +392,7 @@
     "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\nquarto check\nquarto tools\n\n\n\nquarto --version\njulia --version\nR --version\npython3 --version\ntex --version\n\n\n\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor\n\n\n\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.15} \n\\begin{document}\n   \\pgfplotsversion\n\\end{document}",
     "crumbs": [
       "Versioning",
-      "version"
+      "versions"
     ]
   },
   {
@@ -466,7 +466,7 @@
     "href": "notes/qmd.html#qmd",
     "title": "Q markdown",
     "section": "1 Qmd",
-    "text": "1 Qmd\n\n1.1 Basic markdown\nSome basic formatting in a list:\n\n*italics* – italics\n**bold** – bold\n`highlight` — highlight (backticks)\n\n\n\n1.2 URL\n# markdown code [desc](url)\n\n**URL**: [5 min Strategy](https://ykwongSUSS.github.io/5minStrategy)\nURL: 5 min Strategy\n\n\n1.3 Images\n# markdown code ![Fig desc](url)\n\n![Figure 1 : SUSSLogo](https://ykwongSUSS.github.io/5minStrategy/assets/susslogo.png){width=\"150px\"}\n\nimages can be sized using curly brackets\n\n\n\n\nFigure 1 : SUSSLogo\n\n\n\n\n1.4 Piped Table\n| Default | Left | Center | Right |\n|---------|:-----|:------:|------:|\n| High    | Cat 1| A     |100.00 |\n| High    | Cat 2| B     | 85.50 |\n| Low.    | Cat 3| C     | 80.25 |\n\n: Table Caption {tbl-colwidths=\"[25,15,15,45]\"} \n\nTable Caption\n\n\n\n\n\n\n\n\nDefault\nLeft\nCenter\nRight\n\n\n\n\nHigh\nCat 1\nA\n100.00\n\n\nHigh\nCat 2\nB\n85.50\n\n\nLow.\nCat 3\nC\n80.25\n\n\n\n\n\n1.5 Math support\nThe area of a circle is $\\pi r^2$ (inline).\nBinomial function (display):\n  $$ f(k) = \\binom{n}{k} = \\frac{n!}{k!(n-k)!} $$\nThe area of a circle is \\(\\pi r^2\\) (inline).\nBinomial function (display):\n\\[ f(k) = \\binom{n}{k} = \\frac{n!}{k!(n-k)!} \\]\n\n\n1.6 Footnotes in Qmd\nThis paragraph has a footnote [^here] described and reference \nat the next paragraph but not visible here. The actual footnote \nappears at the end of this page. A LaTeX footnote is different \nand has a separate \\footnote command. Tip: check for extra\nbackslashes if footnote is not working.\n\n[^here]: A footnote marker cannot contain spaces.\nThis paragraph has a footnote 1 described and reference at the next paragraph but not visible here. The actual footnote appears at the end of this page. A LaTeX footnote is different and has a separate \\footnote command. Tip: check for extra backslashes if footnote is not working.",
+    "text": "1 Qmd\n\n1.1 Basic markdown\nSome basic formatting in a list:\n\n*italics* – italics\n**bold** – bold\n`highlight` — highlight (backticks)\n\n\n\n1.2 URL\n# markdown code [desc](url)\n\n**URL**: [5 min Strategy](https://ykwongSUSS.github.io/5minStrategy)\nURL: 5 min Strategy\n\n\n1.3 Images\n# markdown code ![Fig desc](url)\n\n![Figure 1 : SUSSLogo](https://ykwongSUSS.github.io/5minStrategy/assets/susslogo.png){width=\"150px\"}\n\nimages can be sized using curly brackets\n\n\n\n\nFigure 1 : SUSSLogo\n\n\n\n\n1.4 Piped Table\n| Default | Left | Center | Right |\n|---------|:-----|:------:|------:|\n| High    | Cat 1| A     |100.00 |\n| High    | Cat 2| B     | 85.50 |\n| Low.    | Cat 3| C     | 80.25 |\n\n: Table Caption {tbl-colwidths=\"[25,15,15,45]\"} \n\nTable Caption\n\n\n\n\n\n\n\n\nDefault\nLeft\nCenter\nRight\n\n\n\n\nHigh\nCat 1\nA\n100.00\n\n\nHigh\nCat 2\nB\n85.50\n\n\nLow.\nCat 3\nC\n80.25\n\n\n\n\n\n1.5 Math support\nThe area of a circle is $\\pi r^2$ (inline).\nBinomial function (display):\n  $$ f(k) = \\binom{n}{k} = \\frac{n!}{k!(n-k)!} $$\nThe area of a circle is \\(\\pi r^2\\) (inline).\nBinomial function (display):\n\\[ f(k) = \\binom{n}{k} = \\frac{n!}{k!(n-k)!} \\]\n\n\n1.6 Definition Callout\nLADR uses a yellow callout to do definitions, and blue callout for properties. They are reproduced below with the requisite parameters.\n\n\n\n\n\n\nDefinition:\n\n\n\n\nType: note\nAppearance: default\nShow icon: false\nCaption: Definition:\nCSS styles: color: yellow\n\n\n\n\n\n1.7 Footnotes in Qmd\nThis paragraph has a footnote [^here] described and reference \nat the next paragraph but not visible here. The actual footnote \nappears at the end of this page. A LaTeX footnote is different \nand has a separate \\footnote command. Tip: check for extra\nbackslashes if footnote is not working.\n\n[^here]: A footnote marker cannot contain spaces.\nThis paragraph has a footnote 1 described and reference at the next paragraph but not visible here. The actual footnote appears at the end of this page. A LaTeX footnote is different and has a separate \\footnote command. Tip: check for extra backslashes if footnote is not working.",
     "crumbs": [
       "Quarto",
       "qmd"
@@ -653,7 +653,7 @@
     "href": "index.html#quarto-notes",
     "title": "github.io",
     "section": "Quarto Notes",
-    "text": "Quarto Notes\n\nyaml: html, pdf\nqmd: md in Quarto\nR: R in Quarto\njulia: Julia in Quarto\ntex: TeX in Quarto\ntikz extension: Tikz in Quarto\ngraphviz: Graphviz\nversion: how to version",
+    "text": "Quarto Notes\n\nyaml: html, pdf\nqmd: md in Quarto\nR: R in Quarto\njulia: Julia in Quarto\ntex: TeX in Quarto\ntikz extension: Tikz in Quarto\ngraphviz: Graphviz\nversions: how to version",
     "crumbs": [
       "Quarto"
     ]
@@ -663,11 +663,7 @@
     "href": "notes/update.html",
     "title": "update",
     "section": "",
-    "text": "These are software installs and updates.",
-    "crumbs": [
-      "Versioning",
-      "update"
-    ]
+    "text": "These are software installs and updates."
   },
   {
     "objectID": "notes/update.html#terminal-commands",
@@ -773,66 +769,42 @@
     "href": "notes/update.html#rstudio",
     "title": "update",
     "section": "1 RStudio",
-    "text": "1 RStudio\n\nRStudio: Menu item RStudio-&gt;About RStudio to check current version\nGo posit.co to download RStudio Desktop and install",
-    "crumbs": [
-      "Versioning",
-      "update"
-    ]
+    "text": "1 RStudio\n\nRStudio: Menu item RStudio-&gt;About RStudio to check current version\nGo posit.co to download RStudio Desktop and install"
   },
   {
     "objectID": "notes/update.html#quarto",
     "href": "notes/update.html#quarto",
     "title": "update",
     "section": "2 Quarto",
-    "text": "2 Quarto\n\nTerminal: quarto –-version\nGo quarto.org and download new version of Quarto\ninstall Quarto\nTerminal: do quarto check and quarto tools",
-    "crumbs": [
-      "Versioning",
-      "update"
-    ]
+    "text": "2 Quarto\n\nTerminal: quarto –-version\nGo quarto.org and download new version of Quarto\ninstall Quarto\nTerminal: do quarto check and quarto tools"
   },
   {
     "objectID": "notes/update.html#julia",
     "href": "notes/update.html#julia",
     "title": "update",
     "section": "3 Julia",
-    "text": "3 Julia\n\nTerminal: julia –-version\nGo julialang.org for new Julia download, otherwise use\nTerminal: juliaup update",
-    "crumbs": [
-      "Versioning",
-      "update"
-    ]
+    "text": "3 Julia\n\nTerminal: julia –-version\nGo julialang.org for new Julia download, otherwise use\nTerminal: juliaup update"
   },
   {
     "objectID": "notes/update.html#r",
     "href": "notes/update.html#r",
     "title": "update",
     "section": "4 R",
-    "text": "4 R\n\nTerminal: R --version\nGo CRAN r-project.org for R-x.x.x-arm64.pkg\nInstall to Applications folder",
-    "crumbs": [
-      "Versioning",
-      "update"
-    ]
+    "text": "4 R\n\nTerminal: R --version\nGo CRAN r-project.org for R-x.x.x-arm64.pkg\nInstall to Applications folder"
   },
   {
     "objectID": "notes/update.html#python3",
     "href": "notes/update.html#python3",
     "title": "update",
     "section": "5 Python3",
-    "text": "5 Python3",
-    "crumbs": [
-      "Versioning",
-      "update"
-    ]
+    "text": "5 Python3"
   },
   {
     "objectID": "notes/update.html#tex",
     "href": "notes/update.html#tex",
     "title": "update",
     "section": "6 TeX",
-    "text": "6 TeX\n\nTerminal: tex --version\nGo TUG.org for downloads\n\n\n6.1 or tlmgr\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor",
-    "crumbs": [
-      "Versioning",
-      "update"
-    ]
+    "text": "6 TeX\n\nTerminal: tex --version\nGo TUG.org for downloads\n\n\n6.1 or tlmgr\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor"
   },
   {
     "objectID": "notes/tikz.html#more-details-at",
@@ -843,6 +815,115 @@
     "crumbs": [
       "CodeBlock",
       "tikz"
+    ]
+  },
+  {
+    "objectID": "index.html#webcentral",
+    "href": "index.html#webcentral",
+    "title": "github.io",
+    "section": "WebCentral:",
+    "text": "WebCentral:\n\nWebCentral: github.io\nWebR: R Basics\nWebJ: Julia Basics\nWebTikz: Tikz Basics\nWebLADR: LADR Notes\nykwongWebStats: Mathematical Statistics with R\nykwongWebNPar: NonParametric Statistics with R\nykwongWebSurv: Survival Analysis with R\nykwongWebLA: Linear Algebra with Julia",
+    "crumbs": [
+      "Quarto"
+    ]
+  },
+  {
+    "objectID": "notes/versions.html",
+    "href": "notes/versions.html",
+    "title": "version",
+    "section": "",
+    "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\nquarto check\nquarto tools\n\n\n\nquarto --version\njulia --version\nR --version\npython3 --version\ntex --version\n\n\n\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor\n\n\n\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.15} \n\\begin{document}\n   \\pgfplotsversion\n\\end{document}",
+    "crumbs": [
+      "Versioning",
+      "versions"
+    ]
+  },
+  {
+    "objectID": "notes/versions.html#terminal-commands",
+    "href": "notes/versions.html#terminal-commands",
+    "title": "version",
+    "section": "",
+    "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\nquarto check\nquarto tools\n\n\n\nquarto --version\njulia --version\nR --version\npython3 --version\ntex --version\n\n\n\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor\n\n\n\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.15} \n\\begin{document}\n   \\pgfplotsversion\n\\end{document}",
+    "crumbs": [
+      "Versioning",
+      "versions"
+    ]
+  },
+  {
+    "objectID": "notes/updates.html",
+    "href": "notes/updates.html",
+    "title": "updates",
+    "section": "",
+    "text": "These are software installs and updates.",
+    "crumbs": [
+      "Versioning",
+      "updates"
+    ]
+  },
+  {
+    "objectID": "notes/updates.html#rstudio",
+    "href": "notes/updates.html#rstudio",
+    "title": "updates",
+    "section": "1 RStudio",
+    "text": "1 RStudio\n\nRStudio: Menu item RStudio-&gt;About RStudio to check current version\nGo posit.co to download RStudio Desktop and install",
+    "crumbs": [
+      "Versioning",
+      "updates"
+    ]
+  },
+  {
+    "objectID": "notes/updates.html#quarto",
+    "href": "notes/updates.html#quarto",
+    "title": "updates",
+    "section": "2 Quarto",
+    "text": "2 Quarto\n\nTerminal: quarto –-version\nGo quarto.org and download new version of Quarto\ninstall Quarto\nTerminal: do quarto check and quarto tools",
+    "crumbs": [
+      "Versioning",
+      "updates"
+    ]
+  },
+  {
+    "objectID": "notes/updates.html#julia",
+    "href": "notes/updates.html#julia",
+    "title": "updates",
+    "section": "3 Julia",
+    "text": "3 Julia\n\nTerminal: julia –-version\nGo julialang.org for new Julia download, otherwise use\nTerminal: juliaup update",
+    "crumbs": [
+      "Versioning",
+      "updates"
+    ]
+  },
+  {
+    "objectID": "notes/updates.html#r",
+    "href": "notes/updates.html#r",
+    "title": "updates",
+    "section": "4 R",
+    "text": "4 R\n\nTerminal: R --version\nGo CRAN r-project.org for R-x.x.x-arm64.pkg\nInstall to Applications folder",
+    "crumbs": [
+      "Versioning",
+      "updates"
+    ]
+  },
+  {
+    "objectID": "notes/updates.html#python3",
+    "href": "notes/updates.html#python3",
+    "title": "updates",
+    "section": "5 Python3",
+    "text": "5 Python3",
+    "crumbs": [
+      "Versioning",
+      "updates"
+    ]
+  },
+  {
+    "objectID": "notes/updates.html#tex",
+    "href": "notes/updates.html#tex",
+    "title": "updates",
+    "section": "6 TeX",
+    "text": "6 TeX\n\nTerminal: tex --version\nGo TUG.org for downloads\n\n\n6.1 or tlmgr\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor",
+    "crumbs": [
+      "Versioning",
+      "updates"
     ]
   }
 ]
