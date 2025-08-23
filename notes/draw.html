@@ -315,13 +315,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 data-number="1.1" class="anchored" data-anchor-id="graphviz-with-positioning-layoutneato"><span class="header-section-number">1.1</span> Graphviz with positioning (<code>layout=neato</code>)</h3>
 <p>Graphviz (dot) is useful for quick [shaped] layouts and has a benefit of positioning with coordinate as well (using <code>layout=neato</code>).</p>
 <p>You can have mixed edges by using&nbsp;<code>digraph</code>&nbsp;and then selectively applying <code>-&gt;</code>&nbsp;or&nbsp;<code>--</code>&nbsp;for each edge definition. Or you can use [dir=none] in the option area. A single Graphviz diagram can contain both directed arrows and undirected lines.</p>
-<p><strong>Note</strong>: Graphviz is “natively” supported by Quarto, whereas Tikz is available as an “extension” and so it must be “installed” and indicated in the YAML.</p>
-<div class="cell" data-fig-width="4" data-fig-height="3" data-layout-align="default">
+<p><strong>Note</strong>: Graphviz is “natively” supported by Quarto, whereas Tikz is only available as an “extension” and needs to be “installed” and indicated in YAML. So, Graphviz is preferred for simply diagrams.</p>
+<div class="cell" data-fig-width="3.2" data-fig-height="2" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<svg width="384" height="288" viewbox="0.00 0.00 302.75 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<svg width="307" height="192" viewbox="0.00 0.00 302.75 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-184 298.75,-184 298.75,4 -4,4"></polygon>
 <!-- A -->
@@ -375,8 +375,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>//| fig-width: 4</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>//| fig-height: 3</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>//| fig-width: 3.2</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>//| fig-height: 2</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>digraph {</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  layout=neato; //needed for positioning</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                // coord in inches</span>
@@ -384,7 +384,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  edge [minlen=3, fontname=roboto]</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    A [fillcolor=yellow,  label="WebQ", pos="0,2!"]</span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    B [fillcolor=yellow, label="qSite", pos="0,0!"]</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    C [fillcolor=lightblue,  label="ghDesk", pos="2.3,0!"]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    C [fillcolor=lightblue,  label="ghDesk", pos="2.2,0!"]</span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    D [fillcolor=pink, label="github", pos="3,2!"]</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    A -&gt; B [label="render  "]</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    B -&gt; C [label="  rsync"]</span>
