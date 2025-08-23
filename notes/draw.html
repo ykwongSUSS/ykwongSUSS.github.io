@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tikz – githubio</title>
+<title>Quickest Way To Draw – githubio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../notes/graphviz.html" rel="next">
-<link href="../notes/tex.html" rel="prev">
+<link href="../notes/plot.html" rel="next">
+<link href="../notes/graphviz.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/tex.html">CodeBlock</a></li><li class="breadcrumb-item"><a href="../notes/tikz.html">tikz</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/draw.html">QuickestWayTo</a></li><li class="breadcrumb-item"><a href="../notes/draw.html">draw</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -206,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/tikz.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notes/tikz.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">tikz</span></a>
   </div>
 </li>
@@ -229,7 +229,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/draw.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/draw.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">draw</span></a>
   </div>
 </li>
@@ -280,18 +280,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#more-details-at" id="toc-more-details-at" class="nav-link active" data-scroll-target="#more-details-at"><span class="header-section-number">1</span> More details at:</a></li>
-  <li><a href="#adding-tikz-extension" id="toc-adding-tikz-extension" class="nav-link" data-scroll-target="#adding-tikz-extension"><span class="header-section-number">2</span> Adding Tikz Extension</a></li>
-  <li><a href="#minimal-tikz" id="toc-minimal-tikz" class="nav-link" data-scroll-target="#minimal-tikz"><span class="header-section-number">3</span> Minimal TikZ</a></li>
+  <li><a href="#flowcharts" id="toc-flowcharts" class="nav-link active" data-scroll-target="#flowcharts"><span class="header-section-number">1</span> Flowcharts</a>
+  <ul class="collapse">
+  <li><a href="#graphviz-with-positioning-layoutneato" id="toc-graphviz-with-positioning-layoutneato" class="nav-link" data-scroll-target="#graphviz-with-positioning-layoutneato"><span class="header-section-number">1.1</span> Graphviz with positioning (<code>layout=neato</code>)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/tex.html">CodeBlock</a></li><li class="breadcrumb-item"><a href="../notes/tikz.html">tikz</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/draw.html">QuickestWayTo</a></li><li class="breadcrumb-item"><a href="../notes/draw.html">draw</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Tikz</h1>
+<h1 class="title">Quickest Way To Draw</h1>
 </div>
 
 
@@ -308,46 +309,90 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="more-details-at" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="more-details-at"><span class="header-section-number">1</span> More details at:</h2>
-<ol type="1">
-<li><a href="https://ykwongsuss.github.io/WebTikz">TikzWeb</a></li>
-</ol>
-</section>
-<section id="adding-tikz-extension" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="adding-tikz-extension"><span class="header-section-number">2</span> Adding Tikz Extension</h2>
-<ol type="1">
-<li><p>install <code>danmackinlay</code> extension on project folder. Run the code below using <code>Terminal</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add danmackinlay/quarto_tikz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>this will install the extension under the _extensions subdirectory. Check using directory command <code>ls.</code></p></li>
-<li><p>include in yaml</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">filters:</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> tikz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>create a code block with class <code>.tikz</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">tikz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-</section>
-<section id="minimal-tikz" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="minimal-tikz"><span class="header-section-number">3</span> Minimal TikZ</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>\begin{tikzpicture}</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  \draw [help lines] (0,0) grid (5,4);</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  % draw axes</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  \draw[-&gt;] (0,0) -- (5.2,0) node[right]{$x$};</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  \draw[-&gt;] (0,0) -- (0,4.2) node[above]{$y$};</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  % draw rectangle</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  \draw [very thick,red] (1,1) rectangle (3,2);</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  %draw point</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  \node[fill, circle, blue] at (5,4) {};</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  % draw arrow line</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  \draw [-Stealth,shorten &gt;=1mm] (3,2) -- (5,4);</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>\end{tikzpicture}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<img src="tikz_files/mediabag/d9071937195dababb38d0b339431814371de6476.svg" class="img-fluid">
-<hr>
+<section id="flowcharts" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="flowcharts"><span class="header-section-number">1</span> Flowcharts</h2>
+<section id="graphviz-with-positioning-layoutneato" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="graphviz-with-positioning-layoutneato"><span class="header-section-number">1.1</span> Graphviz with positioning (<code>layout=neato</code>)</h3>
+<p>Graphviz (dot) is useful for quick [shaped] layouts and has a benefit of positioning with coordinate as well (using <code>layout=neato</code>).</p>
+<p>You can have mixed edges by using&nbsp;<code>digraph</code>&nbsp;and then selectively applying <code>-&gt;</code>&nbsp;or&nbsp;<code>--</code>&nbsp;for each edge definition. Or you can use [dir=none] in the option area. A single Graphviz diagram can contain both directed arrows and undirected lines.</p>
+<p><strong>Note</strong>: Graphviz is “natively” supported by Quarto, whereas Tikz is available as an “extension” and so it must be “installed” and indicated in the YAML.</p>
+<div class="cell" data-fig-width="4" data-fig-height="3" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="384" height="288" viewbox="0.00 0.00 302.75 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-184 298.75,-184 298.75,4 -4,4"></polygon>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<polygon fill="yellow" stroke="black" points="78.75,-180 6.75,-180 6.75,-144 78.75,-144 78.75,-180"></polygon>
+<text text-anchor="middle" x="42.75" y="-157.8" font-family="roboto" font-size="14.00">WebQ</text>
+</g>
+<!-- B -->
+<g id="node2" class="node">
+<title>B</title>
+<polygon fill="yellow" stroke="black" points="78.75,-36 6.75,-36 6.75,0 78.75,0 78.75,-36"></polygon>
+<text text-anchor="middle" x="42.75" y="-13.8" font-family="roboto" font-size="14.00">qSite</text>
+</g>
+<!-- A&#45;&gt;B -->
+<g id="edge1" class="edge">
+<title>A-&gt;B</title>
+<path fill="none" stroke="black" d="M42.75,-143.76C42.75,-119.2 42.75,-75.25 42.75,-46.35"></path>
+<polygon fill="black" stroke="black" points="46.25,-46.09 42.75,-36.09 39.25,-46.09 46.25,-46.09"></polygon>
+<text text-anchor="middle" x="21.38" y="-99.26" font-family="roboto" font-size="14.00" fill="red">render &nbsp;</text>
+</g>
+<!-- C -->
+<g id="node3" class="node">
+<title>C</title>
+<polygon fill="lightblue" stroke="black" points="244.35,-36 172.35,-36 172.35,0 244.35,0 244.35,-36"></polygon>
+<text text-anchor="middle" x="208.35" y="-13.8" font-family="roboto" font-size="14.00">ghDesk</text>
+</g>
+<!-- B&#45;&gt;C -->
+<g id="edge2" class="edge">
+<title>B-&gt;C</title>
+<path fill="none" stroke="black" d="M79.09,-18C103.47,-18 135.79,-18 162.01,-18"></path>
+<polygon fill="black" stroke="black" points="162.1,-21.5 172.1,-18 162.1,-14.5 162.1,-21.5"></polygon>
+<text text-anchor="middle" x="101.89" y="-22.2" font-family="roboto" font-size="14.00" fill="red"> &nbsp;rsync</text>
+</g>
+<!-- D -->
+<g id="node4" class="node">
+<title>D</title>
+<polygon fill="pink" stroke="black" points="294.75,-180 222.75,-180 222.75,-144 294.75,-144 294.75,-180"></polygon>
+<text text-anchor="middle" x="258.75" y="-157.8" font-family="roboto" font-size="14.00">github</text>
+</g>
+<!-- C&#45;&gt;D -->
+<g id="edge3" class="edge">
+<title>C-&gt;D</title>
+<path fill="none" stroke="black" d="M214.74,-36.24C224.43,-63.94 242.76,-116.3 252.42,-143.91"></path>
+<text text-anchor="middle" x="208.69" y="-94.27" font-family="roboto" font-size="14.00" fill="red"> commit </text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>//| fig-width: 4</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>//| fig-height: 3</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>digraph {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  layout=neato; //needed for positioning</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>                // coord in inches</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  node [shape=rect, style=filled, fixedsize=true, width=1, fontname=roboto];</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  edge [minlen=3, fontname=roboto]</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    A [fillcolor=yellow,  label="WebQ", pos="0,2!"]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    B [fillcolor=yellow, label="qSite", pos="0,0!"]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    C [fillcolor=lightblue,  label="ghDesk", pos="2.3,0!"]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    D [fillcolor=pink, label="github", pos="3,2!"]</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    A -&gt; B [label="render  "]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    B -&gt; C [label="  rsync"]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    C -&gt; D [label=" commit "]    </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -752,13 +797,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../notes/tex.html" class="pagination-link" aria-label="tex">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">tex</span>
+      <a href="../notes/graphviz.html" class="pagination-link" aria-label="graphviz">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">graphviz</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../notes/graphviz.html" class="pagination-link" aria-label="graphviz">
-        <span class="nav-page-text">graphviz</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notes/plot.html" class="pagination-link" aria-label="plot">
+        <span class="nav-page-text">plot</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

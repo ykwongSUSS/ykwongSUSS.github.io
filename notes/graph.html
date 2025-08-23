@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tikz – githubio</title>
+<title>graph – githubio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,41 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -65,8 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../notes/graphviz.html" rel="next">
-<link href="../notes/tex.html" rel="prev">
+<link href="../notes/versions.html" rel="next">
+<link href="../notes/plot.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -118,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/tex.html">CodeBlock</a></li><li class="breadcrumb-item"><a href="../notes/tikz.html">tikz</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/draw.html">QuickestWayTo</a></li><li class="breadcrumb-item"><a href="../notes/graph.html">graph</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -206,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/tikz.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notes/tikz.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">tikz</span></a>
   </div>
 </li>
@@ -241,7 +206,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notes/graph.html" class="sidebar-item-text sidebar-link">
+  <a href="../notes/graph.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">graph</span></a>
   </div>
 </li>
@@ -280,18 +245,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#more-details-at" id="toc-more-details-at" class="nav-link active" data-scroll-target="#more-details-at"><span class="header-section-number">1</span> More details at:</a></li>
-  <li><a href="#adding-tikz-extension" id="toc-adding-tikz-extension" class="nav-link" data-scroll-target="#adding-tikz-extension"><span class="header-section-number">2</span> Adding Tikz Extension</a></li>
-  <li><a href="#minimal-tikz" id="toc-minimal-tikz" class="nav-link" data-scroll-target="#minimal-tikz"><span class="header-section-number">3</span> Minimal TikZ</a></li>
+  <li><a href="#quickest-way-graph" id="toc-quickest-way-graph" class="nav-link active" data-scroll-target="#quickest-way-graph"><span class="header-section-number">1</span> Quickest Way: Graph</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/tex.html">CodeBlock</a></li><li class="breadcrumb-item"><a href="../notes/tikz.html">tikz</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/draw.html">QuickestWayTo</a></li><li class="breadcrumb-item"><a href="../notes/graph.html">graph</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Tikz</h1>
+<h1 class="title">graph</h1>
 </div>
 
 
@@ -308,44 +271,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="more-details-at" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="more-details-at"><span class="header-section-number">1</span> More details at:</h2>
-<ol type="1">
-<li><a href="https://ykwongsuss.github.io/WebTikz">TikzWeb</a></li>
-</ol>
-</section>
-<section id="adding-tikz-extension" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="adding-tikz-extension"><span class="header-section-number">2</span> Adding Tikz Extension</h2>
-<ol type="1">
-<li><p>install <code>danmackinlay</code> extension on project folder. Run the code below using <code>Terminal</code>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> add danmackinlay/quarto_tikz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>this will install the extension under the _extensions subdirectory. Check using directory command <code>ls.</code></p></li>
-<li><p>include in yaml</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">filters:</span> </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">-</span> tikz</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-<li><p>create a code block with class <code>.tikz</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">tikz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></li>
-</ol>
-</section>
-<section id="minimal-tikz" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="minimal-tikz"><span class="header-section-number">3</span> Minimal TikZ</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>\begin{tikzpicture}</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  \draw [help lines] (0,0) grid (5,4);</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  % draw axes</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  \draw[-&gt;] (0,0) -- (5.2,0) node[right]{$x$};</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  \draw[-&gt;] (0,0) -- (0,4.2) node[above]{$y$};</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  % draw rectangle</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  \draw [very thick,red] (1,1) rectangle (3,2);</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  %draw point</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  \node[fill, circle, blue] at (5,4) {};</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  % draw arrow line</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  \draw [-Stealth,shorten &gt;=1mm] (3,2) -- (5,4);</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>\end{tikzpicture}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<img src="tikz_files/mediabag/d9071937195dababb38d0b339431814371de6476.svg" class="img-fluid">
-<hr>
+<section id="quickest-way-graph" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="quickest-way-graph"><span class="header-section-number">1</span> Quickest Way: Graph</h2>
 
 
 </section>
@@ -752,13 +679,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../notes/tex.html" class="pagination-link" aria-label="tex">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">tex</span>
+      <a href="../notes/plot.html" class="pagination-link" aria-label="plot">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">plot</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../notes/graphviz.html" class="pagination-link" aria-label="graphviz">
-        <span class="nav-page-text">graphviz</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notes/versions.html" class="pagination-link" aria-label="versions">
+        <span class="nav-page-text">versions</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

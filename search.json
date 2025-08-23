@@ -830,7 +830,7 @@
   {
     "objectID": "notes/versions.html",
     "href": "notes/versions.html",
-    "title": "version",
+    "title": "versions",
     "section": "",
     "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\nquarto check\nquarto tools\n\n\n\nquarto --version\njulia --version\nR --version\npython3 --version\ntex --version\n\n\n\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor\n\n\n\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.15} \n\\begin{document}\n   \\pgfplotsversion\n\\end{document}",
     "crumbs": [
@@ -841,7 +841,7 @@
   {
     "objectID": "notes/versions.html#terminal-commands",
     "href": "notes/versions.html#terminal-commands",
-    "title": "version",
+    "title": "versions",
     "section": "",
     "text": "To find out what packages and tools are installed in your Quarto environment, the following commands are available at the terminal prompt.\nquarto check\nquarto tools\n\n\n\nquarto --version\njulia --version\nR --version\npython3 --version\ntex --version\n\n\n\ntlmgr info *what*\ntlmgr update --list\ntlmgr update all\ne.g.\ntlmgr info --list\ntlmgr info pgfplots  (1.18.1)\ntlmgr info luatex\ntlmgr update tex\ntlmgr install pagecolor\n\n\n\n\\documentclass{article}\n\\usepackage{pgfplots}\n\\pgfplotsset{compat=1.15} \n\\begin{document}\n   \\pgfplotsversion\n\\end{document}",
     "crumbs": [
@@ -924,6 +924,116 @@
     "crumbs": [
       "Versioning",
       "updates"
+    ]
+  },
+  {
+    "objectID": "notes/graph.html",
+    "href": "notes/graph.html",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "QuickestWay",
+      "graph"
+    ]
+  },
+  {
+    "objectID": "notes/graph.html#html-only",
+    "href": "notes/graph.html#html-only",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "QuickestWay",
+      "graph"
+    ]
+  },
+  {
+    "objectID": "notes/graph.html#html-and-pdf",
+    "href": "notes/graph.html#html-and-pdf",
+    "title": "yaml",
+    "section": "2 html and pdf",
+    "text": "2 html and pdf\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: \n    pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "QuickestWay",
+      "graph"
+    ]
+  },
+  {
+    "objectID": "notes/graph.html#navigation-sidebar-in-_quarto.yml",
+    "href": "notes/graph.html#navigation-sidebar-in-_quarto.yml",
+    "title": "yaml",
+    "section": "3 Navigation sidebar in _quarto.yml",
+    "text": "3 Navigation sidebar in _quarto.yml\n---\nproject:\n  type: website\n\nwebsite:\n  title: \"WebQuarto\"\n  page-navigation: true\n  sidebar:\n    search: true\n    contents:\n      - section: Notes\n        href: index.qmd\n        contents:\n          - text: yaml\n            href: notes/yaml.qmd\n          - text: qmd\n            href: notes/qmd.qm\n   ...",
+    "crumbs": [
+      "QuickestWay",
+      "graph"
+    ]
+  },
+  {
+    "objectID": "notes/plot.html",
+    "href": "notes/plot.html",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "QuickestWay",
+      "plot"
+    ]
+  },
+  {
+    "objectID": "notes/plot.html#html-only",
+    "href": "notes/plot.html#html-only",
+    "title": "yaml",
+    "section": "",
+    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "QuickestWay",
+      "plot"
+    ]
+  },
+  {
+    "objectID": "notes/plot.html#html-and-pdf",
+    "href": "notes/plot.html#html-and-pdf",
+    "title": "yaml",
+    "section": "2 html and pdf",
+    "text": "2 html and pdf\ntitle: \"yaml\"\nformat:\n  html: default\n  pdf: \n    pagesize: A4\n    include-in-header:\n      text: |\n        \\usepackage{scrlayer-scrpage}\n        \\rohead{\"yaml\"}\nnumber-sections: true\nwarning: false",
+    "crumbs": [
+      "QuickestWay",
+      "plot"
+    ]
+  },
+  {
+    "objectID": "notes/plot.html#navigation-sidebar-in-_quarto.yml",
+    "href": "notes/plot.html#navigation-sidebar-in-_quarto.yml",
+    "title": "yaml",
+    "section": "3 Navigation sidebar in _quarto.yml",
+    "text": "3 Navigation sidebar in _quarto.yml\n---\nproject:\n  type: website\n\nwebsite:\n  title: \"WebQuarto\"\n  page-navigation: true\n  sidebar:\n    search: true\n    contents:\n      - section: Notes\n        href: index.qmd\n        contents:\n          - text: yaml\n            href: notes/yaml.qmd\n          - text: qmd\n            href: notes/qmd.qm\n   ...",
+    "crumbs": [
+      "QuickestWay",
+      "plot"
+    ]
+  },
+  {
+    "objectID": "notes/draw.html",
+    "href": "notes/draw.html",
+    "title": "Quickest Way To Draw",
+    "section": "",
+    "text": "Graphviz (dot) is useful for quick [shaped] layouts and has a benefit of positioning with coordinate as well (using layout=neato).\nYou can have mixed edges by using digraph and then selectively applying -&gt; or -- for each edge definition. Or you can use [dir=none] in the option area. A single Graphviz diagram can contain both directed arrows and undirected lines.\nNote: Graphviz is “natively” supported by Quarto, whereas Tikz is available as an “extension” and so it must be “installed” and indicated in the YAML.\n\n\n\n\n\n\n\n\n\n\nA\n\nWebQ\n\n\n\nB\n\nqSite\n\n\n\nA-&gt;B\n\n\nrender  \n\n\n\nC\n\nghDesk\n\n\n\nB-&gt;C\n\n\n  rsync\n\n\n\nD\n\ngithub\n\n\n\nC-&gt;D\n\n commit \n\n\n\n\n\n\n\n\n//| fig-width: 4\n//| fig-height: 3\ndigraph {\n  layout=neato; //needed for positioning\n                // coord in inches\n  node [shape=rect, style=filled, fixedsize=true, width=1, fontname=roboto];\n  edge [minlen=3, fontname=roboto]\n    A [fillcolor=yellow,  label=\"WebQ\", pos=\"0,2!\"]\n    B [fillcolor=yellow, label=\"qSite\", pos=\"0,0!\"]\n    C [fillcolor=lightblue,  label=\"ghDesk\", pos=\"2.3,0!\"]\n    D [fillcolor=pink, label=\"github\", pos=\"3,2!\"]\n    A -&gt; B [label=\"render  \"]\n    B -&gt; C [label=\"  rsync\"]\n    C -&gt; D [label=\" commit \"]    \n}",
+    "crumbs": [
+      "QuickestWayTo",
+      "draw"
+    ]
+  },
+  {
+    "objectID": "notes/draw.html#flowcharts",
+    "href": "notes/draw.html#flowcharts",
+    "title": "Quickest Way To Draw",
+    "section": "",
+    "text": "Graphviz (dot) is useful for quick [shaped] layouts and has a benefit of positioning with coordinate as well (using layout=neato).\nYou can have mixed edges by using digraph and then selectively applying -&gt; or -- for each edge definition. Or you can use [dir=none] in the option area. A single Graphviz diagram can contain both directed arrows and undirected lines.\nNote: Graphviz is “natively” supported by Quarto, whereas Tikz is available as an “extension” and so it must be “installed” and indicated in the YAML.\n\n\n\n\n\n\n\n\n\n\nA\n\nWebQ\n\n\n\nB\n\nqSite\n\n\n\nA-&gt;B\n\n\nrender  \n\n\n\nC\n\nghDesk\n\n\n\nB-&gt;C\n\n\n  rsync\n\n\n\nD\n\ngithub\n\n\n\nC-&gt;D\n\n commit \n\n\n\n\n\n\n\n\n//| fig-width: 4\n//| fig-height: 3\ndigraph {\n  layout=neato; //needed for positioning\n                // coord in inches\n  node [shape=rect, style=filled, fixedsize=true, width=1, fontname=roboto];\n  edge [minlen=3, fontname=roboto]\n    A [fillcolor=yellow,  label=\"WebQ\", pos=\"0,2!\"]\n    B [fillcolor=yellow, label=\"qSite\", pos=\"0,0!\"]\n    C [fillcolor=lightblue,  label=\"ghDesk\", pos=\"2.3,0!\"]\n    D [fillcolor=pink, label=\"github\", pos=\"3,2!\"]\n    A -&gt; B [label=\"render  \"]\n    B -&gt; C [label=\"  rsync\"]\n    C -&gt; D [label=\" commit \"]    \n}",
+    "crumbs": [
+      "QuickestWayTo",
+      "draw"
     ]
   }
 ]
