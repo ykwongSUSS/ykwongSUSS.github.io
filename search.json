@@ -1063,7 +1063,7 @@
     "href": "notes/plot.html#a-function-basercurve",
     "title": "Quickest Way to Plot",
     "section": "2 A Function (baseR::curve)",
-    "text": "2 A Function (baseR::curve)\n\neq = function(x){x*x*x*x}\ncurve(eq, from=-3, to=3, \n      xlab=\"x\", \n      ylab=\"y\", \n      axes=TRUE,\n      main=\"Quartic equation\")",
+    "text": "2 A Function (baseR::curve)\n\nlibrary(latex2exp)\neq = function(x){x*x*x*x}\ncurve(eq, from=-3, to=3, \n      xlab=\"x\", \n      ylab=\"y\", \n      axes=TRUE,\n      main=TeX(r'(Plot of $y = x^4$)'),\n      )",
     "crumbs": [
       "QuickestWayTo",
       "plot"
