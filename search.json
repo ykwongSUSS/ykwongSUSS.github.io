@@ -973,11 +973,11 @@
   {
     "objectID": "notes/plot.html",
     "href": "notes/plot.html",
-    "title": "yaml",
+    "title": "Quickest Way to Plot",
     "section": "",
-    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false",
+    "text": "The quickest way to do plots is to use R (plots or ggplot) which is natively supported by Quarto. You will be using tidyverse library and data.frames (tribble is a dataframe).",
     "crumbs": [
-      "QuickestWay",
+      "QuickestWayTo",
       "plot"
     ]
   },
@@ -1034,6 +1034,39 @@
     "crumbs": [
       "QuickestWayTo",
       "draw"
+    ]
+  },
+  {
+    "objectID": "notes/plot.html#a-function-curve",
+    "href": "notes/plot.html#a-function-curve",
+    "title": "Quickest Way to Plot",
+    "section": "2 A function (curve)",
+    "text": "2 A function (curve)",
+    "crumbs": [
+      "QuickestWayTo",
+      "plot"
+    ]
+  },
+  {
+    "objectID": "notes/plot.html#a-table-of-2d-data",
+    "href": "notes/plot.html#a-table-of-2d-data",
+    "title": "Quickest Way to Plot",
+    "section": "1 A Table of 2d data",
+    "text": "1 A Table of 2d data\n\nlibrary(tidyverse)\ntble &lt;- tribble(\n  ~X, ~Y,\n  1, 5.2,\n  2, 8.5,\n  3, 7.1,\n  4, 4.1\n)\nstr(tble)\n\ntibble [4 × 2] (S3: tbl_df/tbl/data.frame)\n $ X: num [1:4] 1 2 3 4\n $ Y: num [1:4] 5.2 8.5 7.1 4.1\n\nggplot(tble, aes(x=X, y=Y))+\n  geom_line()+\n  geom_point()+\n  theme_bw()+\n  ggtitle(\"ggplot of Table\")+\n  ylim(0,10)+\n  xlim(0,5)",
+    "crumbs": [
+      "QuickestWayTo",
+      "plot"
+    ]
+  },
+  {
+    "objectID": "notes/plot.html#a-function-basercurve",
+    "href": "notes/plot.html#a-function-basercurve",
+    "title": "Quickest Way to Plot",
+    "section": "2 A Function (baseR::curve)",
+    "text": "2 A Function (baseR::curve)\n\neq = function(x){x*x*x*x}\ncurve(eq, from=-3, to=3, \n      xlab=\"x\", \n      ylab=\"y\", \n      axes=TRUE,\n      main=\"Quartic equation\")",
+    "crumbs": [
+      "QuickestWayTo",
+      "plot"
     ]
   }
 ]
