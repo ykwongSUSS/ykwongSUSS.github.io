@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>graph – githubio</title>
+<title>Quickest Way for Graphs – githubio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -245,7 +280,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#quickest-way-graph" id="toc-quickest-way-graph" class="nav-link active" data-scroll-target="#quickest-way-graph"><span class="header-section-number">1</span> Quickest Way: Graph</a></li>
+  <li><a href="#graph-theory" id="toc-graph-theory" class="nav-link active" data-scroll-target="#graph-theory"><span class="header-section-number">1</span> Graph Theory</a>
+  <ul class="collapse">
+  <li><a href="#undirected-graph" id="toc-undirected-graph" class="nav-link" data-scroll-target="#undirected-graph"><span class="header-section-number">1.1</span> Undirected graph</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -254,7 +292,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notes/draw.html">QuickestWayTo</a></li><li class="breadcrumb-item"><a href="../notes/graph.html">graph</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">graph</h1>
+<h1 class="title">Quickest Way for Graphs</h1>
 </div>
 
 
@@ -271,10 +309,139 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="quickest-way-graph" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="quickest-way-graph"><span class="header-section-number">1</span> Quickest Way: Graph</h2>
+<section id="graph-theory" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="graph-theory"><span class="header-section-number">1</span> Graph Theory</h2>
+<p>For graph theory work, it is sufficient to have filled and named nodes and have edges with weights (or length). The best approach would be to use graphviz with positioning (with <code>layout=neato</code>).</p>
+<section id="undirected-graph" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="undirected-graph"><span class="header-section-number">1.1</span> Undirected graph</h3>
+<div class="cell" data-fig-width="3.2" data-fig-height="2" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<svg width="307" height="192" viewbox="0.00 0.00 274.20 176.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" style="; max-width: none; max-height: none">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 172)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-172 270.2,-172 270.2,4 -4,4"></polygon>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="black" stroke="black" cx="10.6" cy="-147.6" rx="3.6" ry="3.6"></ellipse>
+<text text-anchor="middle" x="3.89" y="-155.4" font-family="Times,serif" font-size="14.00">a</text>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<ellipse fill="black" stroke="black" cx="82.6" cy="-147.6" rx="3.6" ry="3.6"></ellipse>
+<text text-anchor="middle" x="75.5" y="-155.4" font-family="Times,serif" font-size="14.00">b</text>
+</g>
+<!-- c -->
+<g id="node3" class="node">
+<title>c</title>
+<ellipse fill="black" stroke="black" cx="262.6" cy="-147.6" rx="3.6" ry="3.6"></ellipse>
+<text text-anchor="middle" x="255.89" y="-155.4" font-family="Times,serif" font-size="14.00">c</text>
+</g>
+<!-- b&#45;&#45;c -->
+<g id="edge7" class="edge">
+<title>b--c</title>
+<path fill="none" stroke="black" d="M86.36,-147.6C109.78,-147.6 235.5,-147.6 258.86,-147.6"></path>
+<text text-anchor="middle" x="167.36" y="-151.8" font-family="Times,serif" font-size="14.00"> 8</text>
+</g>
+<!-- f -->
+<g id="node4" class="node">
+<title>f</title>
+<ellipse fill="black" stroke="black" cx="82.6" cy="-75.6" rx="3.6" ry="3.6"></ellipse>
+<text text-anchor="middle" x="76.67" y="-83.4" font-family="Times,serif" font-size="14.00">f</text>
+</g>
+<!-- f&#45;&#45;a -->
+<g id="edge1" class="edge">
+<title>f--a</title>
+<path fill="none" stroke="black" d="M79.87,-78.33C68.46,-89.74 24.75,-133.45 13.34,-144.86"></path>
+<text text-anchor="middle" x="41.35" y="-115.8" font-family="Times,serif" font-size="14.00"> 2</text>
+</g>
+<!-- f&#45;&#45;b -->
+<g id="edge6" class="edge">
+<title>f--b</title>
+<path fill="none" stroke="black" d="M82.6,-79.47C82.6,-91.97 82.6,-131.18 82.6,-143.71"></path>
+<text text-anchor="middle" x="77.35" y="-115.79" font-family="Times,serif" font-size="14.00"> 7</text>
+</g>
+<!-- d -->
+<g id="node5" class="node">
+<title>d</title>
+<ellipse fill="black" stroke="black" cx="190.6" cy="-75.6" rx="3.6" ry="3.6"></ellipse>
+<text text-anchor="middle" x="183.5" y="-83.4" font-family="Times,serif" font-size="14.00">d</text>
+</g>
+<!-- f&#45;&#45;d -->
+<g id="edge3" class="edge">
+<title>f--d</title>
+<path fill="none" stroke="black" d="M86.44,-75.6C103.28,-75.6 170.4,-75.6 186.91,-75.6"></path>
+<text text-anchor="middle" x="131.43" y="-79.8" font-family="Times,serif" font-size="14.00"> 4</text>
+</g>
+<!-- e -->
+<g id="node7" class="node">
+<title>e</title>
+<ellipse fill="black" stroke="black" cx="154.6" cy="-3.6" rx="3.6" ry="3.6"></ellipse>
+<text text-anchor="middle" x="147.89" y="-11.4" font-family="Times,serif" font-size="14.00">e</text>
+</g>
+<!-- d&#45;&#45;e -->
+<g id="edge4" class="edge">
+<title>d--e</title>
+<path fill="none" stroke="black" d="M188.86,-72.13C182.74,-59.88 162.2,-18.8 156.24,-6.87"></path>
+<text text-anchor="middle" x="167.3" y="-43.7" font-family="Times,serif" font-size="14.00"> 5</text>
+</g>
+<!-- g -->
+<g id="node6" class="node">
+<title>g</title>
+<ellipse fill="black" stroke="black" cx="10.6" cy="-3.6" rx="3.6" ry="3.6"></ellipse>
+<text text-anchor="middle" x="3.5" y="-11.4" font-family="Times,serif" font-size="14.00">g</text>
+</g>
+<!-- g&#45;&#45;f -->
+<g id="edge2" class="edge">
+<title>g--f</title>
+<path fill="none" stroke="black" d="M13.33,-6.33C24.74,-17.74 68.45,-61.45 79.86,-72.86"></path>
+<text text-anchor="middle" x="41.35" y="-43.8" font-family="Times,serif" font-size="14.00"> 3</text>
+</g>
+<!-- e&#45;&#45;f -->
+<g id="edge5" class="edge">
+<title>e--f</title>
+<path fill="none" stroke="black" d="M151.87,-6.33C140.46,-17.74 96.75,-61.45 85.34,-72.86"></path>
+<text text-anchor="middle" x="113.35" y="-43.8" font-family="Times,serif" font-size="14.00"> 6</text>
+</g>
+</g>
+</svg>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode default code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>//| fig-width: 3.2</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>//| fig-height: 2</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>graph {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  layout=neato</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  node [shape=point, width=0.1, fillcolor=black, xlabel="\N"] </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  edge[minlen=2]</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  nodesep=0.4</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>//nodes </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  a [pos="0,0!"]</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  b [pos="1,0!"]</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  c [pos="3.5,0!"]</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  f [pos="1,-1!"]</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  d [pos="2.5,-1!"]</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  g [pos="0,-2!"]</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  e [pos="2,-2!"]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>//edges</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  f--a [label=" 2"]</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  g--f [label=" 3"]</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  f--d [label=" 4"]</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  d--e [label=" 5"]</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  e--f [label=" 6"]</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>  f--b [label=" 7"]</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>  b--c [label=" 8"]</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

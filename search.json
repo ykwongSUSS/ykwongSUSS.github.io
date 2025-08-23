@@ -929,11 +929,11 @@
   {
     "objectID": "notes/graph.html",
     "href": "notes/graph.html",
-    "title": "yaml",
+    "title": "Quickest Way for Graphs",
     "section": "",
-    "text": "title: \"yaml\"\nformat: html\nnumber-sections: true\nwarning: false",
+    "text": "For graph theory work, it is sufficient to have filled and named nodes and have edges with weights (or length). The best approach would be to use graphviz with positioning (with layout=neato).\n\n\n\n\n\n\n\n\n\n\n\n\na\n\na\n\n\n\nb\n\nb\n\n\n\nc\n\nc\n\n\n\nb--c\n\n 8\n\n\n\nf\n\nf\n\n\n\nf--a\n\n 2\n\n\n\nf--b\n\n 7\n\n\n\nd\n\nd\n\n\n\nf--d\n\n 4\n\n\n\ne\n\ne\n\n\n\nd--e\n\n 5\n\n\n\ng\n\ng\n\n\n\ng--f\n\n 3\n\n\n\ne--f\n\n 6\n\n\n\n\n\n\n\n\n//| fig-width: 3.2\n//| fig-height: 2\n\ngraph {\n  layout=neato\n  \n  node [shape=point, width=0.1, fillcolor=black, xlabel=\"\\N\"] \n  edge[minlen=2]\n  nodesep=0.4\n//nodes \n  a [pos=\"0,0!\"]\n  b [pos=\"1,0!\"]\n  c [pos=\"3.5,0!\"]\n  f [pos=\"1,-1!\"]\n  d [pos=\"2.5,-1!\"]\n  g [pos=\"0,-2!\"]\n  e [pos=\"2,-2!\"]\n//edges\n  f--a [label=\" 2\"]\n  g--f [label=\" 3\"]\n  f--d [label=\" 4\"]\n  d--e [label=\" 5\"]\n  e--f [label=\" 6\"]\n  f--b [label=\" 7\"]\n  b--c [label=\" 8\"]\n}",
     "crumbs": [
-      "QuickestWay",
+      "QuickestWayTo",
       "graph"
     ]
   },
@@ -1067,6 +1067,17 @@
     "crumbs": [
       "QuickestWayTo",
       "plot"
+    ]
+  },
+  {
+    "objectID": "notes/graph.html#graph-theory",
+    "href": "notes/graph.html#graph-theory",
+    "title": "Quickest Way for Graphs",
+    "section": "",
+    "text": "For graph theory work, it is sufficient to have filled and named nodes and have edges with weights (or length). The best approach would be to use graphviz with positioning (with layout=neato).\n\n\n\n\n\n\n\n\n\n\n\n\na\n\na\n\n\n\nb\n\nb\n\n\n\nc\n\nc\n\n\n\nb--c\n\n 8\n\n\n\nf\n\nf\n\n\n\nf--a\n\n 2\n\n\n\nf--b\n\n 7\n\n\n\nd\n\nd\n\n\n\nf--d\n\n 4\n\n\n\ne\n\ne\n\n\n\nd--e\n\n 5\n\n\n\ng\n\ng\n\n\n\ng--f\n\n 3\n\n\n\ne--f\n\n 6\n\n\n\n\n\n\n\n\n//| fig-width: 3.2\n//| fig-height: 2\n\ngraph {\n  layout=neato\n  \n  node [shape=point, width=0.1, fillcolor=black, xlabel=\"\\N\"] \n  edge[minlen=2]\n  nodesep=0.4\n//nodes \n  a [pos=\"0,0!\"]\n  b [pos=\"1,0!\"]\n  c [pos=\"3.5,0!\"]\n  f [pos=\"1,-1!\"]\n  d [pos=\"2.5,-1!\"]\n  g [pos=\"0,-2!\"]\n  e [pos=\"2,-2!\"]\n//edges\n  f--a [label=\" 2\"]\n  g--f [label=\" 3\"]\n  f--d [label=\" 4\"]\n  d--e [label=\" 5\"]\n  e--f [label=\" 6\"]\n  f--b [label=\" 7\"]\n  b--c [label=\" 8\"]\n}",
+    "crumbs": [
+      "QuickestWayTo",
+      "graph"
     ]
   }
 ]
