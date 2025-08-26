@@ -1079,5 +1079,16 @@
       "QuickestWayTo",
       "graph"
     ]
+  },
+  {
+    "objectID": "notes/plot.html#table-of-data-tidyverse-ggplot",
+    "href": "notes/plot.html#table-of-data-tidyverse-ggplot",
+    "title": "Quickest Way to Plot",
+    "section": "1 Table of data (tidyverse: ggplot)",
+    "text": "1 Table of data (tidyverse: ggplot)\n\nlibrary(tidyverse)\ntble &lt;- tribble(\n  ~X, ~Y,\n  1, 5.2,\n  2, 8.5,\n  3, 7.1,\n  4, 4.1\n)\n# a tibble is a dataframe\nstr(tble)\n\ntibble [4 × 2] (S3: tbl_df/tbl/data.frame)\n $ X: num [1:4] 1 2 3 4\n $ Y: num [1:4] 5.2 8.5 7.1 4.1\n\nggplot(tble, aes(x=X, y=Y))+\n  geom_line()+\n  geom_point()+\n  theme_bw()+\n  ggtitle(\"ggplot of Table\")+\n  ylim(0,10)+\n  xlim(0,5)",
+    "crumbs": [
+      "QuickestWayTo",
+      "plot"
+    ]
   }
 ]
